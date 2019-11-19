@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mark L. Mallory on Geographer Freelance</title>
+    <link>/authors/mark-l.-mallory/</link>
+    <description>Recent content in Mark L. Mallory on Geographer Freelance</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/mark-l.-mallory/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Evaluating the utility of elemental measurements obtained from factory-calibrated field-portable X-Ray fluorescence units for aquatic sediments</title>
+      <link>/publication/dunnington_etal19/</link>
+      <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/dunnington_etal19/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Impact of historical logging and hydroelectric development on an upland river system, nova scotia, canada: a paleolimnological perspective</title>
+      <link>/publication/conf_godfrey_etal18/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/conf_godfrey_etal18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A paleolimnological archive of metal sequestration and release in the Cumberland Basin Marshes, Atlantic Canada</title>
+      <link>/publication/dunnington_etal17/</link>
+      <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/dunnington_etal17/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

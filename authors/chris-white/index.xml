@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chris White on Geographer Freelance</title>
+    <link>/authors/chris-white/</link>
+    <description>Recent content in Chris White on Geographer Freelance</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/chris-white/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A paleolimnological archive of metal sequestration and release in the Cumberland Basin Marshes, Atlantic Canada</title>
+      <link>/publication/dunnington_etal17/</link>
+      <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/dunnington_etal17/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

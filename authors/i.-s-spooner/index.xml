@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>I. S Spooner on Geographer Freelance</title>
+    <link>/authors/i.-s-spooner/</link>
+    <description>Recent content in I. S Spooner on Geographer Freelance</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/i.-s-spooner/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A unified stable Pb sediment chronology for Halifax, Nova Scotia, Canada</title>
+      <link>/publication/conf_dunnington_etal17a/</link>
+      <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/conf_dunnington_etal17a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introductory GIS Workshops Using Open-Source GIS Tools</title>
+      <link>/publication/conf_dunnington_spooner16a/</link>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/conf_dunnington_spooner16a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Preliminary results and experimental design for a bulk geochemical assessment of sediment from drinking water reservoirs in Halifax, Nova Scotia, Canada</title>
+      <link>/publication/conf_dunnington_etal16b/</link>
+      <pubDate>Sun, 01 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/conf_dunnington_etal16b/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
