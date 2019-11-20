@@ -70,7 +70,7 @@ knitr::include_graphics('img/Map.png')
 
 ### Referencias:
 Si deseas optener mayor información visita el post original en el siguiente enlace: 
-[(https://medium.com/@andriyyaremenko/](https://medium.com/@andriyyaremenko/how-to-create-lego-map-style-in-qgis-a8ecf42d02ef)
+[(https://medium.com/@andriyyaremenko/)](https://medium.com/@andriyyaremenko/how-to-create-lego-map-style-in-qgis-a8ecf42d02ef)
 
 
 
