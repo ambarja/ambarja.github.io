@@ -1,0 +1,45 @@
+---
+title: "LegoMap con QGIS 3.10"
+author: "Antony Barja"
+date: '2019-11-18'
+categories: []
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+lastmod: '2019-11-18T22:03:28-05:00'
+projects: []
+slug: legomap-con-qgis-3-10
+subtitle: ''
+summary: ''
+tags: []
+authors: []
+---
+
+
+
+<p>Sin duda <strong>QGIS</strong> sigue siendo una de mis herramientas favoritas para hacer diferentes tipos de análisis espacial de datos, y más aún si hablamos de diseños cartográficos, hace poco estuve indagando por internet y revizando algunos tweets por constumbre; sin embargo, dentro de ellos encontré algunas tendencias como los <strong>30dayChallengeMap</strong> con <strong>QGIS</strong> y <strong>R</strong>, la cual la recomiendo ver por los diferentes tipos de mapas temáticos elaborados por estos mismos, empleando diferentes tipos de geometrías, colores, entre otros. Dentro de ellos econtré por casualidad el tweet de <a href="https://twitter.com/AndriyYaremenko/status/1187860764759154689"><strong>Andriy Yaremenko</strong></a> en donde nos muestra lo asombroso que puede resultar cuando juntas la creatividad más los estilos propios de QGIS,un claro ejemplo de esto tenemos la tendencia de <strong>QLEGO</strong>.</p>
+<p>En este post vamos a replicar estos procedimientos de manera simplificada y vamos a elaborar nuestro propio LegoMap en tan solo 5 pasos.</p>
+<div id="procedimientos" class="section level3">
+<h3>Procedimientos:</h3>
+<p><strong>Primer paso:</strong> Como insumo primodrial tenemos un dato espacial de preferencia de tipo raster , esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(<strong>SRTM</strong>) la cual ya está delimitida por nuestro ámbito de estudio.</p>
+<p><img src="img/imagen01.png" width="680" style="display: block; margin: auto;" /></p>
+<p><strong>Segundo paso:</strong> Vamos hacer un grillado de 15km x 15km (va a denpender de tu ámbito de estudio) de una forma rectagular (opcional puedes escoger otro tipo de geometría) que abarque todos los límite del ámbito de estudio.</p>
+<p><img src="img/imagen02.png" width="680" style="display: block; margin: auto;" /></p>
+<p><img src="img/imagen03.png" width="680" style="display: block; margin: auto;" /></p>
+<p><strong>Tercer paso:</strong> Vamos a emplear el grillado creado para extraer los valores promedios de la altitud para cada cuadrícula, esto mediante la herramienta <strong>estadística zonal</strong>, y posteriormente vamos a seleccionar y eliminar los valores vacios de cada cuadrícula.</p>
+<p><img src="img/zonal.png" width="680" style="display: block; margin: auto;" /></p>
+<p><img src="img/remove.png" width="680" style="display: block; margin: auto;" /></p>
+<p><strong>Cuarto paso:</strong> Vamos a cargar el estilo de QLego ya elaborado la cual está ubicado en el siguiente enlace <a href="https://github.com/barja8/SytlesQGIS/raw/master/QLEGO.zip">StyleQGIS</a>, y posteriormente vamos a seleccionar el campo a representar y por último le damos nuevamente click a clasificar.</p>
+<p><img src="img/imagen04.png" width="680" style="display: block; margin: auto;" /></p>
+<p><img src="img/click.png" width="680" style="display: block; margin: auto;" /></p>
+<p><img src="img/imagen05.png" width="680" style="display: block; margin: auto;" /></p>
+<p><strong>Quinto paso:</strong> Finalmente vamos a elaborar nuestra layout para posteriormente lo exportalo en un formato <strong>.png</strong> como se muestra en la siguiente imágen</p>
+<p><img src="img/Map.png" width="680" style="display: block; margin: auto;" /></p>
+</div>
+<div id="referencias" class="section level3">
+<h3>Referencias:</h3>
+<p>Si deseas optener mayor información visita el post original en el siguiente enlace:
+<a href="https://medium.com/@andriyyaremenko/how-to-create-lego-map-style-in-qgis-a8ecf42d02ef">(https://medium.com/<span class="citation">@andriyyaremenko</span>/</a></p>
+</div>
