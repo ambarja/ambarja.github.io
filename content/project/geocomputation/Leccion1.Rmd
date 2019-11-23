@@ -1,0 +1,164 @@
+---
+title: "Introducción al Sistema Automatizado para el Análisis Geocientífico"
+subtitle:  "<img src='img/logo_curso.png' width=170 height=90 ALIGN=left>"
+author: '<br><br><br>Antony Barja<br>Geographer Freelance<br/><a href="https://barja8.github.io/" > barja8.github.io</a>'
+date:  "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["kakashi.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: dracula
+      highlightLines: true
+      ratio: 16:9
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+# ¿Qué es SAGA?
+
+.pull-left[
+Es un GIS **de código abierto** que fue desarrollado en el **lenguaje de C++** por del Departamento de Geografía Física de Göttingen y de Hamburgo en **Alemania** en los años 2001,a partir del año **2004** el código fuente fue mostrado al público y la comunidad científica bajo la licencia Open Source Software (OSS).
+
+```{r,echo=FALSE, out.height=200,out.width=430,fig.align='left'}
+knitr::include_graphics('img/saga-gis.png')
+```
+
+]
+
+.pull-right[
+SAGA inicialmente fue enfocado para el **análisis digital del terreno**,años posteriores esto ha ido evoluciando y hoy en día tiene diversos **modulos** para temas específicos como la:
+  1. Geoestadística
+  2. Teledetección
+  4. Caracterización hidrográfica
+  5. Climatología, entre otros.
+]
+
+---
+.pull-left[
+# Ventajas
+1. Facilidad en el empleo de visualización de 3D 
+2. Alto contenido en herramientas para la estadística espacial 
+3. Algoritmos sofisticados para la clasificación supervizada y no supervizada en RS
+4. Algoritmos automatizados para el análisis morfométrico e higrográfico
+
+]
+
+.pull-right[
+# Desventajas
+1. Bajas opciones para el diseño cartográfico
+2. No presenta correciones automáticas en errores topológicos
+3. La edición de datos son limitados
+]
+---
+background-image:url(https://pbs.twimg.com/media/Dd8JsynX4AABaJ0.jpg)
+class:Top, inverse
+<br>
+<br>
+<br>
+<br> 
+
+# **PARTE PRÁCTICA**
+---
+# Procedimientos para instalar SAGA 
+## Windows
+Tu puedes instalar cualquier versión de SAGA desde el siguiente enlace [aquí](https://sourceforge.net/projects/saga-gis/files/). 
+
+Ten presente que la **versión** de SAGA **compatible** con el software **QGIS** y **R** es la versión LTR **2.3.x** 
+
+## Linux 
+Si usas Linux va a depender del tipo de distribución que usas,para **ubuntu 19.04**
+tu puedes instalar SAGA de la siguiente manera: 
+En la terminal de comandos emplea el siguiente codigo:
+```sh
+sudo apt-get update
+sudo apt-get install saga
+```
+---
+# Componentes de GUI
+
+```{r, echo=FALSE,out.height=500,fig.align='center'}
+knitr::include_graphics('img/GUI.png')
+```
+---
+# Personalizando GUI
+
+```{r, echo=FALSE,out.height=500,fig.align='center'}
+knitr::include_graphics('img/image123.png')
+```
+
+---
+# Modulos y librerias de SAGA
+
+```{r, message=FALSE,warning=FALSE}
+library(RSAGA)
+env <- rsaga.env();
+length(rsaga.get.libraries(env$modules))
+head(rsaga.get.libraries(env$modules),8)
+```
+
+---
+# Fuentes de información de datos espaciales
+
+```{r, echo=FALSE,out.height=490,fig.align='center'}
+knitr::include_graphics('img/fuentes.png')
+```
+
+---
+background-image:url(https://raw.githubusercontent.com/barja8/OwnImages/master/saga_img.png)
+class:Top, inverse
+---
+# Geoprocesamiento de datos espaciales
+
+```{r, echo=FALSE,out.height=510,fig.align='center'}
+knitr::include_graphics('img/geoprocesamiento.png')
+```
+---
+# Combinación de bandas espectrales
+
+```{r, echo=FALSE,out.height=510,fig.align='center'}
+knitr::include_graphics('img/FalsoCOlor.png')
+```
+
+---
+# Mosaico de Imágenes
+
+```{r, echo=FALSE,out.height=510,fig.align='center'}
+knitr::include_graphics('img/mosaico.png')
+```
+
+---
+# Visualización en 3D
+
+```{r, echo=FALSE,out.height=510,fig.align='center'}
+knitr::include_graphics('img/3D.png')
+```
+
+---
+# Exportación de datos y mapas
+
+```{r, echo=FALSE,out.height=510,fig.align='center'}
+knitr::include_graphics('img/visualizacion y mapas.png')
+```
+---
+class:center,inverse
+# GRACIAS!
+<div>
+ <img src="img/icon.png" width="230" height="260" style="float: none;"/>
+<br/>
+<br/>
+<div>
+<img src="img/git.jpg" width="34" height="34" style="float: none;" />
+<a href="https://github.com/barja8" >barja8.github</a>
+ </div>
+
+<div>
+ <img src="img/gmai.svg" width="35" height="35" style="float: none;" />
+ <a href=mailto:"antony.barja8@gmail.com">antony.barja8@gmail.com</a>
+ </div>
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan) with [**Kakashi**](https://github.com/malcolmbarrett/kakashi) sytle
+
+
+
+
