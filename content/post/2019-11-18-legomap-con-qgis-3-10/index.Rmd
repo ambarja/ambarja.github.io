@@ -21,13 +21,13 @@ Sin duda **QGIS** sigue siendo una de mis herramientas favoritas para hacer dife
 En este post vamos a replicar estos procedimientos de manera simplificada y vamos a elaborar nuestro propio LegoMap en tan solo 5 pasos.
 
 ### Procedimientos:
-**Primer paso:** Como insumo primodrial tenemos un dato espacial de preferencia de tipo raster , esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(**SRTM**) la cual ya está delimitida por nuestro ámbito de estudio.
+**Primer paso:** Como insumo primordial tenemos un dato espacial de preferencia de tipo raster, esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(**SRTM**) la cual ya está delimitida por nuestro ámbito de estudio.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics('img/imagen01.png')
 ```
 
-**Segundo paso:** Vamos hacer un grillado de 15km x 15km (va a denpender de tu ámbito de estudio) de una forma rectagular (opcional puedes escoger otro tipo de geometría) que abarque todos los límite del ámbito de estudio.
+**Segundo paso:** Vamos hacer un grillado de 15km x 15km (va a denpender de tu ámbito de estudio) de una forma rectagular (opcional puedes escoger otro tipo de geometría) que abarque todos los límites del ámbito de estudio.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics('img/imagen02.png')
@@ -62,7 +62,7 @@ knitr::include_graphics('img/imagen05.png')
 ```
 
 
-**Quinto paso:** Finalmente vamos a elaborar nuestra layout para posteriormente lo exportalo en un formato **.png** como se muestra en la siguiente imágen
+**Quinto paso:** Finalmente vamos a elaborar nuestro propio layout para posteriormente exportalo en un formato **.png** o **.pdf** como se muestra en la siguiente imágen
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics('img/Map.png')

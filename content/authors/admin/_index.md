@@ -13,7 +13,7 @@ interests:
 - Geografía
 - Ciencia de datos espaciales
 - Geocomputación
-- Biogeografía 
+- Riesgos y vulnerabilidades
 - Investigación reproducible
 name: Antony Marcos Barja Ingaruca
 organizations:
@@ -38,6 +38,6 @@ user_groups:
 - Researchers
 - Visitors
 ---
-Hola mi nombre es Antony Barja tengo 24 años, durante mi etapa universitaria siempre fui amante de la geografía y la estadística espacial; pero sin duda el punto de partida que cambio mis paradigmas y la forma de pensar relacionados a la **geografía computacional** fue gracias a [**Cesar Aybar**](https://csaybar.github.io/page/about/) y a los diferentes artículos de  [**Gerson Beltran**](https://gersonbeltran.com/) junto con [**Roger Bivand**](https://www.nhh.no/en/employees/faculty/roger-bivand/), [**Edzer Pebesma**](https://www.uni-muenster.de/Geoinformatics/en/institute/staff/index.php/119/edzer_pebesma) y [**Victor Olaya**](https://github.com/volaya), hoy en día me considero un amante de la geocomputación y la ciencia de datos espaciales.
+Hola mi nombre es Antony Barja tengo 24 años de edad, durante mi etapa universitaria siempre fui amante de la geografía y la estadística espacial; pero sin duda el punto de partida que cambio mis paradigmas y la forma de pensar relacionados a la **geografía computacional** fue gracias a [**Cesar Aybar**](https://csaybar.github.io/page/about/), [**Alí Santacruz**](http://amsantac.co/es/about.html) y a los diferentes artículos de  [**Gerson Beltran**](https://gersonbeltran.com/) junto con [**Roger Bivand**](https://www.nhh.no/en/employees/faculty/roger-bivand/), [**Edzer Pebesma**](https://www.uni-muenster.de/Geoinformatics/en/institute/staff/index.php/119/edzer_pebesma) y [**Victor Olaya**](https://github.com/volaya), hoy en día me considero un amante de la geocomputación y la ciencia de datos espaciales.
 
 En mis ratos libres me gusta viajar y leer diferentes artículos relacionados al mundo del software libre y código abierto aplicados al análisis geoespacial (FOSS4G).

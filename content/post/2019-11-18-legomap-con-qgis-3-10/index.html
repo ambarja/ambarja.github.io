@@ -23,9 +23,9 @@ authors: []
 <p>En este post vamos a replicar estos procedimientos de manera simplificada y vamos a elaborar nuestro propio LegoMap en tan solo 5 pasos.</p>
 <div id="procedimientos" class="section level3">
 <h3>Procedimientos:</h3>
-<p><strong>Primer paso:</strong> Como insumo primodrial tenemos un dato espacial de preferencia de tipo raster , esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(<strong>SRTM</strong>) la cual ya está delimitida por nuestro ámbito de estudio.</p>
+<p><strong>Primer paso:</strong> Como insumo primordial tenemos un dato espacial de preferencia de tipo raster, esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(<strong>SRTM</strong>) la cual ya está delimitida por nuestro ámbito de estudio.</p>
 <p><img src="img/imagen01.png" width="680" style="display: block; margin: auto;" /></p>
-<p><strong>Segundo paso:</strong> Vamos hacer un grillado de 15km x 15km (va a denpender de tu ámbito de estudio) de una forma rectagular (opcional puedes escoger otro tipo de geometría) que abarque todos los límite del ámbito de estudio.</p>
+<p><strong>Segundo paso:</strong> Vamos hacer un grillado de 15km x 15km (va a denpender de tu ámbito de estudio) de una forma rectagular (opcional puedes escoger otro tipo de geometría) que abarque todos los límites del ámbito de estudio.</p>
 <p><img src="img/imagen02.png" width="680" style="display: block; margin: auto;" /></p>
 <p><img src="img/imagen03.png" width="680" style="display: block; margin: auto;" /></p>
 <p><strong>Tercer paso:</strong> Vamos a emplear el grillado creado para extraer los valores promedios de la altitud para cada cuadrícula, esto mediante la herramienta <strong>estadística zonal</strong>, y posteriormente vamos a seleccionar y eliminar los valores vacios de cada cuadrícula.</p>
@@ -35,7 +35,7 @@ authors: []
 <p><img src="img/imagen04.png" width="680" style="display: block; margin: auto;" /></p>
 <p><img src="img/click.png" width="680" style="display: block; margin: auto;" /></p>
 <p><img src="img/imagen05.png" width="680" style="display: block; margin: auto;" /></p>
-<p><strong>Quinto paso:</strong> Finalmente vamos a elaborar nuestra layout para posteriormente lo exportalo en un formato <strong>.png</strong> como se muestra en la siguiente imágen</p>
+<p><strong>Quinto paso:</strong> Finalmente vamos a elaborar nuestro propio layout para posteriormente exportalo en un formato <strong>.png</strong> o <strong>.pdf</strong> como se muestra en la siguiente imágen</p>
 <p><img src="img/Map.png" width="680" style="display: block; margin: auto;" /></p>
 </div>
 <div id="referencias" class="section level3">

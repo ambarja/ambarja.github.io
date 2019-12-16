@@ -24,9 +24,9 @@
 &lt;p&gt;En este post vamos a replicar estos procedimientos de manera simplificada y vamos a elaborar nuestro propio LegoMap en tan solo 5 pasos.&lt;/p&gt;
 &lt;div id=&#34;procedimientos&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Procedimientos:&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Primer paso:&lt;/strong&gt; Como insumo primodrial tenemos un dato espacial de preferencia de tipo raster , esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(&lt;strong&gt;SRTM&lt;/strong&gt;) la cual ya está delimitida por nuestro ámbito de estudio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Primer paso:&lt;/strong&gt; Como insumo primordial tenemos un dato espacial de preferencia de tipo raster, esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(&lt;strong&gt;SRTM&lt;/strong&gt;) la cual ya está delimitida por nuestro ámbito de estudio.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;img/imagen01.png&#34; width=&#34;680&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Segundo paso:&lt;/strong&gt; Vamos hacer un grillado de 15km x 15km (va a denpender de tu ámbito de estudio) de una forma rectagular (opcional puedes escoger otro tipo de geometría) que abarque todos los límite del ámbito de estudio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Segundo paso:&lt;/strong&gt; Vamos hacer un grillado de 15km x 15km (va a denpender de tu ámbito de estudio) de una forma rectagular (opcional puedes escoger otro tipo de geometría) que abarque todos los límites del ámbito de estudio.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;img/imagen02.png&#34; width=&#34;680&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;img/imagen03.png&#34; width=&#34;680&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Tercer paso:&lt;/strong&gt; Vamos a emplear el grillado creado para extraer los valores promedios de la altitud para cada cuadrícula, esto mediante la herramienta &lt;strong&gt;estadística zonal&lt;/strong&gt;, y posteriormente vamos a seleccionar y eliminar los valores vacios de cada cuadrícula.&lt;/p&gt;
@@ -36,7 +36,7 @@
 &lt;p&gt;&lt;img src=&#34;img/imagen04.png&#34; width=&#34;680&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;img/click.png&#34; width=&#34;680&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;img/imagen05.png&#34; width=&#34;680&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Quinto paso:&lt;/strong&gt; Finalmente vamos a elaborar nuestra layout para posteriormente lo exportalo en un formato &lt;strong&gt;.png&lt;/strong&gt; como se muestra en la siguiente imágen&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Quinto paso:&lt;/strong&gt; Finalmente vamos a elaborar nuestro propio layout para posteriormente exportalo en un formato &lt;strong&gt;.png&lt;/strong&gt; o &lt;strong&gt;.pdf&lt;/strong&gt; como se muestra en la siguiente imágen&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;img/Map.png&#34; width=&#34;680&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;referencias&#34; class=&#34;section level3&#34;&gt;
