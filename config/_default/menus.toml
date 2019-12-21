@@ -30,6 +30,12 @@
 
 [[main]]
   parent = "Cursos"
+  name = "QGIS"
+  url = "https://barja8.github.io/CursoQGIS3.X/Sesion001/Slide.html" 
+  weight = 50
+
+[[main]]
+  parent = "Cursos"
   name = "SAGAGIS"
   url = "https://barja8.github.io/SAGAcourse/Lecci%C3%B3n03_04/slides.html" 
   weight = 50
