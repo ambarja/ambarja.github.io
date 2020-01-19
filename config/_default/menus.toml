@@ -40,7 +40,10 @@
   url = "https://barja8.github.io/SAGAcourse/Lecci%C3%B3n03_04/slides.html" 
   weight = 50
 
-
+[[main]]
+  name = "Research"
+  url = "/research/spatial-statistic"
+  weight = 40
 
 
 

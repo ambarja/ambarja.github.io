@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Researches on Geographer Freelance</title>
+    <link>/research/</link>
+    <description>Recent content in Researches on Geographer Freelance</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Research</title>
+      <link>/research/spatial-statistic/</link>
+      <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/research/spatial-statistic/</guid>
+      <description>&lt;p&gt;Hola en está oportunidad quiero compartirte algunos aplicaciones e investigaciones realizados de maneral personal entorno al área de la &lt;strong&gt;estadística espacial&lt;/strong&gt; y &lt;strong&gt;la ciencia de datos espaciales&lt;/strong&gt;, esto con la finalidad de poder contribuir con la sociedad y sobre todo revalorar más
+enfoque geográfico en diferentes aspectos del ámbito investigativo y sobre todo dentro de este nuevo siglo en donde la &lt;strong&gt;materia prima&lt;/strong&gt; son los datos,
+y en espacial los &lt;strong&gt;datos geolocalizados&lt;/strong&gt;, antes nuestro ámbito de estudio era el territorio ahora tenemos un &lt;strong&gt;nuevo espacio de relación&lt;/strong&gt; y está dentro
+de mundo online de internet a lo que algunos autores llaman la &lt;strong&gt;cibergeografía&lt;/strong&gt;(Fuenzalida, Buzai, Jiménez, y de León Loza, 2015).
+No se trata de una nueva disciplina, sino de una evolución en lo que, quizás, sea el cambio más importante desde que Alexander Von Humboldt iniciará
+lo que se considera la &lt;strong&gt;geografía moderna&lt;/strong&gt; (Capel Sáez, 1981).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

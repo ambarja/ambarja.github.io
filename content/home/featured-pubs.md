@@ -4,16 +4,16 @@
 # `featured = true` in their front matter.
 
 widget = "featured"  # See https://sourcethemes.com/academic/docs/page-builder/
-headless = false  # This file represents a page section.
-active = false  # Activate this widget? true/false
+headless = true  # This file represents a page section.
+active = true  # Activate this widget? true/false
 weight = 40  # Order that this section will appear.
 
-title = "Presentaciones"
+title = "Slides of own researches"
 subtitle = ""
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
-  page_type = "talk"
+  page_type = "research"
   
   # Choose how much pages you would like to display (0 = all pages)
   count = 0

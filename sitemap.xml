@@ -43,6 +43,16 @@
   </url>
   
   <url>
+    <loc>/research/spatial-statistic/</loc>
+    <lastmod>2019-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/research/</loc>
+    <lastmod>2019-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/privacy/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
   </url>
@@ -61,10 +71,6 @@
   
   <url>
     <loc>/publication_types/</loc>
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
   </url>
   
   <url>

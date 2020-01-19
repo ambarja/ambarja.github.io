@@ -1,9 +1,0 @@
-
-@inproceedings{[[ id ]],
-  title = {[[ title ]]},
-  author = {[[ paste0(author$family, ', ', author$given, collapse = ' and ') ]]},
-  booktitle = {[[ event ]]},
-  year = [[ issued$`date-parts`[1] ]],
-  [[ if (DOI != "") paste0("doi = {", DOI, "},") else "" ]]
-  address = {[[ `publisher-place` ]]}
-}
