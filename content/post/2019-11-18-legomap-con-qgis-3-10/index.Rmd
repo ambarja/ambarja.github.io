@@ -20,7 +20,7 @@ Sin duda **QGIS** sigue siendo una de mis herramientas favoritas para hacer dife
 
 En este post vamos a replicar estos procedimientos de manera simplificada y vamos a elaborar nuestro propio LegoMap en tan solo 5 pasos.
 
-### Procedimientos:
+### **Procedimientos:**
 **Primer paso:** Como insumo primordial tenemos un dato espacial de preferencia de tipo raster, esto por valores continuos que posee para tener una mayor discriminación al momento de elaborar el LegoMap, en este caso vamos a utilizar un DEM(**SRTM**) la cual ya está delimitida por nuestro ámbito de estudio.
 
 ```{r, echo=FALSE, fig.align='center'}
@@ -68,7 +68,8 @@ knitr::include_graphics('img/imagen05.png')
 knitr::include_graphics('img/Map.png')
 ```
 
-### Referencias:
+### **Referencias:**
+
 Si deseas optener mayor información visita el post original en el siguiente enlace: 
 [(https://medium.com/@andriyyaremenko/)](https://medium.com/@andriyyaremenko/how-to-create-lego-map-style-in-qgis-a8ecf42d02ef)
 

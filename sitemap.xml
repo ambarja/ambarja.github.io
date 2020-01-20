@@ -4,16 +4,36 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-11-18T22:03:28-05:00</lastmod>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2019/legomap-con-qgis-3-10/</loc>
-    <lastmod>2019-11-18T22:03:28-05:00</lastmod>
+    <loc>/post/2020/integrando-saga-con-r-para-el-an%C3%A1lisis-de-terreno/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/saga/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2019/legomap-con-qgis-3-10/</loc>
     <lastmod>2019-11-18T22:03:28-05:00</lastmod>
   </url>
   
@@ -71,10 +91,6 @@
   
   <url>
     <loc>/publication_types/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
   </url>
   
 </urlset>

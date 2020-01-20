@@ -1,0 +1,143 @@
+---
+title: "Integrando SAGA con R para el análisis de terreno"
+author: "Antony Barja"
+date: '2020-01-19'
+categories: []
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+lastmod: '2020-01-19T17:44:19-05:00'
+projects: []
+slug: integrando-saga-con-r-para-el-análisis-de-terreno
+subtitle: ''
+summary: ''
+tags:
+- SAGA
+- R
+authors: []
+---
+## **Introducción**
+Es fascinante poder conocer ciertos aspectos del mundo del software libre y de código abierto orientado al análisis de datos espaciales, en está oportunidad quiero mostrarte un pequeño entrenamiento integrando dos softwares super potentes dentro dentro del campo de la geocomputación, específicamente para el ánalisis de terreno e índices morfométricos, el primero es **SAGA**( System for Automated Geoscientific Analyses), el cual es un software de Sistema de Información Geográfica de código abierto y el otro es **R**, el cual es un lenguaje de programación libre, interpretado y orientado a objetos que presenta un gran ecosistema de paquetes para una diversidad de ejes temáticos, entre ellas podemos mencionar a  la estadística, la estadística espacial, la teledetección, web mapping, análisis exploratorio de datos, entre otros.
+
+Entonces,para este entrenamiento tenemos que tener ciertos requerimientos como tener instalado **SAGA** y **R**, de preferencia se recomienda usar la IDE de **Rstudio** para tener una forma más amigable al momento de programar con R.
+
+## **Observación:**
+* Se recomienda tener instalado la versión de SAGA **2.3** LTS hasta la **7.0** .
+
+* Si tienes instalado **QGIS** no es necesario instalar SAGA ya que viene por defecto dentro del ecosistema de QGIS.
+
+* Es importante tener claro dos conceptos básicos al momento de trabajar con SAGA, estos son las liberías y módulos, entonces:
+  * **Liberías:** Hace referencia a todas los "ejes temáticos" que puedes trabajar en SAGA
+  * **Módulos:** Hace referencia a todo los algoritmos estos ejes temáticos.
+  
+* Por último, para integrar SAGA con R tenemos que  instalar el paquete **RSAGA** (Alexander Brenning et.al,2018), posteriormente  identificar el directorio de trabajo donde está alojado la ruta de los módulos de SAGA.
+
+## **Instalando los paquetes necesarios para nuestro entrenamiento** 
+
+```{r, eval=FALSE}
+libs <- c('RSAGA', 'tidyverse', 'raster', 'sp', 'sf', 'tmap', 'cptcity')
+install.packages(libs, dependencies = TRUE)
+```
+
+## **Activación de las paquetes instalados**
+
+```{r, warning=FALSE,message=FALSE}
+library(tidyverse) # Pkgs para ciencia de datos 
+library(RSAGA)     # Pkgs para integrar SAGA con R
+library(raster)    # Pkgs para manejar datos raster
+library(sf)        # Pkgs para manejar datos vectoriales
+library(tmap)      # Pkgs para elaborar mapas temáticos
+library(cptcity)   # Pkgs para obtener paleta de colores
+```
+
+## **Indentificando el directorio de trabajo donde está los módulos de SAGA **
+
+Observación:
+
+* Si usas un sistema operativo WIndows y tienes instalado QGIS solo tienes que identificar la siguiente ruta:
+
+```{r,eval=FALSE}
+env <- rsaga.env(path = 'C:/Program Files/QGIS 3.10/apps/saga-ltr')
+```
+
+* Si usas el sistema operativo de GNU/Linux sólo necesitas usar la siguiente expresión:
+
+```{r, warning=FALSE,message=FALSE}
+# Este proceso nos ayuda a integrar SAGA con R, adicionalmente nos ayuda 
+# a identificar la versión de SAGA con la cual estamos trabajando, la ruta 
+# de los módulos y alguna información adicional de interes.
+env <- rsaga.env()
+env
+```
+
+## **Ahora vamos a proceder a visualizar las librerias disponibles de SAGA para trabajar dentro de R**
+
+```{r}
+libs <- rsaga.get.libraries(path = env$modules)
+libs
+
+# Usamos lenght para indentificar el total de liberías: 
+length(libs)
+```
+
+## **Ahora vamos extraer todos los modulos de las liberias usand un pequeño codigo gracias al paquete tidyverse**
+
+```{r,message=FALSE,warning=FALSE}
+# Esto es para una libería específica ('ta_channels')
+mod <- rsaga.get.modules(libs = 'ta_channels', env = env)
+
+# Ahora vamos a extraer en una tabla toda las liberias 
+# con sus respectivos modulos:
+rsaga_mod <- rsaga.get.modules(libs = libs,env = env) %>% 
+  bind_rows(.id = 'libs') %>% as_tibble()
+
+head(rsaga_mod,10)
+```
+
+## **Ahora vamos a trabajar con el paquete raster para poder descargar un Modelo de Elevación Digital (DEM) que presenta una resolución espacial de 30 m**
+
+```{r,warning=FALSE,message=FALSE}
+dem <- raster('Salida/dem_clip.tif')
+plot(dem)
+  
+```
+## Es importante corregir algunos valores vacios que presenta nuestro modelo de elevación digital, para esto vamos a usar el algoritmo de Fill sink de Wang y Liu
+
+```{r,warning=FALSE,message=FALSE}
+rsaga.fill.sinks(in.dem = 'Salida/dem_clip.tif',
+                 out.dem = 'Salida/fill_dem_clip')
+
+# Visualización de nuestro ámbito de estudio
+tmap_mode('view')
+raster('Salida/fill_dem_clip.sdat') %>% 
+  tm_shape() + 
+  tm_basemap('Esri.WorldTopoMap') +
+  tm_raster(style = 'cont',alpha = 0.75,
+            palette = cpt(pal = 'ncl_topo_15lev'))
+
+```
+
+## **Ahora procedemos a calcular el mapa de pendientes y aspecto*
+
+```{r}
+rsaga.slope.asp.curv(in.dem = 'Salida/fill_dem_clip.sdat',
+                     out.slope = 'Salida/pendiente',
+                     out.aspect = 'Salida/aspecto',
+                     unit.slope = 1 ,
+                     unit.aspect = 1)
+
+# Ahora procedemos a visualizar el mapa de pendiente
+raster('Salida/pendiente.sdat') %>% 
+  tm_shape() + 
+  tm_basemap('Esri.WorldTopoMap') +
+  tm_raster(style = 'quantile')
+
+# Visualizando el mapa de aspectos
+raster('Salida/aspecto.sdat') %>% 
+  tm_shape() + 
+  tm_basemap('Esri.WorldTopoMap') +
+  tm_raster(style = 'cont',palette = 'viridis')
+```
+

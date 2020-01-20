@@ -1,0 +1,26 @@
+[general]
+creator=R package 'raster'
+created=2020-01-19 23:03:18
+[georeference]
+nrows=6000
+ncols=6000
+xmin=-75
+ymin=-15
+xmax=-70
+ymax=-10
+projection=+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0
+[data]
+datatype=FLT4S
+byteorder=little
+nbands=1
+bandorder=BIL
+categorical=FALSE
+minvalue=151
+maxvalue=6309
+nodatavalue=-3.4e+38
+[legend]
+legendtype=
+values=
+color=
+[description]
+layername=srtm_22_15
