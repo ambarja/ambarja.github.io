@@ -48,7 +48,7 @@ install.packages(libs, dependencies = TRUE)
 library(tidyverse) # Pkg para ciencia de datos 
 library(RSAGA)     # Pkg para integrar SAGA con R
 library(raster)    # Pkg para manejar datos raster
-library(raster)    # Pkg para manejar datos vectoriales
+library(sf)    # Pkg para manejar datos vectoriales
 library(tmap)      # Pkg para elaborar mapas temáticos
 library(cptcity)   # Pkg para obtener paleta de colores
 ```
@@ -179,7 +179,7 @@ raster('Salida/Tpi.sdat') %>%
 
 ```
 
-## **Con RSAGA tambien podemos el orden de Strahler y la red de drenaje**
+## **Con RSAGA también podemos calcular el orden de Strahler y la red de drenaje**
 
 ```{r, warning=FALSE,message=FALSE}
 rsaga.get.usage(lib = 'ta_channels',module = 5)
