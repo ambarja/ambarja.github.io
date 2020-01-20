@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.3.1">
+    <MODULE library="ta_morphometry" id="18" name="Topographic Position Index (TPI)">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>30</CELLSIZE>
+        <XMIN>963390.8124</XMIN>
+        <XMAX>980100.8124</XMAX>
+        <YMIN>8058312.3304</YMIN>
+        <YMAX>8078112.3304</YMAX>
+      </OPTION>
+      <OPTION type="boolean" id="STANDARD" name="Standardize">FALSE</OPTION>
+      <OPTION type="range" id="RADIUS" name="Radius">0.000000; 100.000000</OPTION>
+      <OPTION type="choice" id="DW_WEIGHTING" name="Weighting Function" index="0">no distance weighting</OPTION>
+      <INPUT type="grid" id="DEM" name="Elevation" system="PARAMETERS_GRID_SYSTEM">
+        <MODULE library="io_gdal" id="0" name="Import Raster">
+          <OPTION type="file" id="FILES" name="Files">Insumos/DEM_fill.sdat</OPTION>
+          <OPTION type="text" id="SELECTION" name="Select from Multiple Bands"/>
+          <OPTION type="boolean" id="SELECT_SORT" name="Alphanumeric Sorting">TRUE</OPTION>
+          <OPTION type="boolean" id="TRANSFORM" name="Transformation">TRUE</OPTION>
+          <OPTION type="choice" id="RESAMPLING" name="Resampling" index="3">B-Spline Interpolation</OPTION>
+          <OUTPUT type="grid_list" id="GRIDS" name="Grids">DEM_fill</OUTPUT>
+        </MODULE>
+      </INPUT>
+      <OUTPUT type="grid" id="TPI" name="Topographic Position Index">Topographic Position Index</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>Salida/Tpi.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["WGS 84 / UTM zone 18S",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-75],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32718"]]</OGC_WKT>
+      <PROJ4>+init=epsg:32718 +proj=tmerc +a=6378137.000000 +b=6356752.314245 +lat_0=0 +lon_0=-75 +k_0=0.9996 +x_0=500000 +y_0=10000000 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>
