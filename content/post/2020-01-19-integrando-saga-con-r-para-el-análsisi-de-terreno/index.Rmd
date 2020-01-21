@@ -82,7 +82,7 @@ libs
 length(libs)
 ```
 
-## **Ahora vamos extraer todos los módulos de las liberías usando un pequeño código gracias al paquete tidyverse**
+## **Ahora vamos extraer todos los módulos de las librerías usando un pequeño código gracias al paquete tidyverse**
 
 ```{r,message=FALSE,warning=FALSE}
 # Estos son los módulos para una libería específica ('ta_channels')

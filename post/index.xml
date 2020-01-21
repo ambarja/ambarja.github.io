@@ -146,8 +146,8 @@ libs&lt;/code&gt;&lt;/pre&gt;
 length(libs)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 69&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;ahora-vamos-extraer-todos-los-módulos-de-las-liberías-usando-un-pequeño-código-gracias-al-paquete-tidyverse&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Ahora vamos extraer todos los módulos de las liberías usando un pequeño código gracias al paquete tidyverse&lt;/strong&gt;&lt;/h2&gt;
+&lt;div id=&#34;ahora-vamos-extraer-todos-los-módulos-de-las-librerías-usando-un-pequeño-código-gracias-al-paquete-tidyverse&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;Ahora vamos extraer todos los módulos de las librerías usando un pequeño código gracias al paquete tidyverse&lt;/strong&gt;&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Estos son los módulos para una libería específica (&amp;#39;ta_channels&amp;#39;)
 mod &amp;lt;- rsaga.get.modules(libs = &amp;#39;ta_channels&amp;#39;, env = env)
 
@@ -368,11 +368,11 @@ raster(&amp;#39;Salida/curvatura.sdat&amp;#39;) %&amp;gt;%
 ## 
 ## Create index: DEM_fill
 ## catchment area and slope...
-## pass 1 (38933 &amp;gt; 0)
-## pass 2 (9634 &amp;gt; 0)
-## pass 3 (4054 &amp;gt; 0)
-## pass 4 (1914 &amp;gt; 0)
-## pass 5 (947 &amp;gt; 0)
+## pass 1 (39680 &amp;gt; 0)
+## pass 2 (9674 &amp;gt; 0)
+## pass 3 (4062 &amp;gt; 0)
+## pass 4 (1920 &amp;gt; 0)
+## pass 5 (950 &amp;gt; 0)
 ## pass 6 (489 &amp;gt; 0)
 ## pass 7 (246 &amp;gt; 0)
 ## pass 8 (130 &amp;gt; 0)
