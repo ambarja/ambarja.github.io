@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/authors/antony-barja/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <lastmod>2020-01-19T17:44:19-05:00</lastmod>
   </url>
   
   <url>
     <loc>/post/2020/integrando-saga-con-r-para-el-an%C3%A1lisis-de-terreno/</loc>
+    <lastmod>2020-01-19T17:44:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/miguel-angel-garcia/</loc>
     <lastmod>2020-01-19T17:44:19-05:00</lastmod>
   </url>
   
@@ -79,10 +94,6 @@
   
   <url>
     <loc>/authors/admin/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
   </url>
   
   <url>
