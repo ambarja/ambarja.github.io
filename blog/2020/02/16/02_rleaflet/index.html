@@ -294,8 +294,8 @@ vacunas_prov &lt;- vacunas_geo %&gt;%
 <p>Para verificar los puntos dentro del área de interes, con la función <code>plot()</code> hacemos una visualización previa.</p>
 <pre class="r"><code>st_geometry(vacunas_prov) %&gt;% plot()</code></pre>
 <p><img src="/blog/2021-09-22-leaflet/02_Rleaflet_files/figure-html/unnamed-chunk-6-1.png" width="100%" /></p>
-<p>Ahora usaremos la librería <code>leaflet</code> para generar nuestro mapa web, una ventaja de leaflet es que nos ofrece una variedad de basesmaps y esto dependera de tus propia personalización y claro también de tu subscripción de algunos servicios de ciertas plataformas como HERE entre otros.</p>
-<p>Para visualizar todo los basemaps disponibles en leafet usamos la siguiente función</p>
+<p>Ahora usaremos la librería <code>leaflet</code> para generar nuestro mapa web, una ventaja de leaflet es que nos ofrece una variedad de basemap y esto dependera de tus propia personalización y claro también de tu subscripción de algunos servicios de ciertas plataformas como HERE entre otros.</p>
+<p>Para visualizar todo los basemap disponibles en leafet usamos la siguiente función</p>
 <pre class="r"><code># Lista de basemaps disponibles
 providers %&gt;%
   map_df(as.data.frame,.id = &quot;basemap&quot;) %&gt;% 
@@ -568,17 +568,18 @@ providers %&gt;%
     
 
     
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YPTCV41W8K"></script>
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-YPTCV41W8K', { 'anonymize_ip': false });
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-208240404-1', 'auto');
+	
+	ga('send', 'pageview');
 }
 </script>
-
 <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 

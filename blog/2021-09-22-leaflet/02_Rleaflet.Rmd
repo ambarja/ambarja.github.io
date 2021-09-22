@@ -53,7 +53,6 @@ library(cptcity)
 Para está ocación vamos a leer los datos disponibles en el portal de datos abiertos del MINSA donde seleccionaremos los centros de vacunación para la provincia de Lima metropolitana.
 
 ```{r warning=FALSE,message=FALSE}
-
 # Lectura de datos del portal de datos abiertos en un objeto sf
 vacunas_geo <- read_csv("https://www.datosabiertos.gob.pe/node/8298/download") %>% 
   st_as_sf(coords = c("longitud","latitud"),crs = 4326) %>% 
@@ -81,9 +80,9 @@ Para verificar los puntos dentro del área de interes, con la función `plot()` 
 st_geometry(vacunas_prov) %>% plot()
 ```
 
-Ahora usaremos la librería `leaflet` para generar nuestro mapa web, una ventaja de leaflet es que nos ofrece una variedad de basesmaps y esto dependera de tus propia personalización y claro también de tu subscripción de algunos servicios de ciertas plataformas como HERE entre otros.
+Ahora usaremos la librería `leaflet` para generar nuestro mapa web, una ventaja de leaflet es que nos ofrece una variedad de basemap y esto dependera de tus propia personalización y claro también de tu subscripción de algunos servicios de ciertas plataformas como HERE entre otros.
 
-Para visualizar todo los basemaps disponibles en leafet usamos la siguiente función
+Para visualizar todo los basemap disponibles en leafet usamos la siguiente función
 
 ```{r warning=FALSE, message=FALSE}
 # Lista de basemaps disponibles
