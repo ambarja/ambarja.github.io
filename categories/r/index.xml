@@ -8,12 +8,12 @@
     <language>es-en</language>
     <lastBuildDate>Sun, 16 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ambarja.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Creando mapas interactivos en R con Leaflet</title>
+      <title>Mapas interactivos en Leaflet desde R</title>
       <link>https://ambarja.github.io/blog/2020/02/16/02_rleaflet/</link>
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ambarja.github.io/blog/2020/02/16/02_rleaflet/</guid>
-      <description>En los últimos años el avance tecnológico y la conexión a internet ha tenido grandes impactos en todas partes del mundo,asi mismo el incremento de los datos hoy en día juegan un papel importante dentro de la toma de decisiones, ya lo decia el mismo stevan en la primera conferencia de “Big Data” que la materia prima del siglo XXI son los datos,y claro dentro del contexto la geograf{ía no es agena, Gerson Beltran en su ultima conferencia desarollada por Tex, nos dio a conocer una perpesctiva de cual ser{ia el futuro para la geograf{ia dentro de esto contexto, asi mismo hace mencion de la geotécnologico y su importancia, es ajenos ya que todos los eventos y fenómenos ocurren en el mundo ocurren bajo un contexto espacial y temporal, y un claro ejemplo las grandes revoluciones que ha tenido el uso de los mapas, un claro ejemplo tenemos el mapa generado por</description>
+      <description>En las últimas tres décadas el avance tecnológico y la conexión a internet han tenido grandes impactos en el desarrollo de la evolución de la cartografía web, este crecimiento es reciente y tuvo un punto clave en el año 2005,donde el Tsunami en ASI y Huracán Katrina, alertaron a la comunidad mundial sobre la importancia de utilizar tecnología cartográfica web para gestionar y responder tales eventos.</description>
     </item>
     
   </channel>

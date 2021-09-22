@@ -1,0 +1,121 @@
+---
+author: Antony Barja
+banner: https://user-images.githubusercontent.com/23284899/134397890-d637ce41-5eb8-48de-b03f-31255a218b55.png
+categories:
+- R
+date: "2020-02-16"
+tags:
+- leaflet
+- R 
+title: Mapas interactivos en Leaflet desde R 
+---
+
+En las últimas tres décadas el avance tecnológico y la conexión a internet han tenido grandes impactos en el desarrollo de la evolución de la cartografía web, este crecimiento es reciente y tuvo un punto clave en el año 2005,donde el Tsunami en ASI y Huracán Katrina, alertaron a la comunidad mundial sobre la importancia de utilizar tecnología cartográfica web para gestionar y responder tales eventos. Otro claro ejemplo de su importancia podemos ver en el trabajo realizado por la universidad de John Hopkins durante la pandemia donde generarón mapas interáctivos donde se evidenció la evolución de los casos de coranovirus por país, finalmente algunos países están implementado el monitoreo de la cobertura de vacunación por COVID-19 en plataformas webs donde la el núcleo de la visualiación se enfoca en los mapas interactivos.
+
+Como puedes notar el empleo de los mapas web es muy importante dentro de la toma de decisiones y en este pequeño post vamos a realizar un demo utilizando la librería leaflet, una librería de JavaScript especializada en el desarrollo de mapas webs, pero dentro de R con el paquete leaflet y derivados.
+
+## Requerimientos
+
+Para este pequeño post vamos instalar los paquetes de `tidyverse` (paquete para ciencia de datos) ,`sf` (paquete para manejar datos espaciales de tipo vector), `leaflet` (paquete para generar mapas webs),`leaflet.extras` (plugins para leaflet) y `cptcity` (paleta de colores igual que qgis).
+
+```{r klippy, echo=FALSE, include=TRUE}
+klippy::klippy(position = c("top", "right"), color = "#1739D1")
+```
+
+```{r message=FALSE,warning=FALSE, eval=FALSE, class.source='klippy'}
+pkgs <- c(
+  "tidyverse", "sf", "leaflet",
+  "leaflet.extras", "cptcity")
+
+install.packages(pkgs,dependencies = TRUE)
+
+```
+
+## Demo
+
+Llamado o activación de paquetes:
+
+```{r eval=TRUE,message=FALSE,warning=FALSE}
+library(tidyverse)
+library(leaflet)
+library(leaflet.extras)
+library(sf)
+library(cptcity)
+```
+
+Para está ocación vamos a leer los datos disponibles en el portal de datos abiertos del MINSA donde seleccionaremos los centros de vacunación para la provincia de Lima metropolitana.
+
+```{r warning=FALSE,message=FALSE}
+
+# Lectura de datos del portal de datos abiertos en un objeto sf
+vacunas_geo <- read_csv("https://www.datosabiertos.gob.pe/node/8298/download") %>% 
+  st_as_sf(coords = c("longitud","latitud"),crs = 4326) %>% 
+  mutate(id = row_number())
+
+```
+
+```{r warning=FALSE, message=FALSE}
+# Lectura de los límites provinciales de la región de interés
+lima_prov <- st_read("https://github.com/ambarja/gpkg-pe/raw/main/Lima_provincia.gpkg")
+
+```
+
+```{r warning=FALSE, message=FALSE}
+# Centros de vacunación dentro del área de interés
+lista_id <- st_contains(lima_prov,vacunas_geo) %>% unlist()
+vacunas_prov <- vacunas_geo %>% 
+  filter(id %in% lista_id)
+
+```
+
+Para verificar los puntos dentro del área de interes, con la función `plot()` hacemos una visualización previa.
+
+```{r warning=FALSE, message=FALSE , out.width = "100%"}
+st_geometry(vacunas_prov) %>% plot()
+```
+
+Ahora usaremos la librería `leaflet` para generar nuestro mapa web, una ventaja de leaflet es que nos ofrece una variedad de basesmaps y esto dependera de tus propia personalización y claro también de tu subscripción de algunos servicios de ciertas plataformas como HERE entre otros.
+
+Para visualizar todo los basemaps disponibles en leafet usamos la siguiente función
+
+```{r warning=FALSE, message=FALSE}
+# Lista de basemaps disponibles
+providers %>%
+  map_df(as.data.frame,.id = "basemap") %>% 
+  select(basemap) %>% 
+  head()
+```
+
+Para está ocasión usaremos una basemap de tipo satelital y otra de OpenStreetMap
+
+```{r warning=FALSE, message=FALSE ,out.width = "100%"}
+vacunas_prov %>% 
+  leaflet() %>% 
+  addProviderTiles(
+    provider = "OpenStreetMap",
+    group = "OSM"
+    ) %>% 
+  addProviderTiles(
+    provider = "Esri.WorldImagery",
+    group = "Satelital") %>% 
+  addMarkers(
+    clusterOptions = markerClusterOptions()
+    ) %>% 
+  addLayersControl(
+    baseGroups = c("OSM","Satelital"),
+    options = layersControlOptions(collapsed = FALSE)
+    ) %>% 
+  addResetMapButton() %>% 
+  addSearchGoogle()
+```
+
+Finalmente, dependiendo del nivel de programación podrás personalizar a tu gusto y preferencia 😎, esto toma tiempo pero existe una amplia documentación desde lo más básico hasta un nivel avanzando.
+
+## Recuerda
+
+La visualización interactiva de los mapas seguirá siendo un componente fuerte en la ciencia de datos espaciales, ya que el componente espacial y temporal es fundamental para la toma de desiciones y sobbre todo nos permite contextualizar eventos para tener una perspectiva de lo que viene y pude suceder en el territorio.
+
+## Referencias
+
+-   Rstudio, leaflet for R ,2015, <http://rstudio.github.io/leaflet/>
+-   Bert Veenendaal, Maria Antonia Brovelli & Songnian Li, Review of Web Mapping: Eras, Trends and Directions,2017, <https://www.mdpi.com/2220-9964/6/10/317>
