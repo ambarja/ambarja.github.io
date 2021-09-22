@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>qgis on Antony Barja</title>
+    <link>https://ambarja.github.io/categories/qgis/</link>
+    <description>Recent content in qgis on Antony Barja</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-en</language>
+    <lastBuildDate>Fri, 02 Oct 2015 21:49:20 +0200</lastBuildDate><atom:link href="https://ambarja.github.io/categories/qgis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QGIS DEV en GNU/LINUX</title>
+      <link>https://ambarja.github.io/blog/2015/10/02/01_qgis_linux/</link>
+      <pubDate>Fri, 02 Oct 2015 21:49:20 +0200</pubDate>
+      
+      <guid>https://ambarja.github.io/blog/2015/10/02/01_qgis_linux/</guid>
+      <description>Este tipo de publicaciones es lo que más me gusta realizar y compartir con la comunidad, ya que toca dos herramientas claves y fundamentales de mi freewarelife, este es el software de QGIS y una distribución de GNU/Linux, se que para muchos usuarios al escuchar la terminología Linux o GNU/Linux (correcta expresión) causa gran admiración, asombro o en algunas ocasiones algo de temor, ya que este sistema operativo es muy empleado para el desarrollo web, programación , bases de datos , servidores, entre otras temáticas; sin embargo, existe muchísimas distribuciones con características especiales que la diferencias de las demás, quizás más adelante haga otra publicación dando a conocer las distro que existen y cuales son especiales para los usuarios que se dedican al análisis de datos espaciales; sin embargo, en está publicación nos enfocaremos en dos aspectos claves, estos son:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,39 @@
+---
+author: Antony Barja
+banner: https://user-images.githubusercontent.com/23284899/107896412-36826680-6f04-11eb-90d6-a399d1d7eb38.png
+categories:
+- R
+date: "2020-02-16"
+tags:
+- leaflet
+- R 
+title: Creando mapas interactivos en R con Leaflet 
+---
+En las últimas tres décadas el avance tecnológico y la conexión a internet ha tenido grandes impactos en el desarrollo de la evolución de la
+cartografía web,este crecimiento es reciente y tuvo un punto clave en el año 2005,donde el Tsunami en ASI y Huracán Katrina,
+alertaron a la comunidad mundial sobre la importancia de utilizar tecnología cartográfica web para gestionar y responder tales eventos.
+Otro claro ejemplo es la visualización de los casos de coranovirus a nivel mundial desarrollado por la universidad 
+de John Hopkins, finalmente el monitoreo de la cobertura de vacunación por COVID-19 se podrá seguir paso a paso mediante un mapa web implementado
+por diversas instituciones en diferentes países. 
+
+Como puedes notar el empleo de mapas web es muy importante dentro de la toma de decisiones y en este pequeño post vamos a realizar un demo utilizando 
+la librería leaflet dentro de R.
+
+## Requerimientos 
+
+## Demo 
+
+
+
+
+
+
+## Recuerda 
+El mapeo web seguirá siendo un componente fuerte en la ciencia de datos, ya que la ubicación (espacio / tiempo) es una clave 
+fundamental para contextualizar eventos y la visualización seguirá siendo una de las herramientas más sólidas para interpretar y 
+vincular datos, información, conocimiento e inteligencia.
+
+
+
+## Referencias 
+

@@ -1,595 +1,523 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="es-en">
 
-<head>
-
+  <head>
   <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.3.1">
+  
+  <title>R</title>
+  <meta name="author" content="" />
+  
+  
+  
+  
+  <meta name="keywords" content="qgis, R, python, opendronemap, grass, saga">
+  
+  
+  <meta name="description" content="Amplía tu conocimiento usando software libre y de código abierto">
+
+  <meta name="generator" content="Hugo 0.88.1" />
 
   
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
 
   
-  
-  
-  
-  
-    
-    
-    
-  
-  
-
-  <meta name="author" content="Antony Marcos Barja Ingaruca">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   
-  
-  
-    
-  
-  <meta name="description" content="Geographer freelance">
-
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/r/">
-
-  
-
-
-  
+  <link href="/css/animate.css" rel="stylesheet">
 
   
   
-  
-  <meta name="theme-color" content="#2962ff">
-  
-
-  
-  
-  
-  
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
-
-    
-    
-    
-      
-    
-    
-      
-      
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-      
-    
-
-    
-
-    
-
+    <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
   
 
   
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Lato:300,400|Merriweather:400,400italic,700|Roboto+Mono">
-  
+  <link href="/css/custom.css" rel="stylesheet">
 
   
   
-  
-  <link rel="stylesheet" href="/css/academic.min.8115cc315efdf01f818deb17dc90a836.css">
-
-  
-    
-    
-    
-    
-      
-    
-    
-    
-    <link rel="stylesheet" href="/css/academic.8e96bb70aec350441488a8f805784d1d.css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   
 
   
-  
-  
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
 
   
-  <link rel="alternate" href="/tags/r/index.xml" type="application/rss+xml" title="Geographer Freelance">
-  <link rel="feed" href="/tags/r/index.xml" type="application/rss+xml" title="Geographer Freelance">
+  <link href="/css/owl.carousel.css" rel="stylesheet">
+  <link href="/css/owl.theme.css" rel="stylesheet">
+
   
-
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
-  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
-
-  <link rel="canonical" href="/tags/r/">
+  <link rel="alternate" href="https://ambarja.github.io/index.xml" type="application/rss+xml" title="Antony Barja">
 
   
   
   
   
-    
   
-  <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="twitter:site" content="@paleolimbot">
-  <meta property="twitter:creator" content="@paleolimbot">
   
-  <meta property="og:site_name" content="Geographer Freelance">
-  <meta property="og:url" content="/tags/r/">
-  <meta property="og:title" content="R | Geographer Freelance">
-  <meta property="og:description" content="Geographer freelance"><meta property="og:image" content="/img/icon-192.png">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:locale" content="es_en">
+  <meta property="og:site_name" content="Antony Barja">
+  <meta property="og:title" content="R">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ambarja.github.io/tags/r/" />
+  <meta property="og:description" content="Amplía tu conocimiento usando software libre y de código abierto">
+  <meta property="og:image" content="https://ambarja.github.io/img/sharing-default.png">
+  <meta property="og:image:type" content="image/png">
   
-  <meta property="og:updated_time" content="2020-01-19T00:00:00&#43;00:00">
+  
+  
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="420">
+  
+  
+  <meta property="og:updated_time" content="2020-02-16T00:00:00Z">
   
 
   
-
-
+  <meta name="twitter:card" content="summary">
   
-<link rel="shortcut icon" href="/img/icon-192.png"/>
-
-
-  <title>R | Geographer Freelance</title>
+  <meta name="twitter:title" content="R">
+  
+  <meta name="twitter:image" content="https://ambarja.github.io/img/sharing-default.png">
+  
+  <meta name="twitter:description" content="Amplía tu conocimiento usando software libre y de código abierto">
+  
 
 </head>
 
 
-<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <body>
 
-  <aside class="search-results" id="search">
-  <div class="container">
-    <section class="search-header">
+    <div id="all">
 
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
+        <header class="navbar-affixed-top" data-spy="affix" data-offset-top="62">
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">    
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="/">
+                    <img src="/img/logo.png" alt="R logo" class="hidden-xs hidden-sm">
+                    <img src="/img/logo-small.png" alt="R logo" class="visible-xs visible-sm">
+                    <span class="sr-only">R - ir a inicio</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Cambiar Navegación</span>
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/">Inicio</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/blog/">Blog</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/videos/">Videos</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/proyecto/">Proyectos</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/cursos/">Cursos</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/cv/">Cv</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/contact/">Contacto</a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">    
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+                </span>
+                    </div>
+                </form>
+            </div>
+            
         </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div id="search-box">
-        
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
-        
-      </div>
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
-        
-      </div>
-
-    </section>
-  </div>
-</aside>
-
-
-  
-<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
-  <div class="container">
-
-    
-      <a class="navbar-brand" href="/"><img src="/img/icon-192.png" alt="Geographer Freelance"></a>
-      
-      <button type="button" class="navbar-toggler" data-toggle="collapse"
-              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span><i class="fas fa-bars"></i></span>
-      </button>
-      
-
-    
-    <div class="collapse navbar-collapse" id="navbar">
-
-      
-      
-      <ul class="navbar-nav mr-auto">
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/post"><span>Blog</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/project/geografia"><span>Geografía</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/project/geocomputation"><span>Geocomputación</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/project/geomatica"><span>Geomática</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/research/spatial-statistic"><span>Research</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-            
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="https://barja8.github.io/CV/myCV.html" target="_blank" rel="noopener"><span>CV</span></a>
-        </li>
-
-        
-        
-
-        
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Cursos</span><span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://barja8.github.io/CursoQGIS3.X/Sesion001/Slide.html"><span>QGIS</span></a>
-            </li>
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://barja8.github.io/SAGAcourse/Lecci%C3%B3n03_04/slides.html"><span>SAGAGIS</span></a>
-            </li>
-            
-          </ul>
-        </li>
-
-        
-        
-
-      
-      </ul>
-      <ul class="navbar-nav ml-auto">
-      
-
-        
-
-        
-        <li class="nav-item">
-          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-        </li>
-        
-
-        
-
-        
-
-      </ul>
-
     </div>
-  </div>
-</nav>
-
-
-  
+</header>
 
 
 
 
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>R</h1>
+            </div>
+        </div>
+    </div>
+</div>
 
 
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    
 
+                    <div class="col-md-9" id="blog-listing-medium">
 
+                        
+                        
+                        <section class="post">
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <div class="image">
+                                      <a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/">
+                                          
+                                          <img src="https://user-images.githubusercontent.com/23284899/107896412-36826680-6f04-11eb-90d6-a399d1d7eb38.png" class="img-responsive" alt="">
+                                          
+                                      </a>
+                                  </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <h2><a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/">Creando mapas interactivos en R con Leaflet</a></h2>
+                                    <div class="clearfix">
+                                        <p class="author-category">
+                                          
+                                          Por <a href="#">Antony Barja</a>
+                                          
+                                          
+                                          
+                                          in <a href="/categories/r">R</a>
+                                          
+                                          
 
+                                        </p>
+                                        
+                                        <p class="date-comments">
+                                            <a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/"><i class="far fa-calendar"></i> February 16, 2020</a>
+                                        </p>
+                                        
+                                    </div>
+                                    <p class="intro">En los últimos años el avance tecnológico y la conexión a internet ha tenido grandes impactos en todas partes del mundo,asi mismo el incremento de los datos hoy en día juegan un papel importante dentro de la toma de decisiones, ya lo decia el mismo stevan en la primera conferencia de “Big Data” que la materia prima del siglo XXI son los datos,y claro dentro del contexto la geograf{ía no es agena, Gerson Beltran en su ultima conferencia desarollada por Tex, nos dio a conocer una perpesctiva de cual ser{ia el futuro para la geograf{ia dentro de esto contexto, asi mismo hace mencion de la geotécnologico y su importancia, es ajenos ya que todos los eventos y fenómenos ocurren en el mundo ocurren bajo un contexto espacial y temporal, y un claro ejemplo las grandes revoluciones que ha tenido el uso de los mapas, un claro ejemplo tenemos el mapa generado por</p>
+                                    <p class="read-more"><a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/" class="btn btn-template-main">Continuar leyendo</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        
 
+                        <ul class="pager">
+                            
+                            <li class="previous disabled"><a href="#">&larr; Más reciente</a></li>
+                            
 
+                            
+                            <li class="next disabled"><a href="#">Más antiguo &rarr;</a></li>
+                            
+                        </ul>
+                    </div>
+                    
 
-  
+                    
 
-  
-  
-  
-    
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">R</h1>
+                    
 
-  
+                    <div class="col-md-3">
 
-  
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Buscar</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" class="form-control" placeholder="Buscar">
+                <input type="hidden" name="sitesearch" value="https://ambarja.github.io/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
 </div>
 
 
 
-<div class="universal-wrapper">
-  
 
-  
-  
-  <div>
-    <h2><a href="/post/2020/integrando-saga-con-r-para-el-an%C3%A1lisis-de-terreno/">Integrando SAGA con R para el análisis de terreno</a></h2>
-    <div class="article-style">
-      
-      Introducción Es fascinante poder conocer ciertos aspectos del mundo del software libre y de código abierto orientado al análisis de datos espaciales, en está oportunidad quiero mostrarte un pequeño entrenamiento integrando dos softwares super potentes dentro del campo de la geocomputación, el primero es SAGA, el cual es un software de Sistema de Información Geográfica de código abierto y el otro es R, el cual es un lenguaje de programación libre e interpretado y orientado a objetos, este mismo presenta un gran ecosistema de paquetes para una diversidad de ejes temáticos, entre ellas podemos mencionar a la estadística, la estadística espacial, la teledetección, web mapping, machine learning, entre otros.
-      
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Palabras clave</h3>
     </div>
-  </div>
-  
 
-  
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            
+            <li>
+                <a href="/tags/gnu/linux"><i class="fas fa-tags"></i> gnu/linux</a>
+            </li>
+            
+            <li>
+                <a href="/tags/go"><i class="fas fa-tags"></i> go</a>
+            </li>
+            
+            <li>
+                <a href="/tags/golang"><i class="fas fa-tags"></i> golang</a>
+            </li>
+            
+            <li>
+                <a href="/tags/hugo"><i class="fas fa-tags"></i> hugo</a>
+            </li>
+            
+            <li>
+                <a href="/tags/ipsum"><i class="fas fa-tags"></i> ipsum</a>
+            </li>
+            
+            <li>
+                <a href="/tags/leaflet"><i class="fas fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li>
+                <a href="/tags/programming"><i class="fas fa-tags"></i> programming</a>
+            </li>
+            
+            <li>
+                <a href="/tags/qgis"><i class="fas fa-tags"></i> qgis</a>
+            </li>
+            
+            <li class="active">
+                <a href="/tags/r"><i class="fas fa-tags"></i> r</a>
+            </li>
+            
+            <li>
+                <a href="/tags/theme"><i class="fas fa-tags"></i> theme</a>
+            </li>
+            
+        </ul>
+    </div>
 
 </div>
 
-      
 
-    
-    
 
-    
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
 
-      
 
-      
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
-        
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
-        
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
-        
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/yaml.min.js"></script>
-        
-      
 
-      
-      
-    
+                        
 
-    
-    
+                    </div>
+                    
 
-    
-    
-    
+                    
 
-    
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-    
-    <script>
-      const search_index_filename = "/index.json";
-      const i18n = {
-        'placeholder': "Search...",
-        'results': "results found",
-        'no_results': "No results found"
-      };
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
-    </script>
-    
-
-    
-    
-
-    
-    
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
+                </div>
+                
+            </div>
+            
         </div>
-      </div>
-      </div>
-    </script>
-    
+        
 
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-    
+        <footer id="footer">
+    <div class="container">
 
-    
-    
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Acerca de mi</h4>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
-    <script src="/js/academic.min.3394a224b26ce58ff36f44c54743e0ab.js"></script>
+            <p>&#9642 Me gusta viajar️ </p> <p>&#9642 En mis ratos libres escucho música y veo animes</p><p>&#9642 Amo los gatos en especial de color negro</p><p><p>&#9642 Para variar me gusta hacer videos tutoriales </p> <p>&#9642 Activamente apoyo a la comunidad de QGIS</p></p>
 
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+             
+            <h4>Publicaciones recientes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="https://ambarja.github.io/blog/2021/02/08/index.en/">
+                          
+                            <img src="/img/placeholder.png" class="img-responsive" alt="R con SAGA">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://ambarja.github.io/blog/2021/02/08/index.en/">R con SAGA</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/">
+                          
+                            <img src="https://user-images.githubusercontent.com/23284899/107896412-36826680-6f04-11eb-90d6-a399d1d7eb38.png" class="img-responsive" alt="Creando mapas interactivos en R con Leaflet">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/">Creando mapas interactivos en R con Leaflet</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="https://ambarja.github.io/blog/2015/10/02/linked-post/">
+                          
+                            <img src="/img/banners/banner-4.jpg" class="img-responsive" alt="Linked post">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://ambarja.github.io/blog/2015/10/02/linked-post/">Linked post</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contacto</h4>
+
+            <p><strong>Antony Barja</strong><br>antony.barja@qgis.pe<br>Grupo de Usuarios de QGIS Perú<br>Lima<br><strong>Peru</strong></p>
+
+            <a href="/contact" class="btn btn-small btn-template-main">Ir a la página de contacto</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
     
-
-
-
-
-
-
-  
-  <div class="container">
-    <footer class="site-footer">
-  
-  <p class="powered-by">
-    <a href="/privacy/">Privacy Policy</a>
-  </p>
-  
-
-  <p class="powered-by">
-    
-
-    Powered by the
-    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-
-    
-    <span class="float-right" aria-hidden="true">
-      <a href="#" id="back_to_top">
-        <span class="button_icon">
-          <i class="fas fa-chevron-up fa-2x"></i>
-        </span>
-      </a>
-    </span>
-    
-  </p>
 </footer>
 
-  </div>
-  
 
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
-      </div>
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left"></p>
+            
+            <p class="pull-right">
+              Plantilla creada por <a href="https://bootstrapious.com/p/universal-business-e-commerce-template">Bootstrapious</a>.
+              
+
+              Adaptada a Hugo por <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
+            </p>
+        </div>
     </div>
-  </div>
 </div>
 
-</body>
+
+
+
+
+    </div>
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HPW9QJS5F"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-9HPW9QJS5F', { 'anonymize_ip': false });
+}
+</script>
+
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="/js/front.js"></script>
+
+
+<script src="/js/owl.carousel.min.js"></script>
+
+
+
+  </body>
 </html>
