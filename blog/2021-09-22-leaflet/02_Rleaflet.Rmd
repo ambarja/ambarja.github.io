@@ -133,7 +133,7 @@ Para está ocasión emplearemos una basemap de ESRI de tipo satelital y otra de 
 ```{r warning=FALSE, message=FALSE ,out.width = "100%"}
 logo <- tags$div(
    HTML(
-     '<a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/"> <img border="0" alt="ImageTitle" src="https://user-images.githubusercontent.com/23284899/137611650-26ca4b81-0f7b-4dea-afd2-21e1f44204f2.png" width="45" height="50"></a>')
+     '<a href="#"> <img border="0" alt="ImageTitle" src="https://user-images.githubusercontent.com/23284899/137611650-26ca4b81-0f7b-4dea-afd2-21e1f44204f2.png" width="45" height="50"></a>')
  )
 
 popup <- paste0(
