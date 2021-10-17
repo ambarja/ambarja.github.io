@@ -3,13 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ambarja.github.io/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/blog/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/categories/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/tags/leaflet/</loc>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/blog/2021/10/17/02_rleaflet/</loc>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/tags/r/</loc>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/categories/r/</loc>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/tags/</loc>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/tags/webmapping/</loc>
+    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/tags/qgis/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
@@ -19,21 +37,6 @@
   </url><url>
     <loc>https://ambarja.github.io/blog/2021/09/22/01_qgis_linux/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ambarja.github.io/tags/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ambarja.github.io/tags/leaflet/</loc>
-    <lastmod>2020-02-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ambarja.github.io/blog/2020/02/16/02_rleaflet/</loc>
-    <lastmod>2020-02-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ambarja.github.io/tags/r/</loc>
-    <lastmod>2020-02-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ambarja.github.io/categories/r/</loc>
-    <lastmod>2020-02-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/contact/</loc>
   </url><url>

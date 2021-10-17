@@ -1,46 +1,74 @@
 ---
-author: Antony Barja
-banner: https://user-images.githubusercontent.com/23284899/134397890-d637ce41-5eb8-48de-b03f-31255a218b55.png
-categories:
-- R
-date: "2020-02-16"
+title: "Mapas interactivos en Leaflet desde R"
+author: "Antony Barja"
+date: '`r Sys.Date()`'
+categories: R
 tags:
 - leaflet
-- R 
-title: Mapas interactivos en Leaflet desde R 
+- R
+- webmapping
+banner: https://user-images.githubusercontent.com/23284899/137610894-0408d006-1673-485f-88f9-fbf84c1994f1.gif
 ---
 
-<p align='center'>
-  <a> <img src='https://user-images.githubusercontent.com/23284899/134397890-d637ce41-5eb8-48de-b03f-31255a218b55.png' width="100%">
-  </a>
+<p align="center">
+
+<a> <img src="https://user-images.githubusercontent.com/23284899/137609903-4de4e3ce-b3dc-414c-b3e0-a507b42a86f2.png" width="100%"/> </a>
+
 </p>
 
+En las últimas décadas el avance tecnológico y la conexión a internet han tenido grandes impactos en el desarrollo de la evolución de la cartografía web, según **Peng y Tsou** en su libro [*__Distributed Geographic Information Services for the Internet and Wireless Networks__*](https://books.google.com.pe/books?id=sk5UHK-FJM8C), el crecimiento del desarrollo del mapa web estuvo marcado por algunos contextos históricos, **Tsou** mencioná que el Tsunami de asia meridional y Huracán Katrina en el año 2005, alertaron a la comunidad mundial sobre la importancia de utilizar tecnología cartográfica web para gestionar y responder tales eventos, asimismo **Tsou** hace mención sobre 4 etapas importantes dentro del desarrollo del mapas web, la primera estuvo enfocada en la publicación de mapas estáticos en la web, donde el primer mapa web publicado fue PARC Map Viewer en el año 1993 (ver fig.01) (Veenendaal,Brovelli y Li, 2017). 
 
+<figure> 
+ <a href="http://www.inwap.com/inwap/chez/parc-map.html?http://mapweb.parc.xerox.com/map/color=1/db=usa/ht=0.38/lat=37.30/lon=-122.41/mark=37.56,-122.03/river=1/road=0/wd=0.88?368,134">
+ <img src="https://user-images.githubusercontent.com/23284899/136648139-eea89087-1bba-4825-a571-6489af1c5938.png" width="100%"><figcaption><center><i><strong>Fig.01 - Primer mapa web</strong></i></center></figcaption></a>
+</figure>
+<br/>
 
-En las últimas tres décadas el avance tecnológico y la conexión a internet han tenido grandes impactos en el desarrollo de la evolución de la cartografía web, este crecimiento es reciente y tuvo un punto clave en el año 2005,donde el Tsunami en ASI y Huracán Katrina, alertaron a la comunidad mundial sobre la importancia de utilizar tecnología cartográfica web para gestionar y responder tales eventos. Otro claro ejemplo de su importancia podemos ver en el trabajo realizado por la universidad de John Hopkins durante la pandemia donde generarón mapas interáctivos donde se evidenció la evolución de los casos de coranovirus por país, finalmente algunos países están implementado el monitoreo de la cobertura de vacunación por COVID-19 en plataformas webs donde la el núcleo de la visualiación se enfoca en los mapas interactivos.
+El segundo enfoque estuvo orientado en el desarrollo del mapa web estático, la tercera en el mapa web interactivo y por último la distruibución de los servicios GIS, adicionado a este mismo enfoque **Plewe** (2007) hace mención a 5 etapas, donde el primer enfoque estuvo orientado a lo estático, la segunda a lo dinámico, la tercera a lo interactivo, el cuarto a los globos virtuales y finalmente el quinto a la computación en la nube y RIAs (desarrollo de widgets), existen diferentes conceptos relacionados al tema; sin embargo, lo que queda claro es que el desarrollo del mapa web creció gracias a la conexión a internet, y hoy en día existen muchísimos datos geolocalizados disponibles y capturados diariamente en línea y son usadas en aplicaciones web de uso diario, un claro ejemplo es Google Maps, Pokemon Go, instasights, entre otros.
 
-Como puedes notar el empleo de los mapas web es muy importante dentro de la toma de decisiones y en este pequeño post vamos a realizar un demo utilizando la librería leaflet, una librería de JavaScript especializada en el desarrollo de mapas webs, pero dentro de R con el paquete leaflet y derivados.
+<figure> 
+ <a href="https://pokemongolive.com/es/">
+ <img src="https://user-images.githubusercontent.com/23284899/137611067-21b89850-3d82-4365-bf95-aa0e6b165934.png" width="100%"><figcaption><center><i><strong>Fig.02 - Pokemon go & instasights</strong></i></center></figcaption></a>
+</figure>
+
+<br/>
+
+Finalmente,tomando el enfoque de **Tsou**, otro contexto que quedará para la historía y que se evidenció la importancia de los mapas web o la geolocalización, la pudimos envidenciar durante el contexto de la pandemia, donde el trabajo realizado por la [__Universidad de John Hopkins__](https://coronavirus.jhu.edu/map.html) mostró la evolución de los casos de coranovirus por país, este en su momento fue una herramienta de gran ayuda para la toma de desiciones, incluso algunas instituciones hoy en día siguen este modelo para implementar nuevas visualizaciones que muestren el avance de la cobertura de la vacunación contra el COVID-19, donde el núcleo de la visualización se enfoca en los mapas interactivos.
+
+<figure> 
+ <a href="https://coronavirus.jhu.edu/map.html">
+ <img src="https://user-images.githubusercontent.com/23284899/136647791-630aeade-f652-4360-b970-498fc9c36458.png" width="100%"><figcaption><center><i><strong>Fig.02 - COVID-19 Dashboard</strong></i></center></figcaption></a>
+</figure>
+<br/>
+
+Si bien los primeros productos cartográficos en la web fueron herramientas simples que permitían de manera limitada a los usuarios la navegación, manejar el zoom, activación y desactivación de capas, hoy en día estos tienen una gama de funcionalidades incluido algunas funcionalidad de los SIG de escritorios, expandiendose más alla para incorporar requisitos de de aplicaciones cada vez mayor con la ventaja de compartir y analizar datos en la web.
+
+Como puedes notar el empleo de los mapas web es muy importante dentro de la toma de decisiones, existen muchísimos softwares para el desarrollo de mapas webs entre ellas podemos mencionar dentro del frontend a lenguaje de HTML, CSS, o los lenguajes de programación como Java Script, Python o R, algunos frameworks de css como Bootstrap o Bulma,y dentro del backend tenemos a PostgreSQL, Django, Flask entre otros; sin embargo, en este pequeño post vamos a realizar un mapa web utilizando la librería leaflet, una librería de JavaScript especializada en el desarrollo de mapa web, pero dentro del software R con el paquete leaflet y derivados.
 
 ## Requerimientos
 
-Para este pequeño post vamos instalar los paquetes de `tidyverse` (paquete para ciencia de datos) ,`sf` (paquete para manejar datos espaciales de tipo vector), `leaflet` (paquete para generar mapas webs),`leaflet.extras` (plugins para leaflet) y `cptcity` (paleta de colores igual que qgis).
+#### Para este pequeño post vamos instalar los paquetes de: 
+
+ - `tidyverse` (paquete para ciencia de datos)
+ - `sf` (paquete para manejar datos espaciales de tipo vector)
+ - `leaflet` (paquete para generar mapas webs)
+ - `leaflet.extras` (plugins para leaflet)
+ - `cptcity` (paleta de colores).
 
 ```{r klippy, echo=FALSE, include=TRUE}
 klippy::klippy(position = c("top", "right"), color = "#1739D1")
 ```
 
+#### 1. Instalación de paquetes: 
 ```{r message=FALSE,warning=FALSE, eval=FALSE, class.source='klippy'}
 pkgs <- c(
-  "tidyverse", "sf", "leaflet",
-  "leaflet.extras", "cptcity")
+  "tidyverse", "sf", "leaflet","htmltools"
+  "htmlwidgets","leaflet.extras", "cptcity",)
 
 install.packages(pkgs,dependencies = TRUE)
-
 ```
 
-## Demo
-
-Llamado o activación de paquetes:
+#### 2. Llamado o activación de paquetes:
 
 ```{r eval=TRUE,message=FALSE,warning=FALSE}
 library(tidyverse)
@@ -48,59 +76,67 @@ library(leaflet)
 library(leaflet.extras)
 library(sf)
 library(cptcity)
+library(htmlwidgets)
+library(htmltools)
 ```
 
-Para está ocación vamos a leer los datos disponibles en el portal de datos abiertos del MINSA donde seleccionaremos los centros de vacunación para la provincia de Lima metropolitana.
+#### 3. Lectura de datos desde el portal de datos abiertos en un objeto sf
+
+Para está ocación vamos a leer los datos disponibles del portal de datos abiertos del MINSA donde seleccionaremos los centros de vacunación disponibles para la provincia de Lima metropolitana.
 
 ```{r warning=FALSE,message=FALSE}
-# Lectura de datos del portal de datos abiertos en un objeto sf
 vacunas_geo <- read_csv("https://www.datosabiertos.gob.pe/node/8298/download") %>% 
   st_as_sf(coords = c("longitud","latitud"),crs = 4326) %>% 
   mutate(id = row_number())
 
 ```
 
+#### 4. Lectura de los límites provinciales de la región de interés
+
 ```{r warning=FALSE, message=FALSE}
-# Lectura de los límites provinciales de la región de interés
 lima_prov <- st_read("https://github.com/ambarja/gpkg-pe/raw/main/Lima_provincia.gpkg")
 
 ```
 
+#### 5. Centros de vacunación dentro del área de interés
+
 ```{r warning=FALSE, message=FALSE}
-# Centros de vacunación dentro del área de interés
 lista_id <- st_contains(lima_prov,vacunas_geo) %>% unlist()
 vacunas_prov <- vacunas_geo %>% 
   filter(id %in% lista_id)
 
 ```
 
-Para verificar los puntos dentro del área de interes, con la función `plot()` hacemos una visualización previa.
+#### 6. Para verificar los puntos dentro del área de interes, con la función `plot()` hacemos una visualización previa.
 
 ```{r warning=FALSE, message=FALSE , out.width = "100%"}
 st_geometry(vacunas_prov) %>% plot()
 ```
 
-Ahora usaremos la librería `leaflet` para generar nuestro mapa web, una ventaja de leaflet es que nos ofrece una variedad de basemap y esto dependera de tus propia personalización y claro también de tu subscripción de algunos servicios de ciertas plataformas como HERE entre otros.
-
-Para visualizar todo los basemap disponibles en leafet usamos la siguiente función
+#### 7. Para visualizar todo los basemap disponibles en leafet usamos la siguiente función.
 
 ```{r warning=FALSE, message=FALSE}
-# Lista de basemaps disponibles
 providers %>%
   map_df(as.data.frame,.id = "basemap") %>% 
   select(basemap) %>% 
   head()
 ```
 
-Para está ocasión usaremos una basemap de tipo satelital y otra de OpenStreetMap
+*Observación: Una ventaja de leaflet es que nos ofrece una variedad de basemap y esto dependera de tus propia personalización y claro también de tu subscripción de algunos servicios de ciertas plataformas como HERE entre otros.*
+
+#### 8. Para está ocasión emplearemos una basemap de ESRI de tipo satelital y otra de OpenStreetMap
 
 ```{r warning=FALSE, message=FALSE ,out.width = "100%"}
+logo <- tags$div(
+   HTML(
+     '<a href="https://ambarja.github.io/blog/2020/02/16/02_rleaflet/"> <img border="0" alt="ImageTitle" src="https://user-images.githubusercontent.com/23284899/137611650-26ca4b81-0f7b-4dea-afd2-21e1f44204f2.png" width="45" height="50"></a>')
+ )
+
 vacunas_prov %>% 
   leaflet() %>% 
   addProviderTiles(
     provider = "OpenStreetMap",
-    group = "OSM"
-    ) %>% 
+    group = "OSM") %>% 
   addProviderTiles(
     provider = "Esri.WorldImagery",
     group = "Satelital") %>% 
@@ -111,15 +147,20 @@ vacunas_prov %>%
     baseGroups = c("OSM","Satelital"),
     options = layersControlOptions(collapsed = FALSE)
     ) %>% 
+  setView(lng =-77.02, lat =-12.03, zoom = 11) %>%
+  addHeatmap(radius = 6) %>% 
+  addSearchGoogle() %>% 
+  addMiniMap(width = 120,height = 120) %>% 
+  addControlGPS() %>% 
   addResetMapButton() %>% 
-  addSearchGoogle()
+  addControl(logo, position = "bottomleft") 
 ```
-
+<br/>
 Finalmente, dependiendo del nivel de programación podrás personalizar a tu gusto y preferencia 😎, esto toma tiempo pero existe una amplia documentación desde lo más básico hasta un nivel avanzando.
 
 ## Recuerda
 
-La visualización interactiva de los mapas seguirá siendo un componente fuerte en la ciencia de datos espaciales, ya que el componente espacial y temporal es fundamental para la toma de desiciones y sobbre todo nos permite contextualizar eventos para tener una perspectiva de lo que viene y pude suceder en el territorio.
+La visualización interactiva de los mapas seguirá siendo un componente fuerte en la ciencia de datos espaciales, ya que el componente espacial y temporal es fundamental para la toma de desiciones y sobbre todo nos permite contextualizar eventos para tener una perspectiva de lo que viene y pude suceder en el territorio, y estos enfoques hoy en día tienen un mayor peso dentro de la neogeografía.
 
 ## Referencias
 
