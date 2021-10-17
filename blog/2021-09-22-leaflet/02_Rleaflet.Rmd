@@ -64,7 +64,7 @@ klippy::klippy(position = c("top", "right"), color = "#1739D1")
 
 ```{r message=FALSE,warning=FALSE, eval=FALSE, class.source='klippy'}
 pkgs <- c(
-  "tidyverse", "sf", "leaflet","htmltools"
+  "tidyverse", "sf", "leaflet","htmltools",
   "htmlwidgets","leaflet.extras", "cptcity")
 
 install.packages(pkgs,dependencies = TRUE)
