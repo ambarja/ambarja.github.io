@@ -47,6 +47,8 @@ Como puedes notar el empleo de los mapas web es muy importante dentro de la toma
 
 ## Requerimientos
 
+🕵️‍♀🕵️‍♂️️ **Todo los procesos fueron trabajados con la versión `4.0.4` de `R` dentro del sistema operativo `PopOs`.**
+
 #### 1. Instalación de paquetes
 
  - `tidyverse` (paquete para ciencia de datos)
