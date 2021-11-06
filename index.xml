@@ -54,5 +54,23 @@ Recuerda que aprender software libre de código abierto amplia tus conocimientos
 1. WHAT TO DO IF I HAVE STILL NOT RECEIVED THE ORDER? Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
     </item>
     
+    <item>
+      <title>Proyectos personales</title>
+      <link>https://ambarja.github.io/proyectos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ambarja.github.io/proyectos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Videos</title>
+      <link>https://ambarja.github.io/videos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ambarja.github.io/videos/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
