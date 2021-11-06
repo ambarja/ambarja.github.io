@@ -7,7 +7,7 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>Contact</title>
+  <title>Contacto</title>
   <meta name="author" content="" />
   
   
@@ -66,7 +66,7 @@
   
   <meta property="og:locale" content="es_en">
   <meta property="og:site_name" content="Antony Barja">
-  <meta property="og:title" content="Contact">
+  <meta property="og:title" content="Contacto">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ambarja.github.io/contact/" />
   <meta property="og:description" content="Amplía tu conocimiento usando software libre de código abierto">
@@ -85,7 +85,7 @@
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="Contact">
+  <meta name="twitter:title" content="Contacto">
   
   <meta name="twitter:image" content="https://ambarja.github.io/img/sharing-default.png">
   
@@ -104,9 +104,9 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand home" href="/">
-                    <img src="/img/logo.png" alt="Contact logo" class="hidden-xs hidden-sm">
-                    <img src="/img/logo-small.png" alt="Contact logo" class="visible-xs visible-sm">
-                    <span class="sr-only">Contact - ir a inicio</span>
+                    <img src="/img/logo.png" alt="Contacto logo" class="hidden-xs hidden-sm">
+                    <img src="/img/logo-small.png" alt="Contacto logo" class="visible-xs visible-sm">
+                    <span class="sr-only">Contacto - ir a inicio</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -196,7 +196,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Contact</h1>
+                <h1>Contacto</h1>
             </div>
         </div>
     </div>
@@ -213,10 +213,48 @@
 
             <section>
 
-                <h1 id="we-are-here-to-help-you">We are here to help you</h1>
-<p>Are you curious about something? Do you have some kind of problem with our products? As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built gay party world. Of so am he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity.</p>
-<p>Please feel free to contact us, our customer service center is working for you 24/7.</p>
+                <h1 id="ponte-en-contacto-conmigo-">Ponte en contacto conmigo 🧙‍♂️</h1>
+<p>¿Te interesa mucho el software libre de código abierto aplicado al aspecto espacial 🌎? ¿No sabes por dónde empezar 👀? ¿Deseas algún tipo de asesoría o quieres trabajar un proyecto junto conmigo?
+Por favor, sientete libre de escribirme un correo por el formulario adjuntando el asunto, estoy seguro que me pondré en contacto a penas revise tu mensaje.</p>
+<p>Recuerda que aprender software libre de código abierto amplia tus conocimientos🚀.</p>
 
+
+                
+
+                <div class="heading">
+                  <h3>Formulario de contacto</h3>
+                </div>
+
+                <div id="contact-message"></div>
+
+                <form  method="post" action="https://formspree.io/sample/of/endpoint">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="name">Tu Nombre</label>
+                                <input type="text" class="form-control" name="name" id="name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">Tu Email</label>
+                                <input type="text" class="form-control" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                              <label for="message">Tu Mensaje</label>
+                                <textarea id="message" class="form-control" name="message" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 text-center">
+                          <button type="submit" class="btn btn-template-main"><i class="far fa-envelope"></i>Enviar mensaje</button>
+
+                        </div>
+                    </div>
+                    
+                </form>
 
                 
 
@@ -243,6 +281,20 @@
     
 </div>
 
+
+  
+    
+        <div class="hidden">
+          <input id="gmap-lat" value="-11.8429699" />
+          <input id="gmap-lng" value="-77.1009" />
+          <input id="gmap-marker" value="/img/marker.png" />
+          
+            <input id="gmap-dir" value="Ovalo de zapallal - Puente Piedra" />
+          
+        </div>
+        <div id="map" />
+    
+  
 
 
 
@@ -375,6 +427,12 @@ if (!doNotTrack) {
 <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyA89Xdukiwwm5CEo53T8dxBhi-9Qk8pMAA&v=3.exp"></script>
+
+<script src="/js/hpneo.gmaps.js"></script>
+<script src="/js/gmaps.init.js"></script>
 
 <script src="/js/front.js"></script>
 
