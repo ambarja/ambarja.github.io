@@ -1,0 +1,45 @@
+---
+title: Developer survey en StackOverflow y su relación con los GIS, teledetección
+  o datos espaciales
+author: Antony Barja
+date: '2022-01-12'
+slug: []
+categories: []
+tags: [stackoverflow]
+banner: https://user-images.githubusercontent.com/23284899/149263086-9c82c54d-20b1-4fdf-8bbc-0784c70bb3e9.png
+---
+
+<center><a href="#"><img src="https://user-images.githubusercontent.com/23284899/149268795-2397e191-5346-49bf-8914-dce9b6280280.png" width="100%"></a></center>
+<br>
+<p align='center'>
+  <a href="https://www.linkedin.com/in/antonybarja/">
+   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> <a href="https://twitter.com/antony_barja"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"></a> <a href="#"><img src="https://img.shields.io/badge/WebSite-%2312100E.svg?&style=for-the-badge&logo=github&logoColor=white"></a>  <a href="https://www.youtube.com/channel/UCuWvYTTYCZBmbDoEbsY2MSw"><img src="https://img.shields.io/badge/youtube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white"></a> <a href="https://discord.gg/R5YtFxWbJr"><img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a> <a href="https://t.me/ambarja"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a> <a href="https://open.spotify.com/user/22appgn3ficnkwjuv667mawzq?si=730bda6f1cf04f0a"><img src="https://img.shields.io/badge/Spotify-1ED760?&style=for-the-badge&logo=spotify&logoColor=white"></a><br> <a href="https://ko-fi.com/ambarja"><img src="https://img.shields.io/badge/Buy_me_a_coffee-5d83f5?style=for-the-badge&logo=ko-fi&logoColor=white&__cf_chl_managed_tk__=pmd_sOkOcrsQ4T6MRVPX2TeB_mbk2ZryAIn3rNigWIBBC6U-1633993526-0-gqNtZGzNAyWjcnBszQkl" width="218px"></a>
+</p>
+
+En estos días de la semana,  estuve explorando por internet los últimos resultados del año pasado (2021) de las encuestas realizadas por [**Stack OverFlow**]() a más de 80 000 developers (especialista en desarrollar software o aplicaciones), en esta encuesta se realizaron diversas preguntas, entre ellas saber más sobre las tecnologías que usan, ¿Cómo aprenden?,¿Cómo subir de nivel?, herramientas favoritas, genero, entre otras. Existen muchos resultados realmente sorprendentes, quizás de todas estás, la que se esperaba era el dominio de **JavaScript** por novena vez,y claro muchos desarrolladores siguen trabajando con este potente lenguaje de programación, al igual que **Git**, sin embargo, **Docker** y **Kubernetes** están tomando posición como una herramienta más requerida y buscada, ojo a ello.
+
+<center>
+ <a href="#">
+ <img src="https://raw.githubusercontent.com/ambarja/StatsStackoverflowDB/main/p2.png" width="70%">
+ </a>
+</center>
+<br>
+Y quizás después de haber leído esto te preguntarás ¿ Y esto que tiene que ver con la geografía o con los Sistemas de Información Geográfica, Teledetección o datos espaciales? Pues la respuesta es que los lenguajes de programación hoy en día están muy asociados a ellos, y claro existen developers enfocados al desarrollo de tecnologías espaciales, ya sea desde la creación de piezas de software, aplicaciones, automatizaciones o análisis.
+
+Quizás aquí si vendría bien mencionar a **Python** , **Js** y **R** como lenguajes preferidos por muchos para realizar aplicaciones y análisis espacial; sin embargo, vendría bien mencionar a **Julia** y **Go** como nuevos lenguajes de programación que recientemente está tomando un camino hacia el manejo de datos espaciales.
+
+<div align="center">
+  <img src="https://leafmap.org/data/leafmap_demo.gif" width = "53%" align ="left">
+  <img src="https://user-images.githubusercontent.com/16768318/77121867-203e0300-6a34-11ea-97ba-6bed74ef4300.gif" width="47%" align="rigth">
+</div>
+<br>
+Y claro si mencionamos a **Docker** o **Kubernetes**, quizás te sorprendas o no, pero ya existe más de 100 imágenes de docker enfocado al lado espacial, entre ellas está **QGIS**, **GRASS**, **PostGIS**, entre otros, sino no los conoces puedes explorarlo aquí está [**lista**](https://wiki.osgeo.org/wiki/DockerImages) o **DockerHub**.
+
+<center><a href="#"><img src="https://user-images.githubusercontent.com/23284899/149267792-c27c5cbd-bd96-4075-a383-17f6371e4e73.png" width="50%"></a></center>
+
+Para terminar este pequeño post, está encuesta realizada por **Stack Overflow** es clave para ir apuntando y explorando las herramientas y tecnologías que están dominando al mundo, estoy muy seguro que encontrarás muchas de ellas aplicados a lado espacial, la geocomputación o la geografía computacional, ya que recuerda que todo fenómeno o hecho ocurre bajo un contexto espacial y temporal.
+
+### Referencia: 
+
+  - *https://insights.stackoverflow.com/survey/2021*
+  
