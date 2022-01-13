@@ -6,16 +6,7 @@
     <description>Recent content on Antony Barja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-en</language>
-    <lastBuildDate>Wed, 12 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ambarja.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Developer survey en StackOverflow y su relación con los GIS, teledetección o datos espaciales</title>
-      <link>https://ambarja.github.io/blog/2022/01/12/2022-01-12-developer-survey-en-stackoverflow-y-su-relaci-n-con-los-gis-teledetecci-n-o-datos-espaciales/</link>
-      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://ambarja.github.io/blog/2022/01/12/2022-01-12-developer-survey-en-stackoverflow-y-su-relaci-n-con-los-gis-teledetecci-n-o-datos-espaciales/</guid>
-      <description>En estos días de la semana, estuve explorando por internet los últimos resultados del año pasado (2021) de las encuestas realizadas por Stack OverFlow a más de 80 000 developers (especialista en desarrollar software o aplicaciones), en esta encuesta se realizaron diversas preguntas, entre ellas saber más sobre las tecnologías que usan, ¿Cómo aprenden?,¿Cómo subir de nivel?, herramientas favoritas, genero, entre otras.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ambarja.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mapas interactivos en Leaflet desde R</title>
       <link>https://ambarja.github.io/blog/2021/10/17/02_rleaflet/</link>
