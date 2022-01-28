@@ -131,7 +131,7 @@ image(matrix(1:100),col = cpt(pal = "grass_bcyr"),axes = FALSE)
 <p align="center"><i>Fig 10: Paleta de color grass_bcyr dentro de R </i></p>
 <br>
 
-Está misma paleta la podemos usar integrando los paquetes de `ggplot2` o `leaflet` para poder optener los mismos resultados de qgis, esto se desmuestra las siguientes secciones de código.
+Está misma paleta la podemos usar integrando los paquetes de `ggplot2` o `leaflet` para poder optener los mismos resultados de qgis, esto se desmuestra en las siguientes secciones de código.
 
 ```{r  class.source='klippy',message=FALSE,warning=FALSE,out.width = "100%"}
 library(ggplot2)
