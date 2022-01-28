@@ -20,7 +20,7 @@ banner: https://user-images.githubusercontent.com/23284899/149689938-0c19d886-be
 </p>
 
 
-En nuestro día a día la selección de colores al momento de generar productos cartográficos como los mapas coropléticos , isopléticos, cartogramas entre otros; es considerado una de las etapas más importante y decisivas al momento de representar nuestros mapas con algun tipo de información, ya sea estadístico o no.
+En nuestro día a día la selección de colores al momento de generar productos cartográficos como los mapas coropléticos, isopléticos, cartogramas entre otros; es considerado una de las etapas más importante y decisivas al momento de representar nuestros mapas con algun tipo de información, ya sea estadístico o no.
 
 Dentro de la teoría colores existe la psicología del color, y claro existen muchas teorías, algunas de ellas resalta su significado de acuerdo a los enfoques culturales, valores, educación; pero lo que queda claro, es que los colores nos transmiten sensaciones completamente diferentes, y esto está en función a la experiencia personal y el lugar donde vivimos.
 
@@ -43,9 +43,9 @@ De forma global podemos decir que existen 3 tipos de paletas de colores, entre e
 <center><img src="https://user-images.githubusercontent.com/23284899/149703790-1ef20b71-0e0d-424f-a391-e6cb3d568b91.png"></center>
 <p align="center"><i>Fig 3: Paleta de color de tipo Blue - Red </i></p>
 
-Teniendo estos conceptos vistos previamente, ahora es momento de trabajar dentro de QGIS y R. **¿Sabías que todos estos tipos de paletas que acabo de describirte la encuentras dentro de QGIS 🤔?** **y claro esa misma diversidad de colores están disponible dentro de R**, bueno si no lo sabías, ahora lo sabes, y llegó el momento de enseñarte como encontrar está rampa de color y como usarlo dentro de QGIS como asi también dentro de R.
+Teniendo estos conceptos vistos previamente, ahora es momento de trabajar dentro de QGIS y R. **¿Sabías que todos estos tipos de paletas que acabo de describirte la encuentras dentro de QGIS 🤔?** **y claro esa misma diversidad de colores están disponible dentro de** **R**, bueno si no lo sabías, ahora lo sabes, y llegó el momento de enseñarte como encontrar está rampa de color y como usarlo dentro de QGIS como asi también dentro de R.
 
-Dentro de QGIS podrás encontrar una diversidad de paletas de colores disponibles, incluso tu mismo puedes generar tus propias paletas, pero aquí te hago conocer las más populares, entre ella tenemos a [ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) y [cptcity](http://soliton.vm.bytemark.co.uk/pub/cpt-city/).
+Dentro de QGIS podrás encontrar una diversidad de paletas de colores disponibles, incluso tu mismo puedes generar tus propias paletas, pero aquí te hago conocer las más populares, entre ella tenemos a [ColorBrewer (un total de 35 )](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) y [cptcity (un total de 590)](http://soliton.vm.bytemark.co.uk/pub/cpt-city/).
 
 <center><img src="https://user-images.githubusercontent.com/23284899/151547150-3f2183a8-9a7d-446c-8e2a-7933aa116ba5.png" width="100%"></center>
 <br>
@@ -96,7 +96,7 @@ klippy::klippy(position = c("top", "right"), color = "#1739D1")
 install.packages("cptcity")
 ```
 
-Para identificar las rampas de colores de cptcity disponibles dentro de R , empleamos un texto clave dentro de la función `find_cpt`.
+Para identificar las rampas de colores de cptcity disponibles dentro de R, empleamos un texto clave dentro de la función `find_cpt`.
 
 ```{r class.source='klippy'}
 # Paleta de colores de Grass 
