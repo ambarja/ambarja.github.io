@@ -18,28 +18,28 @@
     
     <item>
       <title>Developer survey en StackOverflow y su relación con los GIS, teledetección o datos espaciales</title>
-      <link>https://ambarja.github.io/blog/2022/01/12/2022-01-12-developer-survey-en-stackoverflow/</link>
+      <link>https://ambarja.github.io/blog/2022/01/12/developer-survey-en-stackoverflow/</link>
       <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ambarja.github.io/blog/2022/01/12/2022-01-12-developer-survey-en-stackoverflow/</guid>
+      <guid>https://ambarja.github.io/blog/2022/01/12/developer-survey-en-stackoverflow/</guid>
       <description>En estos días de la semana, estuve explorando por internet los últimos resultados del año pasado (2021) de las encuestas realizadas por Stack OverFlow a más de 80 000 developers (especialista en desarrollar software o aplicaciones), en esta encuesta se realizaron diversas preguntas, entre ellas saber más sobre las tecnologías que usan, ¿Cómo aprenden?,¿Cómo subir de nivel?</description>
     </item>
     
     <item>
       <title>Mapas interactivos en Leaflet desde R</title>
-      <link>https://ambarja.github.io/blog/2021/10/17/02_rleaflet/</link>
-      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      <link>https://ambarja.github.io/blog/2021/09/22/02_rleaflet/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://ambarja.github.io/blog/2021/10/17/02_rleaflet/</guid>
+      <guid>https://ambarja.github.io/blog/2021/09/22/02_rleaflet/</guid>
       <description>En las últimas décadas el avance tecnológico y la conexión a internet han tenido grandes impactos en el desarrollo de la evolución de la cartografía web, según Peng y Tsou en su libro Distributed Geographic Information Services for the Internet and Wireless Networks, el crecimiento del desarrollo del mapa web estuvo marcado por algunos contextos históricos.</description>
     </item>
     
     <item>
       <title>QGIS DEV en GNU/LINUX</title>
-      <link>https://ambarja.github.io/blog/2021/09/22/01_qgis_linux/</link>
-      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      <link>https://ambarja.github.io/blog/2020/10/09/01_qgis_linux/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ambarja.github.io/blog/2021/09/22/01_qgis_linux/</guid>
+      <guid>https://ambarja.github.io/blog/2020/10/09/01_qgis_linux/</guid>
       <description>Este tipo de publicaciones es lo que más me gusta realizar y compartir con la comunidad, ya que toca dos herramientas claves y fundamentales de mi freewarelife, este es el software de QGIS y una distribución de GNU/Linux, se que para muchos usuarios al escuchar la terminología Linux o GNU/Linux (correcta expresión) causa gran admiración, asombro o en algunas ocasiones algo de temor, ya que este sistema operativo es muy empleado por los programadores orientados al desarrollo web, bases de datos,servidores, entre otras temáticas; sin embargo, existe muchísimas distribuciones con características especiales que la diferencias de las demás, quizás más adelante haga otra publicación dando a conocer las distro que existen y cuales son especiales para los usuarios que se dedican al análisis de datos espaciales; sin embargo, en está publicación nos enfocaremos en dos aspectos claves, estos son:</description>
     </item>
     

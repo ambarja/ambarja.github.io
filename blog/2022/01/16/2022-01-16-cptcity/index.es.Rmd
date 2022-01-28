@@ -121,9 +121,11 @@ Para nuestro interés vamos a trabajar con los distritos pertencientes a Lima Me
 <p align="center"><i>Fig 9: Mapa coroplético con la paleta grass/bcyr </i></p>
 <br>
 
-Para trabajar estos mismos resultados dentro de R, debemos identificar el nombre de la rampa de color, en este caso usamos `grass/bcyr`, este mismo estará dentro de R pero de la siguiente forma `grass_bcyr`, como podrás notar, el **slash (/)** fue cambiado por un __guión abajo__ (_), y este mismo patrón sucede para las demás paletas, para visualizar dentro de R usando la siguiente combinación de funciones.
+Para trabajar estos mismos resultados dentro de R, debemos identificar el nombre de la rampa de color, en este caso usamos `grass/bcyr`, este mismo estará dentro de R pero de la siguiente forma `grass_bcyr`, como podrás notar, el **slash (/)** fue cambiado por un __guión abajo__ (_), y este mismo patrón sucede para las demás paletas.
 
-```{r class.source='klippy', fig.width=5,fig.height=2.1,fig.align='center'}
+Para visualizar las paletas identificadas dentro de R usando la siguiente combinación de funciones.
+
+```{r class.source='klippy', fig.width=5,fig.height=2.1,fig.align='center',out.width = "100%"}
 image(matrix(1:100),col = cpt(pal = "grass_bcyr"),axes = FALSE)
 ```
 <p align="center"><i>Fig 10: Paleta de color grass_bcyr dentro de R </i></p>

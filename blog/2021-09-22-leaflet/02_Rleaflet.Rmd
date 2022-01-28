@@ -1,7 +1,7 @@
 ---
 title: "Mapas interactivos en Leaflet desde R"
 author: "Antony Barja"
-date: '`r Sys.Date()`'
+date: '2021-09-22'
 categories: R
 tags:
 - leaflet

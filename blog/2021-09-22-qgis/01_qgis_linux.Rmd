@@ -3,7 +3,7 @@ author: Antony Barja
 banner: https://user-images.githubusercontent.com/23284899/107896412-36826680-6f04-11eb-90d6-a399d1d7eb38.png
 categories:
 - qgis
-date: "`r Sys.Date()`"
+date: "2020-10-09"
 tags:
 - GNU/LINUX
 - qgis
