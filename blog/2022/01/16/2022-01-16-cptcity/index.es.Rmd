@@ -1,0 +1,184 @@
+---
+title: Paleta de colores de QGIS en R
+author: Antony Barja
+date: '2022-01-16'
+slug: []
+categories:
+  - qgis
+  - R
+tags:
+  - R
+  - qgis
+  - colores
+banner: https://user-images.githubusercontent.com/23284899/149689938-0c19d886-be75-4966-8b16-e2c204861c7f.gif
+---
+<center><a href="#"><img src="https://i.imgur.com/4v9WMQv.gif" width="100%"></a></center>
+<br>
+<p align='center'>
+  <a href="https://www.linkedin.com/in/antonybarja/">
+   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> <a href="https://twitter.com/antony_barja"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"></a> <a href="#"><img src="https://img.shields.io/badge/WebSite-%2312100E.svg?&style=for-the-badge&logo=github&logoColor=white"></a>  <a href="https://www.youtube.com/channel/UCuWvYTTYCZBmbDoEbsY2MSw"><img src="https://img.shields.io/badge/youtube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white"></a> <a href="https://discord.gg/R5YtFxWbJr"><img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a> <a href="https://t.me/ambarja"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a> <a href="https://open.spotify.com/user/22appgn3ficnkwjuv667mawzq?si=730bda6f1cf04f0a"><img src="https://img.shields.io/badge/Spotify-1ED760?&style=for-the-badge&logo=spotify&logoColor=white"></a><br> <a href="https://ko-fi.com/ambarja"><img src="https://img.shields.io/badge/Buy_me_a_coffee-5d83f5?style=for-the-badge&logo=ko-fi&logoColor=white&__cf_chl_managed_tk__=pmd_sOkOcrsQ4T6MRVPX2TeB_mbk2ZryAIn3rNigWIBBC6U-1633993526-0-gqNtZGzNAyWjcnBszQkl" width="218px"></a>
+</p>
+
+
+En nuestro día a día la selección de colores al momento de generar productos cartográficos como los mapas coropléticos , isopléticos, cartogramas entre otros; es considerado una de las etapas más importante y decisivas al momento de representar nuestros mapas con algun tipo de información, ya sea estadístico o no.
+
+Dentro de la teoría colores existe la psicología del color, y claro existen muchas teorías, algunas de ellas resalta su significado de acuerdo a los enfoques culturales, valores, educación; pero lo que queda claro, es que los colores nos transmiten sensaciones completamente diferentes, y esto está en función a la experiencia personal y el lugar donde vivimos.
+
+Es importante tener en cuenta estos detalles, ya que la teoría de color está presente en el marketing, publicidad y el diseño, y quizás todo ello está muy relacionado con las publicación de nuestros mapas.
+
+De forma global podemos decir que existen 3 tipos de paletas de colores, entre ellas tenemos a los : 
+ 
+**1. Cualitativos:** Diseñado para codificar información categórica, es decir, cuando no se dispone de un orden particular de categorías y cada color debe recibir el mismo peso perceptivo.  
+
+<center><img src="https://user-images.githubusercontent.com/23284899/149703762-6f3a7d6a-043d-471c-bfad-8da75998e8aa.png"></center>
+<p align="center"><i>Fig 1: Paleta de color de tipo pastel </i></p>
+
+**2. Secuenciales:** Diseñado para codificar información ordenada/numérica, es decir, donde los colores van de mayor a menor (o viceversa).
+
+<center><img src="https://user-images.githubusercontent.com/23284899/149703984-118ddef3-ba9a-4614-8625-9f68d9cca512.png"></center>
+<p align="center"><i>Fig 2: Paleta de color de tipo viridis </i></p>
+
+**3. Divergentes:** Diseñado para codificar información ordenada/numérica en torno a un valor central neutro, es decir, donde los colores divergen de lo neutro a dos extremos.
+
+<center><img src="https://user-images.githubusercontent.com/23284899/149703790-1ef20b71-0e0d-424f-a391-e6cb3d568b91.png"></center>
+<p align="center"><i>Fig 3: Paleta de color de tipo Blue - Red </i></p>
+
+Teniendo estos conceptos vistos previamente, ahora es momento de trabajar dentro de QGIS y R. **¿Sabías que todos estos tipos de paletas que acabo de describirte la encuentras dentro de QGIS 🤔?** **y claro esa misma diversidad de colores están disponible dentro de R**, bueno si no lo sabías, ahora lo sabes, y llegó el momento de enseñarte como encontrar está rampa de color y como usarlo dentro de QGIS como asi también dentro de R.
+
+Dentro de QGIS podrás encontrar una diversidad de paletas de colores disponibles, incluso tu mismo puedes generar tus propias paletas, pero aquí te hago conocer las más populares, entre ella tenemos a [ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) y [cptcity](http://soliton.vm.bytemark.co.uk/pub/cpt-city/).
+
+<center><img src="https://user-images.githubusercontent.com/23284899/151547150-3f2183a8-9a7d-446c-8e2a-7933aa116ba5.png" width="100%"></center>
+<br>
+<p align="center"><i>Fig 4: Plataforma de ColorBrewer </i></p>
+<br>
+
+<center><img src="https://user-images.githubusercontent.com/23284899/151547162-f7212e76-d3e3-49bf-83fd-bde25e5b1ca9.png" width="100%"></center>
+<br>
+<p align="center"><i>Fig 5: Plataforma de cptcity </i></p>
+<br>
+
+Ambas rampas de colores están disponibles dentro de R aquí en el siguiente cuadro se detalla con que nombres puedes encontrarlos.
+
+<div align="center">
+<p align="center">Tabla 1: Paletas equivalente de QGIS en R</p>
+```{r echo=FALSE, results='asis'}
+library(kableExtra)
+data.frame(
+    QGIS = c("ColorBrewer","cptcity"),
+    R    = c("RColorBrewer","cptcity")) %>% 
+    kable(align = "c") %>% 
+    kable_material() %>%
+  row_spec(0, bold = T, color = "white", background = "black")
+```
+</div>
+<br>
+
+En QGIS podemos encontrar estás paletas de la siguiente manera como se muestra en el video.
+
+<video width="100%" controls>
+  <source src="https://user-images.githubusercontent.com/23284899/151559324-fc3c7122-56e0-4558-8490-cbacf749306e.mp4" type="video/mp4">
+</video>
+<br>
+
+Para obtener estos mismos colores dentro de R, instalaremos el paquete `cptcity` como se muestra en la siguiente sección de códigos.
+
+<center><img src="https://user-images.githubusercontent.com/23284899/151561580-513f7a2a-328b-4525-9970-b04ad63be25a.png" width="100%"></center>
+<br>
+<p align="center"><i>Fig 6: Página web del paquete cptcity </i></p>
+<br>
+
+```{r klippy, echo=FALSE, include=TRUE}
+klippy::klippy(position = c("top", "right"), color = "#1739D1")
+```
+
+```{r eval=FALSE, class.source='klippy'}
+# Instalación del paquete cptcity
+install.packages("cptcity")
+```
+
+Para identificar las rampas de colores de cptcity disponibles dentro de R , empleamos un texto clave dentro de la función `find_cpt`.
+
+```{r class.source='klippy'}
+# Paleta de colores de Grass 
+library(cptcity)
+find_cpt("grass")
+```
+Para nuestro interés vamos a trabajar con los distritos pertencientes a Lima Metropolitana, en está ocasión vamos a representar un mapa coroplético en función al área, primero vamos a representar está información dentro QGIS, para posteriormente trabajarlo dentro de R.
+
+<center><img src="https://user-images.githubusercontent.com/23284899/151577126-a95c9064-0e8e-4cf1-bc74-0c36a70f945b.png" width="100%"></center>
+<br>
+<p align="center"><i>Fig 7: Lectura de Lima Metropolitana (.gpkg) dentro de QGIS </i></p>
+<br>
+
+
+<center><img src="https://user-images.githubusercontent.com/23284899/151566149-43125cae-b178-44eb-a2de-c75b1f361446.png" width="100%"></center>
+<br>
+<p align="center"><i>Fig 8: Selección de color grass/bcyr en cptcity </i></p>
+<br>
+
+<center><img src="https://user-images.githubusercontent.com/23284899/151577347-82c301bd-9128-4003-9b48-707120fb6ecb.png" width="100%"></center>
+<br>
+<p align="center"><i>Fig 9: Mapa coroplético con la paleta grass/bcyr </i></p>
+<br>
+
+Para trabajar estos mismos resultados dentro de R, debemos identificar el nombre de la rampa de color, en este caso usamos `grass/bcyr`, este mismo estará dentro de R pero de la siguiente forma `grass_bcyr`, como podrás notar, el **slash (/)** fue cambiado por un __guión abajo__ (_), y este mismo patrón sucede para las demás paletas, para visualizar dentro de R usando la siguiente combinación de funciones.
+
+```{r class.source='klippy', fig.width=5,fig.height=2.1,fig.align='center'}
+image(matrix(1:100),col = cpt(pal = "grass_bcyr"),axes = FALSE)
+```
+<p align="center"><i>Fig 10: Paleta de color grass_bcyr dentro de R </i></p>
+<br>
+
+Está misma paleta la podemos usar integrando los paquetes de `ggplot2` o `leaflet` para poder optener los mismos resultados de qgis, esto se desmuestra las siguientes secciones de código.
+
+```{r  class.source='klippy',message=FALSE,warning=FALSE,out.width = "100%"}
+library(ggplot2)
+library(sf)
+library(cptcity)
+lima <- st_read(
+  "https://github.com/ambarja/gpkg-pe/raw/main/lima_distritos.gpkg",
+  quiet = TRUE
+  )
+
+lima %>% 
+  ggplot() + 
+  geom_sf(aes(fill = area_km2),color=0) + 
+  scale_fill_gradientn(colors = cpt(pal = "grass_bcyr")) + 
+  theme_minimal()
+```
+<p align="center"><i>Fig 11: Mapa coroplético de Lima Metropolitana en R </i></p>
+<br>
+
+
+```{r  class.source='klippy',out.width = "100%"}
+library(leaflet)
+library(sf)
+lima <- st_read(
+  "https://github.com/ambarja/gpkg-pe/raw/main/lima_distritos.gpkg",
+  quiet = TRUE)
+
+pal <- colorNumeric(cpt("grass_bcyr"),lima$area_km2)
+lima %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addPolygons(
+    color = pal(lima$area_km2),
+    weight = 1,
+    fillOpacity = 0.9
+    ) 
+```
+
+<p align="center"><i>Fig 12: Mapa web de tipo coroplético de Lima Metropolitana  </i></p>
+<br>
+Finalmente, `cptcity` es compatible con muchos paquetes dentro de R, sin embargo no están presente algunas nuevas rampas de colores, quizás a futuro haya una actualización de estás paletas para las proximas versiones, las paletas que no están disponible son **rocket**, **mako**, **cividis**, y quizás algunas más, sin embargo tienes alternativas dentro de R como viridis, colorspace, entre otros; sin embargo cptcity es una excelente alternativa si decides migrar hacia un lenguaje de programación ya que los colores son iguales a las de QGIS y por ende te será muy familiar al momento de elaborar tus mapas dentro de R.
+
+Si este post te fue de gran ayuda, compartelo y sobre todo recuerda usar software libre de codigo abierto en tu día a día.
+
+### Referencias:
+
+ - *Sergio Ibarra Espinosa, 2017, cptcity, https://github.com/ibarraespinosa/cptcity*
+ 
+ - *Achim Zeileis et al., 2021, colorspace, https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html*
+
+ - *Neal O'Grady y Rease kirchner, 2022, https://webflow.com/blog/color-theory*
+ 
