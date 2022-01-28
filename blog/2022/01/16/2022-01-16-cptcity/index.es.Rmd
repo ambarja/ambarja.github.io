@@ -167,7 +167,11 @@ lima %>%
     color = pal(lima$area_km2),
     weight = 1,
     fillOpacity = 0.9
-    ) 
+    ) %>% 
+  setMaxBounds(
+    lng1 = -77.19880,lat1 = -12.51993,
+    lng2 =-76.62082 ,lat2 = -11.57241
+    )
 ```
 
 <p align="center"><i>Fig 12: Mapa web de tipo coroplético de Lima Metropolitana  </i></p>
