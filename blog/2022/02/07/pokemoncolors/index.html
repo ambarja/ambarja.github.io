@@ -242,9 +242,9 @@
 <p>Y bueno en este post te voy a explicar paso a paso como puedes emplear ambas paletas dentro de las herramientas mencionadas, si eres un amante de Pokémon, solo ten a la mano tu <strong>pokedex</strong> y vamos por ellos 🙈</p>
 <p>Para poder emplear las rampas de colores dentro de Google Earth Engine, solo tienes que hacer una llamado al módulo <strong>pokepalettes</strong> como se muestra en la siguiente sección de código.</p>
 <pre class="js"><code>var poke = require(&quot;users/dmlmont/pokepalettes:pokepalettes&quot;);</code></pre>
-<p>El segundo paso, solo es eligir la paleta de color de tu pokémon a usar de acuerdo a la variación de color de la temática que estás trabajando.
+<p>El segundo paso, es eligir el pokémon a usar de acuerdo a la variación de color según la temática que estás trabajando.
 Recuerda que la paleta de color seleccionada va dentro de los parámetros de la función <code>Map.addLayer</code>, como se muestra en la siguiente sección de código.</p>
-<pre class="js"><code>/*Visualización del modelo de elevación digital para la Provincia de Huancayo*/
+<pre class="js"><code>/*Visualización del Modelo de Elevación Digital para la Provincia de Huancayo*/
 var roi = ee.FeatureCollection(&quot;users/ambarja/Hcyo&quot;);
 var dem = ee.Image(&quot;NASA/NASADEM_HGT/001&quot;)
           .select(&quot;elevation&quot;)
@@ -255,17 +255,17 @@ Map.addLayer(
   {
    min:1300,
    max:5000,
-   palette:poke.palettes.sandshrew
+   palette:poke.palettes.sandshrew //Paleta seleccionada
   }
   );</code></pre>
 <center>
 <img src="https://user-images.githubusercontent.com/23284899/152843637-791ab1b8-fed5-4fc9-bfd6-dc78752fc9e7.png" width="100%">
 </center>
 <p align="center">
-<i>Fig 3: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew</i>
+<i>Fig 3: Modelo de Elevación Digital para la provincia de Huancayo usando la paleta de color de Sandshrew</i>
 </p>
-<p>Si deseas invertir la rampa de color puedes emplear la función <code>reverse()</code>, esto se muestra en la siguiente sección de código.</p>
-<pre class="js"><code>/*Visualización del modelo de elevación digital para la Provincia de Huancayo*/
+<p>Si deseas invertir la rampa de color, puedes emplear la función <code>reverse()</code>, esto se muestra en la siguiente sección de código.</p>
+<pre class="js"><code>/*Visualización del Modelo de Elevación Digital para la Provincia de Huancayo*/
 var roi = ee.FeatureCollection(&quot;users/ambarja/Hcyo&quot;);
 var dem = ee.Image(&quot;NASA/NASADEM_HGT/001&quot;)
           .select(&quot;elevation&quot;)
@@ -283,9 +283,9 @@ Map.addLayer(
 <img src="https://user-images.githubusercontent.com/23284899/152843642-2481a768-f453-4465-aece-c649efb093d8.png" width="100%">
 </center>
 <p align="center">
-<i>Fig 4: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew invertido</i>
+<i>Fig 4: Modelo de Elevación Digital para la provincia de Huancayo usando la paleta de color de Sandshrew invertido</i>
 </p>
-<p>Para tener una mayor referencia de los pokémon a usar puedes emplear este <a href="https://pokepalettes.com/">enlace</a>.</p>
+<p>Para tener una mayor referencia de la lista de Pokémon disponible puedes dirigirte al siguiente enlace <a href="https://pokepalettes.com/">clic aquí</a>.</p>
 <p>Para tener estás paletas de colores dentro de QGIS, solo procesemos descargar en el siguiente
 <a href="https://plugins.qgis.org/styles/103/download/">enlace</a>, posteriormente cargamos la rampa de color (solo se hace una vez) dentro de la sección de
 <strong>configuración › administración de estilos › importar/exportar › importar archivo y cargamos el archivo descargado</strong>, esto se muestra a detalle dentro de las siguientes imágenes.</p>
@@ -318,10 +318,10 @@ Map.addLayer(
 <img src="https://user-images.githubusercontent.com/23284899/152844013-26559b83-da24-47a1-b288-1ed10bd2307b.png" width="100%">
 </center>
 <p align="center">
-<i>Fig 9: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew dentro de QGIS</i>
+<i>Fig 9: Modelo de Elevación Digital para la provincia de Huancayo usando la paleta de color de Sandshrew dentro de QGIS</i>
 </p>
-<p>Antes de concluir con este post, te invito a apoyar estos proyectos compartiendo y sobre todo dandole start 🌟 dentro de <strong>GitHub</strong> o apadrinando estos proyectos open source.</p>
-<p>Finalmente, comparte este post si te fue de utilidad, y si deseas conversar de un temática de interés conmigo solo apoyame con un tazita de café <a href="https://ko-fi.com/ambarja"><img src="https://user-images.githubusercontent.com/23284899/152849418-dc1e8149-4971-4a0f-820c-cce772928c96.png" width="30px" align="center"></a> , no olvides de usar software libre en tu día a día.</p>
+<p>Antes de concluir, te invito apoyar o apadrinar estos proyectos open source, y sobre todo comparte y regalale un start 🌟 dentro de <strong>GitHub</strong>.</p>
+<p>Finalmente, comparte este pequeña publicación si te fue de utilidad, y si deseas conversar de un temática de interés conmigo, solo apoyame con un tacita de café <a href="https://ko-fi.com/ambarja"><img src="https://user-images.githubusercontent.com/23284899/152849418-dc1e8149-4971-4a0f-820c-cce772928c96.png" width="30px" align="center"></a> , no olvides de usar software libre en tu día a día 🤓🐧.</p>
 <div id="referencias" class="section level3">
 <h3>Referencias:</h3>
 <ul>

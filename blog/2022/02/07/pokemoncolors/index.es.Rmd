@@ -42,11 +42,11 @@ Para poder emplear las rampas de colores dentro de Google Earth Engine, solo tie
 var poke = require("users/dmlmont/pokepalettes:pokepalettes");
 ```
 
-El segundo paso, solo es eligir la paleta de color de tu pokémon a usar de acuerdo a la variación de color de la temática que estás trabajando.
+El segundo paso, es eligir el pokémon a usar de acuerdo a la variación de color según la temática que estás trabajando.
 Recuerda que la paleta de color seleccionada va dentro de los parámetros de la función `Map.addLayer`, como se muestra en la siguiente sección de código.
 
 ```js
-/*Visualización del modelo de elevación digital para la Provincia de Huancayo*/
+/*Visualización del Modelo de Elevación Digital para la Provincia de Huancayo*/
 var roi = ee.FeatureCollection("users/ambarja/Hcyo");
 var dem = ee.Image("NASA/NASADEM_HGT/001")
           .select("elevation")
@@ -57,20 +57,20 @@ Map.addLayer(
   {
    min:1300,
    max:5000,
-   palette:poke.palettes.sandshrew
+   palette:poke.palettes.sandshrew //Paleta seleccionada
   }
   );
 ```
 
 <center><img src="https://user-images.githubusercontent.com/23284899/152843637-791ab1b8-fed5-4fc9-bfd6-dc78752fc9e7.png" width="100%">
 </center>
-<p align="center"><i>Fig 3: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew</i></p>
+<p align="center"><i>Fig 3: Modelo de Elevación Digital para la provincia de Huancayo usando la paleta de color de Sandshrew</i></p>
 
 
-Si deseas invertir la rampa de color puedes emplear la función `reverse()`, esto se muestra en la siguiente sección de código.
+Si deseas invertir la rampa de color, puedes emplear la función `reverse()`, esto se muestra en la siguiente sección de código.
 
 ```js
-/*Visualización del modelo de elevación digital para la Provincia de Huancayo*/
+/*Visualización del Modelo de Elevación Digital para la Provincia de Huancayo*/
 var roi = ee.FeatureCollection("users/ambarja/Hcyo");
 var dem = ee.Image("NASA/NASADEM_HGT/001")
           .select("elevation")
@@ -88,9 +88,10 @@ Map.addLayer(
 
 <center><img src="https://user-images.githubusercontent.com/23284899/152843642-2481a768-f453-4465-aece-c649efb093d8.png" width="100%">
 </center>
-<p align="center"><i>Fig 4: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew invertido</i></p>
+<p align="center"><i>Fig 4: Modelo de Elevación Digital para la provincia de Huancayo usando la paleta de color de Sandshrew invertido</i></p>
 
-Para tener una mayor referencia de los pokémon a usar puedes emplear este [enlace](https://pokepalettes.com/).
+Para tener una mayor referencia de la lista de Pokémon disponible puedes dirigirte al siguiente enlace [clic aquí](https://pokepalettes.com/).
+
 
 Para tener estás paletas de colores dentro de QGIS, solo procesemos descargar en el siguiente
 [enlace](https://plugins.qgis.org/styles/103/download/), posteriormente cargamos la rampa de color (solo se hace una vez) dentro de la sección de 
@@ -117,11 +118,11 @@ Posteriormente visualizamos una capa de interés y seleccionamos la rampa de col
 
 <center><img src="https://user-images.githubusercontent.com/23284899/152844013-26559b83-da24-47a1-b288-1ed10bd2307b.png" width="100%">
 </center>
-<p align="center"><i>Fig 9: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew dentro de QGIS</i></p>
+<p align="center"><i>Fig 9: Modelo de Elevación Digital para la provincia de Huancayo usando la paleta de color de Sandshrew dentro de QGIS</i></p>
 
-Antes de concluir con este post, te invito a apoyar estos proyectos compartiendo y sobre todo dandole start 🌟 dentro de **GitHub** o apadrinando estos proyectos open source.
+Antes de concluir, te invito apoyar o apadrinar estos proyectos open source, y sobre todo comparte y regalale un start 🌟 dentro de **GitHub**.
 
-Finalmente, comparte este post si te fue de utilidad, y si deseas conversar de un temática de interés conmigo solo apoyame con un tazita de café <a href="https://ko-fi.com/ambarja"><img src="https://user-images.githubusercontent.com/23284899/152849418-dc1e8149-4971-4a0f-820c-cce772928c96.png" width="30px" align="center"></a> , no olvides de usar software libre en tu día a día.
+Finalmente, comparte este pequeña publicación si te fue de utilidad, y si deseas conversar de un temática de interés conmigo, solo apoyame con un tacita de café <a href="https://ko-fi.com/ambarja"><img src="https://user-images.githubusercontent.com/23284899/152849418-dc1e8149-4971-4a0f-820c-cce772928c96.png" width="30px" align="center"></a> , no olvides de usar software libre en tu día a día 🤓🐧.
 
 ### Referencias: 
  
