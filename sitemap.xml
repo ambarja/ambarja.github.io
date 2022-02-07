@@ -3,16 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ambarja.github.io/</loc>
-    <lastmod>2022-01-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/blog/</loc>
-    <lastmod>2022-01-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/categories/</loc>
-    <lastmod>2022-01-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/tags/colores/</loc>
-    <lastmod>2022-01-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/categories/gee/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/blog/2022/02/07/pokemoncolors/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/categories/qgis/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ambarja.github.io/tags/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/blog/2022/01/16/2022-01-16-cptcity/</loc>
     <lastmod>2022-01-16T00:00:00+00:00</lastmod>
@@ -20,16 +32,10 @@
     <loc>https://ambarja.github.io/tags/qgis/</loc>
     <lastmod>2022-01-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ambarja.github.io/categories/qgis/</loc>
-    <lastmod>2022-01-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ambarja.github.io/tags/r/</loc>
     <lastmod>2022-01-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/categories/r/</loc>
-    <lastmod>2022-01-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ambarja.github.io/tags/</loc>
     <lastmod>2022-01-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ambarja.github.io/blog/2022/01/12/developer-survey-en-stackoverflow/</loc>

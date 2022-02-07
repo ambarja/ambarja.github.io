@@ -1,0 +1,129 @@
+---
+title: pokémon colors en Google Earth Engine y QGIS
+author: 'Antony Barja'
+date: '2022-02-07'
+slug: []
+categories:
+  - gee
+  - qgis
+tags:
+  - colores
+banner: https://user-images.githubusercontent.com/23284899/152796551-cfedc8e5-008f-4dcc-9f78-43cd90d07c2b.png
+---
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152847728-a157fab5-3ff2-458d-a3e5-66a4e662049e.png" width="100%">
+</center>
+<br>
+<p align='center'>
+  <a href="https://www.linkedin.com/in/antonybarja/">
+   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> <a href="https://twitter.com/antony_barja"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"></a> <a href="#"><img src="https://img.shields.io/badge/WebSite-%2312100E.svg?&style=for-the-badge&logo=github&logoColor=white"></a>  <a href="https://www.youtube.com/channel/UCuWvYTTYCZBmbDoEbsY2MSw"><img src="https://img.shields.io/badge/youtube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white"></a> <a href="https://discord.gg/R5YtFxWbJr"><img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a> <a href="https://t.me/ambarja"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a> <a href="https://open.spotify.com/user/22appgn3ficnkwjuv667mawzq?si=730bda6f1cf04f0a"><img src="https://img.shields.io/badge/Spotify-1ED760?&style=for-the-badge&logo=spotify&logoColor=white"></a><br> <a href="https://ko-fi.com/ambarja"><img src="https://img.shields.io/badge/Buy_me_a_coffee-5d83f5?style=for-the-badge&logo=ko-fi&logoColor=white&__cf_chl_managed_tk__=pmd_sOkOcrsQ4T6MRVPX2TeB_mbk2ZryAIn3rNigWIBBC6U-1633993526-0-gqNtZGzNAyWjcnBszQkl" width="218px"></a>
+</p>
+
+Sin duda este fin de semana fue algo inesperado para mi, mientras miraba el techo de mi habitación, una amiga muy amable me escribió preguntandome si podría explicarle un poco sobre la herramienta de Google Earth Engine, y claro no podía negarme ya que me había invitado un par de cafés, y quizás tambien ustedes tuvieron un día no rutinario, pero en especial volver a emplear la herramienta de Google Earth Engine desde el mismo editor de código, fue algo super extraño para mi, y quizás el término extraño no sea el adecuado, pero en mi día a día uso más [**rgee**](https://github.com/r-spatial/rgee) (paquete de R que permite integrar Google Earth Engine) para realizar diversos tipos de análisis que involucra el uso de imágenes de satelite.
+
+Lo más atractivo de este pequeño intercambio de conocimientos fue descubrir la existencia de paletas de colores de Pokémon dentro de la misma herramienta, esto gracias al desarrollo implementado por [**David Montero**](https://twitter.com/dmlmont).
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152817190-eb275eae-f39f-4cf5-82df-6a669809cc08.png" width="100%">
+</center>
+<p align="center"><i>Fig 1: Proyecto ee-pokepalettes dentro de GitHub</i></p>
+
+Y esto me hizo recordar a **QGIS**, ya que años anteriores también encontré algo similar dentro de su misma página en el apartado de styles desarrollado por **Bogin**. 
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152817222-1a2e8afc-7bbd-4098-9909-bd8111e41dd0.png" width="100%">
+</center>
+<p align="center"><i>Fig 2: Pokémon palette colors en QGIS</i></p>
+
+Y bueno en este post te voy a explicar paso a paso como puedes emplear ambas paletas dentro de las herramientas mencionadas, si eres un amante de Pokémon, solo ten a la mano tu **pokedex** y vamos por ellos 🙈 
+
+
+Para poder emplear las rampas de colores dentro de Google Earth Engine, solo tienes que hacer una llamado al módulo **pokepalettes** como se muestra en la siguiente sección de código.
+
+```js
+var poke = require("users/dmlmont/pokepalettes:pokepalettes");
+```
+
+El segundo paso, solo es eligir la paleta de color de tu pokémon a usar de acuerdo a la variación de color de la temática que estás trabajando.
+Recuerda que la paleta de color seleccionada va dentro de los parámetros de la función `Map.addLayer`, como se muestra en la siguiente sección de código.
+
+```js
+/*Visualización del modelo de elevación digital para la Provincia de Huancayo*/
+var roi = ee.FeatureCollection("users/ambarja/Hcyo");
+var dem = ee.Image("NASA/NASADEM_HGT/001")
+          .select("elevation")
+          .clip(roi);
+Map.centerObject(roi, 9);          
+Map.addLayer(
+  dem,
+  {
+   min:1300,
+   max:5000,
+   palette:poke.palettes.sandshrew
+  }
+  );
+```
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152843637-791ab1b8-fed5-4fc9-bfd6-dc78752fc9e7.png" width="100%">
+</center>
+<p align="center"><i>Fig 3: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew</i></p>
+
+
+Si deseas invertir la rampa de color puedes emplear la función `reverse()`, esto se muestra en la siguiente sección de código.
+
+```js
+/*Visualización del modelo de elevación digital para la Provincia de Huancayo*/
+var roi = ee.FeatureCollection("users/ambarja/Hcyo");
+var dem = ee.Image("NASA/NASADEM_HGT/001")
+          .select("elevation")
+          .clip(roi);
+Map.centerObject(roi, 9);          
+Map.addLayer(
+  dem,
+  {
+   min:1300,
+   max:5000,
+   palette:poke.palettes.sandshrew.reverse()
+  }
+  );
+```
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152843642-2481a768-f453-4465-aece-c649efb093d8.png" width="100%">
+</center>
+<p align="center"><i>Fig 4: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew invertido</i></p>
+
+Para tener una mayor referencia de los pokémon a usar puedes emplear este [enlace](https://pokepalettes.com/).
+
+Para tener estás paletas de colores dentro de QGIS, solo procesemos descargar en el siguiente
+[enlace](https://plugins.qgis.org/styles/103/download/), posteriormente cargamos la rampa de color (solo se hace una vez) dentro de la sección de 
+**configuración › administración de estilos › importar/exportar › importar archivo  y cargamos el archivo descargado**, esto se muestra a detalle dentro de las siguientes imágenes.
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152838299-261d2362-9d64-4666-b388-9df30ca2961e.png" width="100%">
+</center>
+<p align="center"><i>Fig 5: Sección de administrador de estilos</i></p>
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152838302-126e8a64-e8db-42b4-9448-313f86f6e9f6.png" width="100%">
+</center>
+<p align="center"><i>Fig 6: Importar y exportar estilos</i></p>
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152838305-0134c884-7dd8-4f2b-8eb5-fa24d90d3ceb.png" width="100%">
+</center>
+<p align="center"><i>Fig 7: Cargar , seleccionar e importar estilos</i></p>
+
+Posteriormente visualizamos una capa de interés y seleccionamos la rampa de color a usar.
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152838307-134a93cb-5a78-40db-8027-c878f33c8dcb.png" width="100%">
+</center>
+<p align="center"><i>Fig 8: Selección de la paleta Sandshrew </i></p>
+
+
+<center><img src="https://user-images.githubusercontent.com/23284899/152844013-26559b83-da24-47a1-b288-1ed10bd2307b.png" width="100%">
+</center>
+<p align="center"><i>Fig 9: Modelo de Elevación digital para la provincia de Huancayo usando la paleta de color de Sandshrew dentro de QGIS</i></p>
+
+Antes de concluir con este post, te invito a apoyar estos proyectos compartiendo y sobre todo dandole start 🌟 dentro de **GitHub** o apadrinando estos proyectos open source.
+
+Finalmente, comparte este post si te fue de utilidad, y si deseas conversar de un temática de interés conmigo solo apoyame con un tazita de café <a href="https://ko-fi.com/ambarja"><img src="https://user-images.githubusercontent.com/23284899/152849418-dc1e8149-4971-4a0f-820c-cce772928c96.png" width="30px" align="center"></a> , no olvides de usar software libre en tu día a día.
+
+### Referencias: 
+ 
+ - *David Montero, 2021,ee-pokepalettes,https://github.com/davemlz/ee-pokepalettes*
+ - *Bogin, 2021,pokémon Color Palettes,https://plugins.qgis.org/styles/103/*
