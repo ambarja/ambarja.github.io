@@ -10,6 +10,8 @@ tags:
   - colores
 banner: https://user-images.githubusercontent.com/23284899/152796551-cfedc8e5-008f-4dcc-9f78-43cd90d07c2b.png
 ---
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <center><img src="https://user-images.githubusercontent.com/23284899/152847728-a157fab5-3ff2-458d-a3e5-66a4e662049e.png" width="100%">
 </center>
@@ -19,7 +21,7 @@ banner: https://user-images.githubusercontent.com/23284899/152796551-cfedc8e5-00
    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> <a href="https://twitter.com/antony_barja"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"></a> <a href="#"><img src="https://img.shields.io/badge/WebSite-%2312100E.svg?&style=for-the-badge&logo=github&logoColor=white"></a>  <a href="https://www.youtube.com/channel/UCuWvYTTYCZBmbDoEbsY2MSw"><img src="https://img.shields.io/badge/youtube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white"></a> <a href="https://discord.gg/R5YtFxWbJr"><img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a> <a href="https://t.me/ambarja"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a> <a href="https://open.spotify.com/user/22appgn3ficnkwjuv667mawzq?si=730bda6f1cf04f0a"><img src="https://img.shields.io/badge/Spotify-1ED760?&style=for-the-badge&logo=spotify&logoColor=white"></a><br> <a href="https://ko-fi.com/ambarja"><img src="https://img.shields.io/badge/Buy_me_a_coffee-5d83f5?style=for-the-badge&logo=ko-fi&logoColor=white&__cf_chl_managed_tk__=pmd_sOkOcrsQ4T6MRVPX2TeB_mbk2ZryAIn3rNigWIBBC6U-1633993526-0-gqNtZGzNAyWjcnBszQkl" width="218px"></a>
 </p>
 
-Sin duda este fin de semana fue algo inesperado para mi, mientras miraba el techo de mi habitación, una amiga muy amable me escribió preguntandome si podría explicarle un poco sobre la herramienta de Google Earth Engine, y claro no podía negarme ya que me había invitado un par de cafés, y quizás tambien ustedes tuvieron un día no rutinario, pero en especial volver a emplear la herramienta de Google Earth Engine desde el mismo editor de código, fue algo super extraño para mi, y quizás el término extraño no sea el adecuado, pero en mi día a día uso más [**rgee**](https://github.com/r-spatial/rgee) (paquete de R que permite integrar Google Earth Engine) para realizar diversos tipos de análisis que involucra el uso de imágenes de satelite.
+Sin duda, este fin de semana fue algo inesperado para mí, mientras miraba el techo de mi habitación, una amiga muy amable me escribió preguntandome si podría explicarle un poco sobre la herramienta de Google Earth Engine, y claro no podía negarme, ya que me había invitado un par de cafés, y quizás tambien ustedes tuvieron un día no rutinario, pero en especial volver a emplear la herramienta de Google Earth Engine desde el mismo editor de código, fue algo super extraño para mí, y quizás el término extraño no sea el adecuado, pero en mi día a día uso más [**rgee**](https://github.com/r-spatial/rgee) (paquete de R que permite integrar Google Earth Engine) para realizar diversos tipos de análisis que involucra el uso de imágenes de satélite.
 
 Lo más atractivo de este pequeño intercambio de conocimientos fue descubrir la existencia de paletas de colores de Pokémon dentro de la misma herramienta, esto gracias al desarrollo implementado por [**David Montero**](https://twitter.com/dmlmont).
 
@@ -36,7 +38,7 @@ Y esto me hizo recordar a **QGIS**, ya que años anteriores también encontré a
 Y bueno en este post te voy a explicar paso a paso como puedes emplear ambas paletas dentro de las herramientas mencionadas, si eres un amante de Pokémon, solo ten a la mano tu **pokedex** y vamos por ellos 🙈 
 
 
-Para poder emplear las rampas de colores dentro de Google Earth Engine, solo tienes que hacer una llamado al módulo **pokepalettes** como se muestra en la siguiente sección de código.
+Para poder emplear las rampas de colores dentro de Google Earth Engine, solo tienes que hacer un llamado al módulo **pokepalettes** como se muestra en la siguiente sección de código.
 
 ```js
 var poke = require("users/dmlmont/pokepalettes:pokepalettes");
@@ -120,9 +122,14 @@ Posteriormente visualizamos una capa de interés y seleccionamos la rampa de col
 </center>
 <p align="center"><i>Fig 9: Modelo de Elevación Digital para la provincia de Huancayo usando la paleta de color de Sandshrew dentro de QGIS</i></p>
 
-Antes de concluir, te invito apoyar o apadrinar estos proyectos open source, y sobre todo comparte y regalale un start 🌟 dentro de **GitHub**.
+Antes de concluir, te invito apoyar o apadrinar estos proyectos open source, y sobre todo comparte y regálale un start, solo dale click al siguiente ícono: 
 
-Finalmente, comparte este pequeña publicación si te fue de utilidad, y si deseas conversar de un temática de interés conmigo, solo apoyame con un tacita de café <a href="https://ko-fi.com/ambarja"><img src="https://user-images.githubusercontent.com/23284899/152849418-dc1e8149-4971-4a0f-820c-cce772928c96.png" width="30px" align="center"></a> , no olvides de usar software libre en tu día a día 🤓🐧.
+<!-- Place this tag where you want the button to render. -->
+<center>
+<a class="github-button" href="https://github.com/davemlz/ee-pokepalettes" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star davemlz/ee-pokepalettes on GitHub">Star</a>
+</center>
+<br>
+Finalmente, comparte este pequeña publicación si te fue de utilidad, y si deseas conversar de un temática de interés conmigo, solo apóyame con un tacita de café <a href="https://ko-fi.com/ambarja"><img src="https://user-images.githubusercontent.com/23284899/152849418-dc1e8149-4971-4a0f-820c-cce772928c96.png" width="30px" align="center"></a> , no olvides de usar software libre en tu día a día 🤓🐧.
 
 ### Referencias: 
  
