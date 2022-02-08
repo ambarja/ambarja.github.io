@@ -95,7 +95,7 @@ Map.addLayer(
 Para tener una mayor referencia de la lista de Pokémon disponible puedes dirigirte al siguiente enlace [clic aquí](https://pokepalettes.com/).
 
 
-Para tener estás paletas de colores dentro de QGIS, solo procesemos descargar en el siguiente
+Para tener estás paletas de colores dentro de QGIS, solo procedemos a descargar del siguiente
 [enlace](https://plugins.qgis.org/styles/103/download/), posteriormente cargamos la rampa de color (solo se hace una vez) dentro de la sección de 
 **configuración › administración de estilos › importar/exportar › importar archivo  y cargamos el archivo descargado**, esto se muestra a detalle dentro de las siguientes imágenes.
 
