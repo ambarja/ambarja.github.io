@@ -1,11 +1,5 @@
 # file: .github/workflows/publish.yml
 name: Publish Website
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 on:
   push:
     branches: ['main','master','dev']
