@@ -1,0 +1,75 @@
+- category: Data-Viz
+  description: |
+    Data Viz and Data Analysis for the weekly TidyTuesday datasets.
+  tiles:
+    - title: NYTimes Bestsellers
+      subtitle: Bestselling books by decade
+      href: https://github.com/SidhuK/TidyTuesday/blob/main/2022/09_May_10/nytimes.R
+      code: https://github.com/SidhuK/TidyTuesday/blob/main/2022/09_May_10/nytimes.R
+      thumbnail: https://raw.githubusercontent.com/SidhuK/TidyTuesday/main/2022/09_May_10/nytimes.png
+    - title: Eurovision Winners
+      subtitle: Eurovision Song<br> contest winners with gt()
+      href: https://github.com/SidhuK/TidyTuesday/blob/main/2022/10_May_11/euroVision_.R
+      code: https://github.com/SidhuK/TidyTuesday/blob/main/2022/10_May_11/euroVision_.R
+      thumbnail: https://raw.githubusercontent.com/SidhuK/TidyTuesday/main/2022/10_May_11/Eurovision.png
+    - title: Women's Rugby 7s
+      subtitle: Women's Rugby <br> 7s nations analysis
+      href: https://github.com/SidhuK/TidyTuesday/blob/main/2022/11_May_24/rugby.R
+      code: hhttps://github.com/SidhuK/TidyTuesday/blob/main/2022/11_May_24/rugby.R
+      thumbnail: https://raw.githubusercontent.com/SidhuK/TidyTuesday/main/2022/11_May_24/rugby7_ball.png
+    - title: Axios-Harris Poll Companies
+      subtitle: Women's Rugby <br> 7s nations analysis
+      href: https://github.com/SidhuK/TidyTuesday/blob/main/2022/12_May_31/companies.R
+      code: https://github.com/SidhuK/TidyTuesday/blob/main/2022/12_May_31/companies.R
+      thumbnail: https://raw.githubusercontent.com/SidhuK/TidyTuesday/main/2022/12_May_31/companies2.png
+    - title: Energy and Power Capacity Trends
+      subtitle: Streamcharts <br> with ggplot for Solar, Wind <br> vs Coal/Nuclear Energy Reserves
+      href: https://github.com/SidhuK/TidyTuesday/blob/main/2022/08_May_03/power.R
+      code: https://github.com/SidhuK/TidyTuesday/blob/main/2022/08_May_03/power.R
+      thumbnail: https://raw.githubusercontent.com/SidhuK/TidyTuesday/main/2022/08_May_03/plot.png
+    - title: EPL - 2022 Final Table
+      subtitle: Final English <br> Premier League Table in R
+      href: https://github.com/SidhuK/TidyTuesday/blob/main/Random/EPL_Table_2022/epl_table_final.R
+      code: https://github.com/SidhuK/TidyTuesday/blob/main/Random/EPL_Table_2022/epl_table_final.R
+      thumbnail: https://raw.githubusercontent.com/SidhuK/TidyTuesday/main/Random/EPL_Table_2022/premierLeague.png
+# use these templates for future
+# - category: Presentations
+#   description: |
+#     Create presentations (slide show) in a variety of formats.
+#   tiles:
+#     - title: RevealJS
+#       subtitle: HTML presentations
+#       href: https://quarto.org/docs/presentations/revealjs/demo/
+#       code: https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd
+#       thumbnail: presentations/presentations-revealjs.png
+#     - title: Beamer
+#       subtitle: PDF presentations
+#       href: https://quarto-dev.github.io/quarto-gallery/presentations/beamer/beamer.pdf
+#       code: https://github.com/quarto-dev/quarto-gallery/blob/main/presentations/beamer/beamer.qmd
+#       thumbnail: presentations/presentations-beamer.png
+#     - title: PowerPoint
+#       subtitle: presentations
+#       href: https://quarto-dev.github.io/quarto-gallery/presentations/powerpoint/powerpoint.pptx
+#       code: https://github.com/quarto-dev/quarto-gallery/blob/main/presentations/powerpoint/powerpoint.qmd
+#       thumbnail: presentations/presentations-powerpoint.png
+#
+# - category: Interactive Documents
+#   description: |
+#     Engage readers and deliver more insights with interactive documents.
+#   tiles:
+#     - title: Observable
+#       subtitle: reactive JavaScript
+#       href: ../interactive/ojs/examples/penguins.html
+#       code: https://github.com/quarto-dev/quarto-web/blob/gallery/docs/interactive/ojs/examples/penguins.qmd
+#       thumbnail: interactive/interactive-ojs.png
+#     - title: Shiny
+#       subtitle: web framework for R
+#       href: https://jjallaire.shinyapps.io/diamonds-explorer/
+#       code: https://github.com/quarto-dev/quarto-web/blob/gallery/docs/interactive/shiny/_examples/diamonds/diamonds.qmd
+#       thumbnail: interactive/interactive-shiny.png
+#     - title: Jupyter
+#       subtitle: interactive widgets
+#       href: ../interactive/widgets/jupyter.html
+#       code: https://github.com/quarto-dev/quarto-web/blob/gallery/docs/interactive/widgets/jupyter.qmd
+#       thumbnail: interactive/interactive-jupyter.png
+#

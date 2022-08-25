@@ -1,0 +1,218 @@
+---
+title: "A Quick Guide to Formatting with Quarto"
+description: |
+  Playing with quarto settings to learn more about how it works.
+author:
+  - name: Karat Sidhu
+    url: {}
+date: 2022-06-06
+categories:
+  - Quarto
+  - Review
+image: images/logo.png
+toc: true
+toc-title: Table of contents
+toc-location: left
+toc-depth: 6
+---
+
+# Quarto Formatting
+
+### Introduction
+
+I decided to start working with Quarto for majority of my writing needs and have been experimenting with its 
+various features, formatting and quirks. I am by no means anywhere close to an expert, however, with this write-up I 
+hope to help out anyone starting out working with QMD files. This is a few small tips and notes (mostly for me) to use as a reference.
+
+QMD works similar to markdown so basic markdown syntax^[https://www.markdownguide.org/basic-syntax/] applies for formatting text.
+
+
+### Basic Code Formatting 
+
+A lot of Quarto users are coming from RMarkdown, so formatting locations feel familiar and different at the same time.
+Code chunks format locations are inside the cells preceded with a `#|`, at the beginning of each
+code block.
+
+A simple example of this behavior: 
+
+
+```{{r}}
+#| code-fold: true
+#| label: fig-mtcars
+#| fig-cap: "Fig. 1 Mpg and hp  of Cars"
+
+
+library(ggplot2)
+ggplot(data = mtcars, aes(x = mpg, y=hp)) +
+geom_smooth() +
+geom_jitter()
+
+```
+which generates the following output: 
+
+```{r}
+#| code-fold: true
+#| label: fig-mtcars
+#| fig-cap: "Mpg and hp  of Cars"
+
+
+library(ggplot2)
+ggplot(data = mtcars, aes(x = mpg, y=hp)) +
+geom_smooth() +
+geom_jitter()
+
+```
+
+Figure caption, code folding are applied from the commands in the first line of the code block.
+
+
+### Margin Content
+
+In certain situations, be it for aesthetics or to maximize the use of whitespace, 
+Quarto allows the user to place content including figures, tables, captions etc on the "margin" area.
+
+The syntax to add a figure to the margin is: 
+
+```default
+
+::: {.column-margin}
+![A margin image](image.png)
+:::
+
+```
+#### Margin Figures & Tables
+
+
+```{r}
+#| column: margin
+
+
+mtcars[1:6, 1:3]  |> 
+gt::gt()  |> gtExtras::gt_theme_538()
+
+
+
+```
+
+
+
+```{r}
+#| column: margin
+#| fig-cap: "Mpg and hp  of Cars"
+#| label: fig-mtcars3
+
+
+library(ggplot2)
+ggplot(data = mtcars, aes(x = mpg, y=hp)) +
+geom_smooth() +
+geom_jitter()
+
+
+
+```
+
+Additionally, captions, comments and text blocks can be added to the margin area in the output. 
+
+
+### Overflowing Content
+
+To extend the functionality, qmd files also allow us to ignore margins altogether
+by adding `column:screen` function to the code chunk. This can result in
+great looking articles and blogs by adding functions.
+
+Using screen fill function, here is a map of NYC embedded into the blog.
+
+```{r}
+#| column: screen
+
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lat=40.7128, lng=-74.0060, popup="NY City")
+```
+
+Further, content can be filled partially on the screen. 
+
+```default
+
+::: {..column-screen-left}
+:::
+
+```
+
+
+::: {..column-screen-left}
+
+```{r}
+#| column: screen-inset-left
+
+
+knitr::kable(
+  mtcars[1:6, 1:10]
+)
+
+```
+
+
+:::
+
+
+
+### Callout Blocks
+
+
+To draw attention towards something in the text, a block of text call be used as a callout blog in Quarto.
+
+Inline code 
+
+```default
+:::{.callout-note}
+Note: This is a callout of type `note`
+:::
+
+```
+renders the following output
+
+:::{.callout-note}
+Note: This is a callout of type `note`
+:::
+
+Other types of callouts like warning, tip and important are also built in for
+multiple types of callout blocks.
+
+
+:::{.callout-tip}
+## Tip With Caption
+
+This is an example of a callout with a caption.
+:::
+
+
+
+### Further Reading
+
+- Official Documents: https://quarto.org/docs/guide/
+
+
+### Acknowledgments
+
+Acknowledgments section can be added to the end of article/text by using the `.appendix` command. 
+It will appear at the end of the article/blog with footnotes and citations,etc. formatted as a smaller text font.
+
+```default
+
+## Acknowledgments {.appendix}
+
+This is the sample text for the acknowledgement section. I made use of the Official Quarto documentation to help me with writing this post. 
+
+
+```
+
+
+
+## Acknowledgments {.appendix}
+
+This is the sample text for the acknowledgement section. I made use of the Official Quarto documentation to help me with writing this post. 
+
+
+

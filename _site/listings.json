@@ -1,0 +1,28 @@
+[
+  {
+    "listing": "/data/gallery/index.html",
+    "items": []
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/webscraping-with-rvest/rvest-imdb.html",
+      "/posts/quarto-tutorial/quarto-tutorial.html",
+      "/posts/tidymodels-xgboost/xgboost.html",
+      "/posts/netflix-naive_bayes/Naive_bayes.html",
+      "/posts/make-quarto-website/make-quarto-website.html",
+      "/posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html",
+      "/posts/tidymodels-knn-and-glm/tidymodels-knn-and-glm.html",
+      "/posts/epl-2022-final-table/epl-2022-final-table.html",
+      "/posts/tidymodels-pca-and-umap/tidymodels-pca-and-umap.html",
+      "/posts/tidymodels-svm-random-forests/tidymodels-svm-random-forests.html",
+      "/posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html",
+      "/posts/looking-at-eurovision-winners-with-gt/looking-at-eurovision-winners-with-gt.html",
+      "/posts/new-york-times-bestsellers/new-york-times-bestsellers.html",
+      "/posts/making-streamgraphs-in-r/making-streamgraphs-in-r.html",
+      "/posts/amazon-bestsellers-data-analysis/amazon-bestsellers-data-analysis.html",
+      "/posts/netflix-original-movies-eda/netflix-original-movies-eda.html",
+      "/posts/welcome/welcome.html"
+    ]
+  }
+]

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.113">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Karat Sidhu">
+<meta name="dcterms.date" content="2022-05-22">
+<meta name="description" content="Working with TidyModels to generate PCA and UMAP for Cocktail recipes. Using these recipes extrapolating the relation of a cocktail to each other.">
+
+<title>Karat Sidhu - TidyModels - PCA and UMAP</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: 1;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../data/images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZVPYZZSZ1B"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZVPYZZSZ1B', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../css/karat.css">
+<meta property="og:title" content="Karat Sidhu - TidyModels - PCA and UMAP">
+<meta property="og:description" content="Working with TidyModels to generate PCA and UMAP for Cocktail recipes. Using these recipes extrapolating the relation of a cocktail to each other.">
+<meta property="og:image" content="https://karatsidhu.com/posts\tidymodels-pca-and-umap\images\logo.jpeg">
+<meta property="og:site-name" content="Karat Sidhu">
+<meta name="twitter:title" content="Karat Sidhu - TidyModels - PCA and UMAP">
+<meta name="twitter:description" content="Working with TidyModels to generate PCA and UMAP for Cocktail recipes. Using these recipes extrapolating the relation of a cocktail to each other.">
+<meta name="twitter:image" content="https://karatsidhu.com/posts\tidymodels-pca-and-umap\images\logo.jpeg">
+<meta name="twitter:creator" content="@karat_sidhu">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Karat Sidhu</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../data/about/about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../data/gallery/index.html"><i class="bi bi-bar-chart-line" role="img">
+</i> 
+  </a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/karat_sidhu"><i class="bi bi-twitter" role="img">
+</i> 
+  </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">TidyModels - PCA and UMAP</h1>
+                  <div>
+        <div class="description">
+          <p>Working with TidyModels to generate PCA and UMAP for Cocktail recipes. Using these recipes extrapolating the relation of a cocktail to each other.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">TidyModels</div>
+                <div class="quarto-category">PCA</div>
+                <div class="quarto-category">UMAP</div>
+                <div class="quarto-category">Machine Learning</div>
+                <div class="quarto-category">Dimension Reduction</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Karat Sidhu </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 22, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#tidymodels---pca-umap" id="toc-tidymodels---pca-umap" class="nav-link active" data-scroll-target="#tidymodels---pca-umap">TidyModels - PCA &amp; UMAP</a>
+  <ul class="collapse">
+  <li><a href="#dimensionality-reduction-analysis-with-tidymodels" id="toc-dimensionality-reduction-analysis-with-tidymodels" class="nav-link" data-scroll-target="#dimensionality-reduction-analysis-with-tidymodels">Dimensionality Reduction analysis with Tidymodels</a></li>
+  </ul></li>
+  <li><a href="#cocktail-recipes-dataset" id="toc-cocktail-recipes-dataset" class="nav-link" data-scroll-target="#cocktail-recipes-dataset">Cocktail Recipes Dataset</a></li>
+  <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages">Loading packages</a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading Data</a></li>
+  <li><a href="#data-cleaning-and-exploratory-data-analysis" id="toc-data-cleaning-and-exploratory-data-analysis" class="nav-link" data-scroll-target="#data-cleaning-and-exploratory-data-analysis">Data Cleaning and Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#most-common-ingredients" id="toc-most-common-ingredients" class="nav-link" data-scroll-target="#most-common-ingredients">Most Common Ingredients</a></li>
+  <li><a href="#column-cleaning-and-data-conversion" id="toc-column-cleaning-and-data-conversion" class="nav-link" data-scroll-target="#column-cleaning-and-data-conversion">Column Cleaning and data conversion</a></li>
+  <li><a href="#new-dataframe-with-a-wide-format" id="toc-new-dataframe-with-a-wide-format" class="nav-link" data-scroll-target="#new-dataframe-with-a-wide-format">New Dataframe with a “wide” format</a></li>
+  </ul></li>
+  <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis">Principal Component Analysis</a>
+  <ul class="collapse">
+  <li><a href="#prepare-the-analysis" id="toc-prepare-the-analysis" class="nav-link" data-scroll-target="#prepare-the-analysis">Prepare the analysis</a>
+  <ul class="collapse">
+  <li><a href="#recipe-code" id="toc-recipe-code" class="nav-link" data-scroll-target="#recipe-code">Recipe code</a></li>
+  <li><a href="#prep-code" id="toc-prep-code" class="nav-link" data-scroll-target="#prep-code">Prep Code</a></li>
+  </ul></li>
+  <li><a href="#pca-table" id="toc-pca-table" class="nav-link" data-scroll-target="#pca-table">PCA Table</a></li>
+  <li><a href="#pca-plots" id="toc-pca-plots" class="nav-link" data-scroll-target="#pca-plots">PCA Plots</a>
+  <ul class="collapse">
+  <li><a href="#pc1-and-pc2-main-contributors" id="toc-pc1-and-pc2-main-contributors" class="nav-link" data-scroll-target="#pc1-and-pc2-main-contributors">PC1 and PC2 main contributors</a></li>
+  <li><a href="#pca-plot" id="toc-pca-plot" class="nav-link" data-scroll-target="#pca-plot">PCA Plot</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#uniform-manifold-automation-projection" id="toc-uniform-manifold-automation-projection" class="nav-link" data-scroll-target="#uniform-manifold-automation-projection">Uniform Manifold Automation &amp; Projection</a>
+  <ul class="collapse">
+  <li><a href="#recipe-prep" id="toc-recipe-prep" class="nav-link" data-scroll-target="#recipe-prep">Recipe Prep</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#additional-reading" id="toc-additional-reading" class="nav-link" data-scroll-target="#additional-reading">Additional Reading:</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sidhuk/karat_codes/edit/main/posts/tidymodels-pca-and-umap/tidymodels-pca-and-umap.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sidhuk/karat_codes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="tidymodels---pca-umap" class="level1">
+<h1>TidyModels - PCA &amp; UMAP</h1>
+<section id="dimensionality-reduction-analysis-with-tidymodels" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction-analysis-with-tidymodels">Dimensionality Reduction analysis with Tidymodels</h2>
+<p><strong>Note: This is part 2 of the tidymodels practise. A few of these RMarkdown files were generated on a date different to the publishing date.</strong></p>
+<p>Principal Component analysis (and UMAP to a lesser extent) have been extensively used in Biological Sciences and specifically in Omics. Compared to other components of the TidyVerse, I am fairly comfortable using and running the PCA test on a set of data. However, I typically use either the base R (<code>prcom</code>) or PCA Tools<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> because generating a series of plots using those packages is fairly straightforward<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+</section>
+</section>
+<section id="cocktail-recipes-dataset" class="level1">
+<h1>Cocktail Recipes Dataset</h1>
+<p>The dataset used is from the Tidytuesday data, where different cocktails and the components used for their recipes is provided.<br>
+Reducing dimensions in such a case would help in finding out which cocktail is closely related to the other in terms of their components.</p>
+</section>
+<section id="loading-packages" class="level1">
+<h1>Loading packages</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+</div>
+<div class="cell-output-stderr">
+<pre><code>✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.7     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 0.2.0 ──</code></pre>
+</div>
+<div class="cell-output-stderr">
+<pre><code>✔ broom        0.8.0     ✔ rsample      0.1.1
+✔ dials        0.1.1     ✔ tune         0.2.0
+✔ infer        1.0.0     ✔ workflows    0.2.6
+✔ modeldata    0.1.1     ✔ workflowsets 0.2.1
+✔ parsnip      0.2.1     ✔ yardstick    0.0.9
+✔ recipes      0.2.0     </code></pre>
+</div>
+<div class="cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ scales::discard() masks purrr::discard()
+✖ dplyr::filter()   masks stats::filter()
+✖ recipes::fixed()  masks stringr::fixed()
+✖ dplyr::lag()      masks stats::lag()
+✖ yardstick::spec() masks readr::spec()
+✖ recipes::step()   masks stats::step()
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-data" class="level1">
+<h1>Loading Data</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>boston_cocktails <span class="ot">&lt;-</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-26/boston_cocktails.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Rows: 3643 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): name, category, ingredient, measure
+dbl (2): row_id, ingredient_number
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="data-cleaning-and-exploratory-data-analysis" class="level1">
+<h1>Data Cleaning and Exploratory Data Analysis</h1>
+<p>Preliminary look at the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>boston_cocktails</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 3,643 × 6
+   name            category           row_id ingredient_numb… ingredient measure
+   &lt;chr&gt;           &lt;chr&gt;               &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  
+ 1 Gauguin         Cocktail Classics       1                1 Light Rum  2 oz   
+ 2 Gauguin         Cocktail Classics       1                2 Passion F… 1 oz   
+ 3 Gauguin         Cocktail Classics       1                3 Lemon Jui… 1 oz   
+ 4 Gauguin         Cocktail Classics       1                4 Lime Juice 1 oz   
+ 5 Fort Lauderdale Cocktail Classics       2                1 Light Rum  1 1/2 …
+ 6 Fort Lauderdale Cocktail Classics       2                2 Sweet Ver… 1/2 oz 
+ 7 Fort Lauderdale Cocktail Classics       2                3 Juice of … 1/4 oz 
+ 8 Fort Lauderdale Cocktail Classics       2                4 Juice of … 1/4 oz 
+ 9 Apple Pie       Cordials and Liqu…      3                1 Apple sch… 3 oz   
+10 Apple Pie       Cordials and Liqu…      3                2 Cinnamon … 1 oz   
+# … with 3,633 more rows</code></pre>
+</div>
+</div>
+<p>So the PCA should be carried out for the “name” field and looking at the relation between the cocktail and the incredients, category and the measured amount of each ingredient used.</p>
+<section id="most-common-ingredients" class="level2">
+<h2 class="anchored" data-anchor-id="most-common-ingredients">Most Common Ingredients</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>boston_cocktails <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(ingredient, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 569 × 2
+   ingredient            n
+   &lt;chr&gt;             &lt;int&gt;
+ 1 Gin                 176
+ 2 Fresh lemon juice   138
+ 3 Simple Syrup        115
+ 4 Vodka               114
+ 5 Light Rum           113
+ 6 Dry Vermouth        107
+ 7 Fresh Lime Juice    107
+ 8 Triple Sec          107
+ 9 Powdered Sugar       90
+10 Grenadine            85
+# … with 559 more rows</code></pre>
+</div>
+</div>
+<p>A lot of cocktails look like are using Gin, Lemon Juice, Syrup and Vodka as some of the most common ingredients.</p>
+</section>
+<section id="column-cleaning-and-data-conversion" class="level2">
+<h2 class="anchored" data-anchor-id="column-cleaning-and-data-conversion">Column Cleaning and data conversion</h2>
+<p>The data isn’t very clean yet. Some ingredients, which are clearly the same are labelled slightly differently. So we need to clean and make the data usable for our analysis.</p>
+<p>Some of the main changes needed in the <strong>ingredients</strong>:</p>
+<ul>
+<li><p>turn all ingredients to lowercase</p></li>
+<li><p>“-” needs to be chagned to ” ”</p></li>
+<li><p>“lemon” to “lemon Juice”</p></li>
+<li><p>“lime” to “lime juice”</p></li>
+<li><p>“grapefruit” to “grapefruit juice” (same for orange)</p></li>
+</ul>
+<p>Some of the main changes needed in the <strong>measure</strong>:</p>
+<ul>
+<li><p>1/2 to 0.5</p></li>
+<li><p>3/4 to 0.75</p></li>
+<li><p>1/4 to 0.25</p></li>
+<li><p>remove words like “dash”, and “oz” etc.</p></li>
+<li><p>Convert the entire column into a number</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cocktails <span class="ot">&lt;-</span> boston_cocktails <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingredient =</span> <span class="fu">str_to_lower</span>(ingredient),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingredient =</span> <span class="fu">str_replace_all</span>(ingredient, <span class="st">"-"</span>, <span class="st">" "</span>),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingredient =</span> <span class="fu">str_remove</span>(ingredient, <span class="st">" liqueur$"</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingredient =</span> <span class="fu">str_remove</span>(ingredient, <span class="st">" (if desired)$"</span>),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingredient =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(ingredient, <span class="st">"bitters"</span>) <span class="sc">~</span> <span class="st">"bitters"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(ingredient, <span class="st">"lemon"</span>) <span class="sc">~</span> <span class="st">"lemon juice"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(ingredient, <span class="st">"lime"</span>) <span class="sc">~</span> <span class="st">"lime juice"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(ingredient, <span class="st">"grapefruit"</span>) <span class="sc">~</span> <span class="st">"grapefruit juice"</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(ingredient, <span class="st">"orange"</span>) <span class="sc">~</span> <span class="st">"orange juice"</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> ingredient</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">measure =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(ingredient, <span class="st">"bitters"</span>) <span class="sc">~</span> <span class="fu">str_replace</span>(measure, <span class="st">"oz$"</span>, <span class="st">"dash"</span>),</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> measure</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">measure =</span> <span class="fu">str_replace</span>(measure, <span class="st">" ?1/2"</span>, <span class="st">".5"</span>),</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">measure =</span> <span class="fu">str_replace</span>(measure, <span class="st">" ?3/4"</span>, <span class="st">".75"</span>),</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">measure =</span> <span class="fu">str_replace</span>(measure, <span class="st">" ?1/4"</span>, <span class="st">".25"</span>),</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">measure_number =</span> <span class="fu">parse_number</span>(measure),</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">measure_number =</span> <span class="fu">if_else</span>(<span class="fu">str_detect</span>(measure, <span class="st">"dash$"</span>), <span class="co"># a few drops = so 0.02 oz</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>      measure_number <span class="sc">/</span> <span class="dv">50</span>,</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>      measure_number</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_count</span>(ingredient) <span class="sc">|&gt;</span> </span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n) <span class="sc">|&gt;</span> </span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(row_id, ingredient, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Warning: 20 parsing failures.
+row col expected    actual
+637  -- a number For glass
+671  -- a number For glass
+794  -- a number For glass
+878  -- a number For glass
+928  -- a number For glass
+... ... ........ .........
+See problems(...) for more details.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cocktails</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 2,542 × 7
+   name       category row_id ingredient_numb… ingredient measure measure_number
+   &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;
+ 1 Gauguin    Cocktai…      1                1 light rum  2 oz              2   
+ 2 Gauguin    Cocktai…      1                3 lemon jui… 1 oz              1   
+ 3 Gauguin    Cocktai…      1                4 lime juice 1 oz              1   
+ 4 Fort Laud… Cocktai…      2                1 light rum  1.5 oz            1.5 
+ 5 Fort Laud… Cocktai…      2                2 sweet ver… .5 oz             0.5 
+ 6 Fort Laud… Cocktai…      2                3 orange ju… .25 oz            0.25
+ 7 Fort Laud… Cocktai…      2                4 lime juice .25 oz            0.25
+ 8 Cuban Coc… Cocktai…      4                1 lime juice .5 oz             0.5 
+ 9 Cuban Coc… Cocktai…      4                2 powdered … .5 oz             0.5 
+10 Cuban Coc… Cocktai…      4                3 light rum  2 oz              2   
+# … with 2,532 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="new-dataframe-with-a-wide-format" class="level2">
+<h2 class="anchored" data-anchor-id="new-dataframe-with-a-wide-format">New Dataframe with a “wide” format</h2>
+<p>We’re now close to beginning our analysis. However, the data is in long format and PCA prefers to get the data wider. So we’ll pivot_wide to make the analysis easier.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cocktails_df <span class="ot">&lt;-</span> cocktails <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>ingredient_number, <span class="sc">-</span>row_id, <span class="sc">-</span>measure) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> ingredient, <span class="at">values_from =</span> measure_number, <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>cocktails_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 937 × 42
+   name    category light_rum lemon_juice lime_juice sweet_vermouth orange_juice
+   &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;
+ 1 Gauguin Cocktai…      2           1          1               0           0   
+ 2 Fort L… Cocktai…      1.5         0          0.25            0.5         0.25
+ 3 Cuban … Cocktai…      2           0          0.5             0           0   
+ 4 Cool C… Cocktai…      0           0          0               0           1   
+ 5 John C… Whiskies      0           1          0               0           0   
+ 6 Cherry… Cocktai…      1.25        0          0               0           0   
+ 7 Casa B… Cocktai…      2           0          1.5             0           0   
+ 8 Caribb… Cocktai…      0.5         0          0               0           0   
+ 9 Amber … Cordial…      0           0.25       0               0           0   
+10 The Jo… Whiskies      0           0.5        0               0           0   
+# … with 927 more rows, and 35 more variables: powdered_sugar &lt;dbl&gt;,
+#   dark_rum &lt;dbl&gt;, cranberry_juice &lt;dbl&gt;, pineapple_juice &lt;dbl&gt;,
+#   bourbon_whiskey &lt;dbl&gt;, simple_syrup &lt;dbl&gt;, cherry_flavored_brandy &lt;dbl&gt;,
+#   light_cream &lt;dbl&gt;, triple_sec &lt;dbl&gt;, maraschino &lt;dbl&gt;, amaretto &lt;dbl&gt;,
+#   grenadine &lt;dbl&gt;, apple_brandy &lt;dbl&gt;, brandy &lt;dbl&gt;, gin &lt;dbl&gt;,
+#   anisette &lt;dbl&gt;, dry_vermouth &lt;dbl&gt;, apricot_flavored_brandy &lt;dbl&gt;,
+#   bitters &lt;dbl&gt;, straight_rye_whiskey &lt;dbl&gt;, benedictine &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>This will be the starting dataset used to run PCA (and UMAP)</p>
+</section>
+</section>
+<section id="principal-component-analysis" class="level1">
+<h1>Principal Component Analysis</h1>
+<p>Henceforth I will be using CMDLineTips Post<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> as a reference because I’ve never done a PCA with TidyModels before.</p>
+<section id="prepare-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-the-analysis">Prepare the analysis</h2>
+<section id="recipe-code" class="level3">
+<h3 class="anchored" data-anchor-id="recipe-code">Recipe code</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pca_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(<span class="sc">~</span>., <span class="at">data =</span> cocktails_df) <span class="sc">|&gt;</span>  <span class="co"># what data to use</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(name, category, <span class="at">new_role =</span> <span class="st">"id"</span>) <span class="sc">|&gt;</span> <span class="co"># name and category are identifiers not variables</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>()) <span class="sc">|&gt;</span> <span class="co"># normalize all other columns</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_pca</span>(<span class="fu">all_predictors</span>()) <span class="co"># pca for all other columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="prep-code" class="level3">
+<h3 class="anchored" data-anchor-id="prep-code">Prep Code</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pca_prep <span class="ot">&lt;-</span> <span class="fu">prep</span>(pca_rec)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>pca_prep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>Recipe
+
+Inputs:
+
+      role #variables
+        id          2
+ predictor         40
+
+Training data contained 937 data points and no missing data.
+
+Operations:
+
+Centering and scaling for light_rum, lemon_juice, lime_juice, sweet_vermo... [trained]
+PCA extraction with light_rum, lemon_juice, lime_juice, sweet_vermou... [trained]</code></pre>
+</div>
+</div>
+<p>The prep object now doesn’t contain any output, and we need to tidy the object to read it. List object contains the PCA “results” and components on the 2nd place under “term_info” (open it in the console to see details).</p>
+</section>
+</section>
+<section id="pca-table" class="level2">
+<h2 class="anchored" data-anchor-id="pca-table">PCA Table</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>tidied_pca <span class="ot">&lt;-</span> <span class="fu">tidy</span>(pca_prep, <span class="dv">2</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>tidied_pca</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 1,600 × 4
+   terms             value component id       
+   &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;    
+ 1 light_rum        0.163  PC1       pca_yx0os
+ 2 lemon_juice     -0.0140 PC1       pca_yx0os
+ 3 lime_juice       0.224  PC1       pca_yx0os
+ 4 sweet_vermouth  -0.0661 PC1       pca_yx0os
+ 5 orange_juice     0.0308 PC1       pca_yx0os
+ 6 powdered_sugar  -0.476  PC1       pca_yx0os
+ 7 dark_rum         0.124  PC1       pca_yx0os
+ 8 cranberry_juice  0.0954 PC1       pca_yx0os
+ 9 pineapple_juice  0.119  PC1       pca_yx0os
+10 bourbon_whiskey  0.0963 PC1       pca_yx0os
+# … with 1,590 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="pca-plots" class="level2">
+<h2 class="anchored" data-anchor-id="pca-plots">PCA Plots</h2>
+<p>A lot of Principal components seen, plotting the first 4</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>tidied_pca <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    component <span class="sc">==</span> <span class="st">"PC1"</span> <span class="sc">|</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>      component <span class="sc">==</span> <span class="st">"PC2"</span> <span class="sc">|</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>      component <span class="sc">==</span> <span class="st">"PC3"</span> <span class="sc">|</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>      component <span class="sc">==</span> <span class="st">"PC4"</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">|&gt;</span> </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">component =</span> <span class="fu">fct_inorder</span>(component)) <span class="sc">|&gt;</span> </span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(value, terms, <span class="at">fill =</span> terms)) <span class="sc">+</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>component, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tidymodels-pca-and-umap_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Looking at the PC1, simple syrup and powdered sugar are very different from each other, therefore the cocktails must be using one or the other. They also appear to be the two biggest factors.</p>
+<section id="pc1-and-pc2-main-contributors" class="level3">
+<h3 class="anchored" data-anchor-id="pc1-and-pc2-main-contributors">PC1 and PC2 main contributors</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>tidied_pca <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(component <span class="sc">%in%</span> <span class="fu">paste0</span>(<span class="st">"PC"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(component) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">8</span>, <span class="fu">abs</span>(value)) <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">terms =</span> <span class="fu">reorder_within</span>(terms, <span class="fu">abs</span>(value), component)) <span class="sc">|&gt;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">abs</span>(value), terms, <span class="at">fill =</span> value <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>component, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>() <span class="sc">+</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Absolute value of contribution"</span>,</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">fill =</span> <span class="st">"Positive?"</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tidymodels-pca-and-umap_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="pca-plot" class="level3">
+<h3 class="anchored" data-anchor-id="pca-plot">PCA Plot</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">juice</span>(pca_prep) <span class="sc">|&gt;</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(PC1, PC2, <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> category), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>(<span class="at">max.overlaps =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="cn">NULL</span>) <span class="sc">+</span> hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Warning: ggrepel: 927 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="tidymodels-pca-and-umap_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Similar kind of cocktails are clustered together, so PCA analysis appears to be somewhat successful.</p>
+</section>
+</section>
+</section>
+<section id="uniform-manifold-automation-projection" class="level1">
+<h1>Uniform Manifold Automation &amp; Projection</h1>
+<section id="recipe-prep" class="level2">
+<h2 class="anchored" data-anchor-id="recipe-prep">Recipe Prep</h2>
+<p>The embed package provides recipe steps for ways to create embeddings including UMAP.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(embed)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>umap_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(<span class="sc">~</span>., <span class="at">data =</span> cocktails_df) <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(name, category, <span class="at">new_role =</span> <span class="st">"id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_umap</span>(<span class="fu">all_predictors</span>())</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>umap_prep <span class="ot">&lt;-</span> <span class="fu">prep</span>(umap_rec)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>umap_prep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>Recipe
+
+Inputs:
+
+      role #variables
+        id          2
+ predictor         40
+
+Training data contained 937 data points and no missing data.
+
+Operations:
+
+Centering and scaling for light_rum, lemon_juice, lime_juice, sweet_vermo... [trained]
+UMAP embedding for light_rum, lemon_juice, lime_juice, sweet_verm... [trained]</code></pre>
+</div>
+</div>
+<p>So far, the process is exactly the same as PCA. Prep the recipe and get the “non output”-output.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">juice</span>(umap_prep) <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(UMAP1, UMAP2, <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> category), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>(<span class="at">max.overlaps =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="cn">NULL</span>) <span class="sc">+</span> hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Warning: ggrepel: 932 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="tidymodels-pca-and-umap_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Similarly clustering seen here, but type of cocktails seen here are different.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The PCA (and UMAP) using TidyModels offers a bit more customization compared to using a regular <code>prcomp</code> or <code>PCA-Tools</code>. However, it requires a bit more code and felt slightly slower in running compared to the other packages (without actually testing the time fyi)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+</section>
+<section id="additional-reading" class="level1">
+<h1>Additional Reading:</h1>
+<ul>
+<li><p>Easily the best explanation of PCA on the internet: https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues</p></li>
+<li><p>How PCA works - interactive plots: https://setosa.io/ev/</p></li>
+<li><p>How UMAP works: https://umap-learn.readthedocs.io/en/latest/how_umap_works.html</p></li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://bioconductor.org/packages/release/bioc/html/PCAtools.html<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://github.com/SidhuK/R_for_Metabolomics/tree/main/Principal_Component_Analysis<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>https://cmdlinetips.com/2020/06/pca-with-tidymodels-in-r/<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Plots were slower to render<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sidhu2022,
+  author = {Karat Sidhu},
+  editor = {},
+  title = {TidyModels - {PCA} and {UMAP}},
+  date = {2022-05-22},
+  url = {https://karatsidhu.com/posts/tidymodels-pca-and-umap/tidymodels-pca-and-umap.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-sidhu2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Karat Sidhu. 2022. <span>“TidyModels - PCA and UMAP.”</span> May 22,
+2022. <a href="https://karatsidhu.com/posts/tidymodels-pca-and-umap/tidymodels-pca-and-umap.html">https://karatsidhu.com/posts/tidymodels-pca-and-umap/tidymodels-pca-and-umap.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="sidhuk/karat_codes" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© 2022 Karat Sidhu</div>   
+      <div class="nav-footer-center"><a href="https://www.linkedin.com/in/karatsidhu/"><i class="fa-brands fa-linkedin-in"></i></a> <a href="https://karatsidhu.com/data/pdf/cv.pdf"><i class="fa-solid fa-book-bookmark"></i></a> <a href="https://www.twitter.com/karat_sidhu/"><i class="fa-brands fa-twitter"></i></a> <a href="mailto:karatsingh@gmail.com"><i class="fa-solid fa-at"></i></a> <a href="https://orcid.org/0000-0002-8769-0926"><i class="fa-brands fa-orcid"></i></a> <a href="https://github.com/SidhuK"><i class="fa-brands fa-github"></i></a> <a href="https://www.researchgate.net/profile/Karatatiwant-Sidhu"><i class="fa-brands fa-researchgate"></i></a></div>
+    <div class="nav-footer-right">Made with ♥ using <code>{Quarto}</code></div>
+  </div>
+</footer>
+
+
+
+</body></html>

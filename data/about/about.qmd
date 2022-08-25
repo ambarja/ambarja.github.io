@@ -1,0 +1,199 @@
+---
+pagetitle: "about me"
+format:
+  html:
+    page-layout: article
+    toc: false
+search: false
+execute:
+  echo: false
+---
+
+
+
+::: {.column-margin}
+
+![](images/portrait.jpeg)
+
+
+:::
+
+# About Me
+
+Welcome to my portfolio webpage/blog. Over the last 6+ years I have been working with MS equipment including the high resolution Q-ToFs as well as triple quadrupole MS, coupled with various liquid chromatography setups such as from micro- and nano-LCs. 
+
+I develop workflows for analysis and quantification of complex biological samples by making use of techniques including but not limited to HILIC chromatography, RPLC, and use of stable isotopes for development and analysis of a wide range of assays. Check out this page to know more about my skills, research and research experience and my education background.
+
+Connect with me on Linkedin or Twitter to say Hi, or you can also contact me directly through my email.
+
+
+
+```{=html}
+<!-- linking the fontawesome library -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+```
+
+
+
+```{=html}
+<button type="button" class="btn btn-light"><a href="https://www.linkedin.com/in/karatsidhu/"><i class="fa-brands fa-linkedin-in"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href ="https://karatsidhu.com/data/pdf/cv.pdf"><i class="fa-solid fa-book-bookmark"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://www.twitter.com/karat_sidhu/"><i class="fa-brands fa-twitter"></i></a></button>
+
+
+<button type="button" class="btn btn-light"><a href="mailto:karatsingh@gmail.com"><i class="fa-solid fa-at"></i></a></button>
+
+
+<button type="button" class="btn btn-light"><a href="https://karatsidhu.com/blog.html"><i class="fa-solid fa-blog"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://orcid.org/0000-0002-8769-0926"><i class="fa-brands fa-orcid"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-github"></i></a></button>
+
+<button type="button" class="btn btn-light">      <a href="https://www.researchgate.net/profile/Karatatiwant-Sidhu"><i class="fa-brands fa-researchgate"></i></a></button>
+
+<br> <br> <br>
+```
+
+```{=html}
+
+                        <div class="section-title">
+                            <h2><i class="fa-solid fa-syringe"></i>  Skills & Techniques</h2>
+                        </div>
+
+
+<button type="button" class="btn btn-dark btn-sm">Metabolomics</button>
+<button type="button" class="btn btn-dark btn-sm">Proteomics</button>
+<button type="button" class="btn btn-dark btn-sm">Mass Spec</button>
+<button type="button" class="btn btn-dark btn-sm">Analytical Chemistry</button>
+<button type="button" class="btn btn-dark btn-sm">UPLC/HPLC</button>
+<button type="button" class="btn btn-dark btn-sm">Cell Biology</button>
+<button type="button" class="btn btn-dark btn-sm">Method Development</button>
+<button type="button" class="btn btn-dark btn-sm">Stable Isotope Analysis</button>
+<br>
+<button type="button" class="btn btn-dark btn-sm">R</button>
+<button type="button" class="btn btn-dark btn-sm">Python</button>
+<button type="button" class="btn btn-dark btn-sm">RMarkdown</button>
+<button type="button" class="btn btn-dark btn-sm">XCMS</button>
+<button type="button" class="btn btn-dark btn-sm">Progenesis-QI</button>
+<button type="button" class="btn btn-dark btn-sm">MultiQuant</button> 
+
+<br><br><br><br><br>
+
+
+```
+
+
+```{=html}
+
+
+                        <div class="section-title">
+                            <h2><i class="fa-solid fa-dna"></i> Selected Publications </h2>
+                        </div>
+
+
+```
+
+
+- Abreu, S. C. Sidhu KS , et al. Differential effects of the cystic fibrosis lung inflammatory environment on
+mesenchymal stromal cells. American Journal of Physiology-Lung Cellular and Molecular Physiology 319,
+L908–L925 (2020) [https://doi.org/10.1152/ajplung.00218.2020](https://doi.org/10.1152/ajplung.00218.2020)
+
+- Giddings, E.L., Champagne, D.P., Wu, MH., Sidhu KS et al. Mitochondrial ATP fuels ABC transporter-mediated
+drug efflux in cancer chemoresistance. Nat Commun 12, 2804 (2021).
+[https://doi.org/10.1038/s41467-021-23071-6](https://doi.org/10.1038/s41467-021-23071-6)
+
+
+- Sidhu KS, Amiel E, Budd RC, Matthews DE. Determination of cell volume as part of metabolomics
+experiments. American Journal of physiology. Cell Physiology. 2021 Dec;321(6):C947-C953
+[https://doi.org/10.1152/ajpcell.00613.2020](https://doi.org/10.1152/ajpcell.00613.2020)
+
+
+
+```{=html}
+<section class="section gray-bg" id="resume">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-title">
+                            <h2> <i class="fa-solid fa-briefcase"></i> Experience </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 m-15px-tb">
+                        <div class="resume-box">
+                            <ul>
+                                <li>
+                                    <div class="icon">
+                                <i class="fa-solid fa-flask"></i>                                    
+                                </div>
+                                    <span class="time">July 2017 - Dec 2021</span>
+                                    <h5>University of Vermont</h5>
+                                    <p>Lab Research Technician: Analytical Chemistry, Proteomics and Mass Spec Facility, Department of Chemistry.</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-flask"></i>
+                                    </div>
+                                    <span class="time">Feb 2016 - May 2017</span>
+                                    <h5>CTRAL, Texas A&M University</h5>
+                                    <p>
+                                        Graduate Assistant,Analytical Chemistry - BSL-2 Facility - LC/MS.</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-flask"></i>
+                                    </div>
+                                    <span class="time">May 2016 - August 2017</span>
+                                    <h5>CTRAL, Texas A&M University</h5>
+                                    <p>Intern, Small Molecule and Stable Isotopes analysis.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        </section>
+```
+
+
+```{=html}
+
+<section class="section gray-bg" id="resume">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-title">
+                            <h2><i class="fa-solid fa-building-columns"></i> Education</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 m-15px-tb">
+                        <div class="resume-box">
+                            <ul>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <span class="time">2015 - 2017</span>
+                                    <h5>Texas A&M University</h5>
+                                    <p>Master of Science - Biotechnology</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <span class="time">2011 - 2015</span>
+                                    <h5>Panjab University</h5>
+                                    <p>Bachelor of Engineering - Biotechnology</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        </section>
+```
+

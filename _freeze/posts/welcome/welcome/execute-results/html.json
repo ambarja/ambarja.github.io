@@ -1,0 +1,14 @@
+{
+  "hash": "c7b1dfcffc565a6b6f5828f31607bf76",
+  "result": {
+    "markdown": "---\ntitle: \"Welcome to karat_codes\"\ndescription: |\n  Welcome to my new blog, karat_codes. \nauthor:\n  - name: Karat Sidhu \n    url: \n    affiliation: Karat Sidhu\n    affiliation_url: https://sidhuk.github.io/\ndate: 05-21-2020\ncategories:\n  - misc\noutput:\n  distill::distill_article:\n    self_contained: false\n---\n\n\n\n\nThis is a new blog that I made with distill package in R\n\nIts based on a custom css theme that I am constantly tweaking.\n\nSource code for everything available on my github.\n\ngithub.com/SidhuK\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": [],
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": null
+  }
+}

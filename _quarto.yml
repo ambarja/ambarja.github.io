@@ -1,0 +1,54 @@
+project:
+  type: website
+
+website:
+  title: "Antony Barja"
+  site-url: https://ambarja.github.io/
+  repo-url: https://github.com/ambarja/ambarja.github.io
+  #google-analytics: "G-ZVPYZZSZ1B"
+  repo-actions: [edit, issue]
+  comments:
+    utterances:
+      repo: sidhuk/karat_codes
+      label: "Comments"
+      theme: github-light
+  open-graph: true
+  favicon: data/images/logo.png
+  twitter-card:
+    creator: "@karat_sidhu"
+    card-style: summary_large_image
+  navbar:
+    right:
+      - text: "About me"
+        href: data/about/about.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Projects"
+        href: blog.qmd  
+      - text: "Videos"
+        href: blog.qmd
+      - text: "Course"
+        href: blog.qmd
+      - text: "Services"
+        href: blog.qmd  
+      - text: "CV"
+        href: blog.qmd
+      - text: "Geoviz"
+        href: data/gallery/index.qmd
+
+  page-footer:
+    left: "© 2022 Antony Barja"
+    right: |
+      Made with ♥ using `{Quarto}`
+    center: |
+      
+      <center>
+citation: true
+license: "CC BY"
+format:
+  html:
+    theme:
+      light: css/karat_quarto.scss
+    css: css/karat.css
+    include-after-body: footer.html
+freeze: true
