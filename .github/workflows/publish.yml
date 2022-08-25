@@ -2,12 +2,13 @@
 on:
   workflow_dispatch:
   push: 
+    branches:
      - master
      - main
   pull_request:
     types: [opened, reopened]
     branches:
-      - dev
+      - master
       - main   
 
 name: Quarto Publish
