@@ -18,7 +18,6 @@ website:
   favicon: data/images/logo.png
   twitter-card:
     creator: "@antony_barja"
-    card-style: summary_large_image
   navbar:
     right:
       - text: "About me"
