@@ -1,7 +1,8 @@
+# Template for deploy automatic with Github actions
 on:
   workflow_dispatch:
   push:
-    branches: dev
+    branches: [master,main]
 
 name: Quarto Publish
 
