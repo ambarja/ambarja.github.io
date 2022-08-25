@@ -1,4 +1,3 @@
-# file: .github/workflows/publish.yml
 name: Publish Website
 on:
   push:
