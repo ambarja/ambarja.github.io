@@ -4,19 +4,20 @@ project:
 
 website:
   title: "Antony Barja"
+  description: "I am an Spatial Data Scientistic in development, working in infeccios diseases spatial modeling , spatial statistic and geovisualization inside Health Innovation Lab - Peruano Cayetano Heredia University, Lima-Peru. My primary research involves of the spatial data analysis and spatial - temporal modeling, addition the use different thecnology of geographic Information of open source and free. Please, feel free to browse my personal website and If you wish you can leave a comment."
   site-url: https://ambarja.github.io/
   repo-url: https://github.com/ambarja/ambarja.github.io
   #google-analytics: "G-ZVPYZZSZ1B"
   repo-actions: [edit, issue]
   comments:
     utterances:
-      repo: sidhuk/karat_codes
+      repo: ambarja/ambarja.github.io
       label: "Comments"
       theme: github-light
   open-graph: true
   favicon: data/images/logo.png
   twitter-card:
-    creator: "@karat_sidhu"
+    creator: "@antony_barja"
     card-style: summary_large_image
   navbar:
     right:
