@@ -7,24 +7,25 @@ about:
   links:
     - icon: linkedin
       text: Linkedin
-      href: https://www.linkedin.com/in/karatsidhu
+      href: https://www.linkedin.com/in/antonybarja/
     - icon: twitter
       text: Twitter
-      href: https://twitter.com/karat_sidhu
+      href: https://twitter.com/antony_barja
     - icon: github
       text: GitHub
-      href: data/pdf/cv.pdf
+      href: https://github.com/ambarja
     - icon: discord
       text: Discord
+      href: https://discord.com/invite/R5YtFxWbJr
     - icon: youtube
       text: Youtube  
-      href: data/pdf/cv.pdf
+      href: https://www.youtube.com/channel/UCuWvYTTYCZBmbDoEbsY2MSw
     - icon: tiktok
       text: Tiktok
-      href: data/pdf/cv.pdf        
+      href: https://www.tiktok.com/@ambarjag        
     - icon: envelope-fill
       text: Email
-      href: mailto:karatsingh@gmail.com
+      href: mailto:antonymarcosbarja@gmail.com
 citation: false
 comments: 
   utterances: 

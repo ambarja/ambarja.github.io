@@ -1,25 +1,25 @@
-on:
-  workflow_dispatch:
-  push:
-    branches: dev
+# file: .github/workflows/publish.yml
+name: Publish Website
 
-name: Quarto Publish
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: ['main','master','dev']
 
 jobs:
-  build-deploy:
+  quarto-publish:
+    name: Publish with Quarto
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-
-      - name: Set up Quarto
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render and Publish
+      - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

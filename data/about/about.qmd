@@ -9,13 +9,8 @@ execute:
   echo: false
 ---
 
-
-
 ::: {.column-margin}
-
-![](images/portrait.jpeg)
-
-
+<img src= "https://user-images.githubusercontent.com/23284899/186580997-b3c9258e-98ff-42a9-a2ee-a2abd72aa5dc.jpg" width='280px' style="padding-right: 25px;">
 :::
 
 # About Me
@@ -61,58 +56,56 @@ Connect with me on Linkedin or Twitter to say Hi, or you can also contact me dir
 
 ```{=html}
 
-                        <div class="section-title">
-                            <h2><i class="fa-solid fa-syringe"></i>  Skills & Techniques</h2>
-                        </div>
-
-
-<button type="button" class="btn btn-dark btn-sm">Metabolomics</button>
-<button type="button" class="btn btn-dark btn-sm">Proteomics</button>
-<button type="button" class="btn btn-dark btn-sm">Mass Spec</button>
-<button type="button" class="btn btn-dark btn-sm">Analytical Chemistry</button>
-<button type="button" class="btn btn-dark btn-sm">UPLC/HPLC</button>
-<button type="button" class="btn btn-dark btn-sm">Cell Biology</button>
-<button type="button" class="btn btn-dark btn-sm">Method Development</button>
-<button type="button" class="btn btn-dark btn-sm">Stable Isotope Analysis</button>
+<div class="section-title">
+<h2><i class="bi bi-tools"></i>  Skills </h2>
+</div>
+<button type="button" class="btn btn-dark btn-sm">Linux</button>
+<button type="button" class="btn btn-dark btn-sm">Docker</button>
+<button type="button" class="btn btn-dark btn-sm">Git + GitHub o GitLab</button>
+<button type="button" class="btn btn-dark btn-sm">HTML + CSS</button>
+<br>
+<button type="button" class="btn btn-dark btn-sm">PostgreSQL - PostGIS</button>
+<button type="button" class="btn btn-dark btn-sm">SQLite - SpatiaLite</button>
+<button type="button" class="btn btn-dark btn-sm">Geoserver</button>
+<button type="button" class="btn btn-dark btn-sm">Geonetwork</button>
+<br>
+<button type="button" class="btn btn-dark btn-sm">QGIS</button>
+<button type="button" class="btn btn-dark btn-sm">GRASS GIS</button>
+<button type="button" class="btn btn-dark btn-sm">SAGA GIS</button>
+<button type="button" class="btn btn-dark btn-sm">ArcGIS</button>
+<button type="button" class="btn btn-dark btn-sm">ENVI</button>
+<button type="button" class="btn btn-dark btn-sm">GeoDa</button>
+<button type="button" class="btn btn-dark btn-sm">OpenDroneMap</button>
 <br>
 <button type="button" class="btn btn-dark btn-sm">R</button>
 <button type="button" class="btn btn-dark btn-sm">Python</button>
-<button type="button" class="btn btn-dark btn-sm">RMarkdown</button>
-<button type="button" class="btn btn-dark btn-sm">XCMS</button>
-<button type="button" class="btn btn-dark btn-sm">Progenesis-QI</button>
-<button type="button" class="btn btn-dark btn-sm">MultiQuant</button> 
+<button type="button" class="btn btn-dark btn-sm">Js</button>
 
-<br><br><br><br><br>
-
+<br><br><br><br>
 
 ```
 
 
 ```{=html}
 
-
-                        <div class="section-title">
-                            <h2><i class="fa-solid fa-dna"></i> Selected Publications </h2>
-                        </div>
-
-
+<div class="section-title">
+    <h2><i class="fa-solid fa-dna"></i> Publications & projects </h2>
+</div>
 ```
 
+- Aybar et al., (2020). rgee: An R package for interacting with Google Earth Engine. Journal of Open Source Software, 5(51), 2272, [https://doi.org/10.21105/joss.02272](https://doi.org/10.21105/joss.02272)
 
-- Abreu, S. C. Sidhu KS , et al. Differential effects of the cystic fibrosis lung inflammatory environment on
-mesenchymal stromal cells. American Journal of Physiology-Lung Cellular and Molecular Physiology 319,
-L908–L925 (2020) [https://doi.org/10.1152/ajplung.00218.2020](https://doi.org/10.1152/ajplung.00218.2020)
+- Gabo Gaboa y Antony Barja, Taller UseR! 2022 Scripts de R para QGIS Processing, 2022, [https://r-qgis.netlify.app/](https://r-qgis.netlify.app/)
 
-- Giddings, E.L., Champagne, D.P., Wu, MH., Sidhu KS et al. Mitochondrial ATP fuels ABC transporter-mediated
-drug efflux in cancer chemoresistance. Nat Commun 12, 2804 (2021).
-[https://doi.org/10.1038/s41467-021-23071-6](https://doi.org/10.1038/s41467-021-23071-6)
+- Gabriel Carrasco and Antony Barja, Warming Stripes para las 24 regiones del Perú, 2022, [https://healthinnovation.github.io/WarmingStripes4PE/](https://healthinnovation.github.io/WarmingStripes4PE/)
 
+- Gabriel Carrasco and Antony Barja, rgee applied epidemiological studies, 2022, [https://epi-rgee.netlify.app/](https://epi-rgee.netlify.app/)
 
-- Sidhu KS, Amiel E, Budd RC, Matthews DE. Determination of cell volume as part of metabolomics
-experiments. American Journal of physiology. Cell Physiology. 2021 Dec;321(6):C947-C953
-[https://doi.org/10.1152/ajpcell.00613.2020](https://doi.org/10.1152/ajpcell.00613.2020)
+- Barja, A., Ferrer, L., Añamuro, H., & Mogrovejo, D. (2021). 30DayMapChallengeQGISPERU (Version 1.0) [Computer software]. [https://doi.org/10.5281/zenodo.5262851](https://doi.org/10.5281/zenodo.5262851)
 
+- Barja, A., & Caceres, M. (2022). ee-cptcity (Version 1.0) [Computer software], [https://github.com/ambarja/ee-cptcity](https://github.com/ambarja/ee-cptcity)
 
+- Gabriel Carrasco, Antony Barja y Jesus Quispe,Visualización y Análisis de datos espaciales en salud pública, 2022, [https://www.reconlearn.org/post/spatial-analysis-1-spanish.html](https://www.reconlearn.org/post/spatial-analysis-1-spanish.html)
 
 ```{=html}
 <section class="section gray-bg" id="resume">
@@ -179,17 +172,9 @@ experiments. American Journal of physiology. Cell Physiology. 2021 Dec;321(6):C9
                                     <div class="icon">
                                         <i class="fas fa-user-graduate"></i>
                                     </div>
-                                    <span class="time">2015 - 2017</span>
-                                    <h5>Texas A&M University</h5>
-                                    <p>Master of Science - Biotechnology</p>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-user-graduate"></i>
-                                    </div>
-                                    <span class="time">2011 - 2015</span>
-                                    <h5>Panjab University</h5>
-                                    <p>Bachelor of Engineering - Biotechnology</p>
+                                    <span class="time">2014 - 2018</span>
+                                    <h5>San Marcos University-UNMSM</h5>
+                                    <p>Bachelor in Geographical Engineering</p>
                                 </li>
                             </ul>
                         </div>
