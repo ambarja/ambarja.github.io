@@ -1,0 +1,48 @@
+---
+title: "Antony Barja"
+subtitle: "(ambarja)"
+image: data/images/antony.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/antonybarja/
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/antony_barja
+    - icon: github
+      text: GitHub
+      href: https://github.com/ambarja
+    - icon: discord
+      text: Discord
+      href: https://discord.com/invite/R5YtFxWbJr
+    - icon: youtube
+      text: Youtube  
+      href: https://www.youtube.com/channel/UCuWvYTTYCZBmbDoEbsY2MSw
+    - icon: tiktok
+      text: Tiktok
+      href: https://www.tiktok.com/@ambarjag        
+    - icon: envelope-fill
+      text: Email
+      href: mailto:antonymarcosbarja@gmail.com
+citation: false
+comments: 
+  utterances: 
+    repo: no
+license: ""
+---
+<style>
+p.subtitle {
+    margin-top: -0.25em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+div.quarto-about-jolla .about-sep {
+    width: 0%;
+}
+</style>
+
+I am an **Spatial Data Scientistic** in development, working in infeccios diseases spatial modeling , spatial statistic and geovisualization inside **Health Innovation Lab - Peruano Cayetano Heredia University, Lima-Peru**. My primary research involves of the spatial data analysis and spatial - temporal modeling, addition the use different thecnology of geographic Information of open source and free. Please, feel free to browse my personal website and If you wish you can leave a comment. 
+
+[Click here to know more about me](https://karatsidhu.com/data/about/about.html)

@@ -1,0 +1,194 @@
+---
+title: "MDATools - PLS-DA Analysis"
+description: |
+  PLS-DA Analysis using the Iris Dataset and MDA-Tools package
+author:
+  - name: Karat Sidhu
+    url: {}
+date: 2022-05-26
+image: images/logo.png
+categories:
+  - PLS-DA
+  - Machine Learning
+  - Discriminant Analysis
+  - Dimension Reduction
+  - Algorithm
+toc: true
+toc-title: Table of contents
+toc-location: left
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# PLS_DA Analysis
+
+Using the MDA-Tools package^[https://mdatools.com/docs/plsda.html] as an alternative to mixOmics package.
+I have used mixomics before to perform PLS-DA analysis and the method is fairly straightforward^[https://github.com/SidhuK/R_for_Metabolomics/tree/main/PLS-DA], so I would like to explore this 
+method to compare the two.
+
+PLS-DA is a common algorithm used for metabolomics and other omics datasets^[https://towardsdatascience.com/partial-least-squares-f4e6714452a], and often used for categorization 
+of features in metabolomics.
+
+
+## Loading Packages
+
+
+
+```{r}
+
+
+
+library(mdatools)
+
+
+
+```
+
+## Getting the data ready
+
+### Data needs to be in the form of vectors with categories
+
+```{r}
+data(iris)
+
+cal.ind = c(1:25, 51:75, 101:125)
+val.ind = c(26:50, 76:100, 126:150)
+
+Xc = iris[cal.ind, 1:4]
+Xv = iris[val.ind, 1:4]
+
+cc.all = iris[cal.ind, 5]
+cv.all = iris[val.ind, 5]
+
+
+show(cc.all)
+
+
+cc.vir = cc.all == "virginica"
+cv.vir = cv.all == "virginica"
+show(cc.vir)
+
+```
+
+
+## Carry out PLS-DA modelling and look at the summaries
+
+```{r}
+
+# Now we can calibrate the models:  
+  
+m.all = plsda(Xc, cc.all, 3, cv = 1)
+m.vir = plsda(Xc, cc.vir, 3, cv = 1, classname = "virginica")
+
+summary(m.all)
+
+
+summary(m.all, nc = 3)
+
+
+summary(m.all$calres, nc = 3)
+
+
+summary(m.vir)
+
+
+
+```
+
+
+## Looking at the confusion Matrix
+
+```{r}
+
+
+getConfusionMatrix(m.all$calres)
+
+
+getConfusionMatrix(m.vir$calres)
+
+
+
+```
+
+
+## Various plots available in the MDA-Package
+
+See the documentation for details^[https://mdatools.com/docs/plsda--performance-plots.html].
+
+
+```{r}
+
+par(mfrow = c(1, 2))
+plotPredictions(m.all)
+plotPredictions(m.vir)
+
+
+par(mfrow = c(1, 2))
+plotPredictions(m.all, nc = 1)
+plotPredictions(m.all, nc = 3)
+
+
+par(mfrow = c(3, 2))
+plotMisclassified(m.all, nc = 2)
+plotMisclassified(m.vir)
+plotSensitivity(m.all, nc = 2)
+plotSensitivity(m.vir)
+plotSpecificity(m.all, nc = 2)
+plotSpecificity(m.vir)
+
+
+
+par(mfrow = c(1, 2))
+plotRegcoeffs(m.all, ncomp = 3, ny = 3)
+plotRegcoeffs(m.vir, ncomp = 1, show.ci = TRUE)
+
+
+
+```
+
+
+## Prediction Plots
+
+```{r}
+
+
+res = predict(m.all, Xv, cv.all)
+summary(res)
+
+
+par(mfrow = c(1, 1))
+plotPredictions(res)
+
+
+res21 = predict(m.vir, Xv, cv.all)
+summary(res21)
+
+
+res22 = predict(m.vir, Xv, cv.vir)
+summary(res22)
+
+
+par(mfrow = c(2, 1))
+plotPredictions(res21)
+plotPredictions(res22)
+
+
+par(mfrow = c(1, 2))
+plotXResiduals(res21)
+plotYVariance(res22)
+
+
+```
+
+
+## Further Reading:
+
+- MixOmics dataset: http://mixomics.org/ (alternate method in R)
+
+- How to perform PLS-DA using Mixomics: https://github.com/SidhuK/R_for_Metabolomics/tree/main/PLS-DA
+
+

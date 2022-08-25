@@ -1,0 +1,356 @@
+---
+title: "Web scraping with R and RVest"
+description: |
+  Step by step guide to scraping IMDB for TV Series ratings and votes using R and `rvest` package
+author:
+  - name: Karat Sidhu
+    url: {}
+date: 2022-06-20
+categories:
+  - Data-Analysis
+  - Tidyverse
+  - misc
+  - Long-Read
+image: images/logo.jpeg
+toc: true
+toc-title: Table of contents
+toc-location: left
+---
+
+
+![](images/logo.jpeg){fig-width="300px"}
+[Image from Reddit.com by u/booooooop123]{.aside}
+
+
+# Introduction
+
+There are a few tutorials available for scraping IMDB for TV Series ratings and votes using Python but I wanted to write my own tutorial to learn how to scrape IMDB for TV Series ratings and votes using R and `rvest` package because of the lack of such tutorials in R. Even when such guides are available, they are not very clear and usually deal with scraping data from IMDB data related to top 100/top 1000 lists and not specific seasons of a particular TV Series. 
+
+The series I am going to scrape is [South Park](https://www.imdb.com/title/tt0121955/). This is a TV Series that is popular in the US and is one of the most popular TV Shows in the world. Moreover, this show has over 25 seasons and a lot of episodes, so it helps with the learning of scraping data when dealing with a relatively long dataset compared to a top 100 list. 
+
+
+The basic steps to scrape data are:
+
+- Step 1: Find the URL of the page that contains the data you want to scrape
+
+- Step 2: Parse the data
+
+- Step 3: Repeat the steps above for each page you want to scrape
+
+- Step 4: Transform the data
+
+- Step 5: Check the data, clean it
+
+- Step 6: Save the data
+
+# Prerequisites
+
+We need to have a working R installation on your computer. In addition, you will need to have the `rvest` package installed. You can install it by running the following command in your R console:
+
+`install.packages("rvest")`
+
+`rvest` package helps us to scrape data from the web. 
+
+:::{.callout-note}
+## RVest Note
+
+RVest is part of the tidyverse. To find out more about it visit [rvest documentation](https://rvest.tidyverse.org/).
+
+:::
+
+Additionally, it is recommended you install the [CSS Selector Gadget](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=en) for your web browser. It is a Chrome extension that helps you to select elements on the web page and makes it much simpler to find the elements you want to scrape. It is not a necessary dependency for this tutorial, but it is recommended, alternatively using the "Inspect Element" option in your browser would work as well.
+
+`Lubridate` package is useful when working with dates. Since we will be extract the airdate of each episode, `Lubridate` is helpful in converting it to a usable format.
+
+I will be using the following packages for this tutorial:
+
+- `stringr`
+
+- `readr`
+
+- `magrittr`
+
+To make it simpler, install the entire `tidyverse` set of packages, because they are useful for analysis and visualization of the data scraped.
+
+# Scraping
+
+We will be extracting the text elements from the IMDB pages that contain the data we want to scrape. Once extracted, those elements are saved as lists that become the columns of a data frame. Assembling the data frame is the last step of the scraping process.
+
+
+## Find & navigate to the URL
+
+To find the exact url of the page that we want to extract the data from, we first look at the [South Park Homepage on IMDB](https://www.imdb.com/title/tt0121955/). This page contains the rating and vote count of the South Park TV Series, but it does not contain the ratings and votes of the seasons of the TV Series for each individual episode/season.
+
+On the top of the page, we see the list of episodes of South Park, and [clicking that link](https://www.imdb.com/title/tt0121955/episodes) takes me to the latest season of South Park, which is 25 at the time of writing this post.
+
+For simplicity, we will start with the first season, which is under the link [Season 1](https://www.imdb.com/title/tt0121955/episodes?season=1).
+
+
+## Parse the URL
+
+Using the `read_html` function, we can parse the HTML code of the page
+
+```default
+
+link <- "https://www.imdb.com/title/tt0121955/episodes?season=1"
+page <- read_html(link)
+
+
+```
+
+This page should now appear in the R console environment. We can see that the page contains a list of HTML elements. It can take a minute to get the page, depending on your internet connection/processor speed.
+
+## Extract each element
+
+Using the CSS Selector Gadget, we can find the elements we want to scrape. The following code snippet will find the elements that contain the TV Series name, the TV Series rating, the TV Series votes and the TV Series year and then it will extract the text from each of them. 
+
+### Episode Name
+
+```default
+    episode_name <- page |>
+        html_nodes("#episodes_content strong a") |>
+        html_text()
+```
+
+### Episode Number
+
+```default
+    episode_season <- page |>
+        html_nodes(".zero-z-index div") |>
+        html_text()
+
+```
+### Episode Rating
+
+```default
+rating <- page |>
+  html_nodes(".ipl-rating-star.small .ipl-rating-star__rating") |>
+        html_text()
+```
+### Episode Votes
+
+```default
+    total_votes <- page |>
+        html_nodes(".ipl-rating-star__total-votes") |>
+        html_text()
+
+```
+
+### Air Date
+
+```default
+
+    air_date <- page |>
+        html_nodes(".airdate") |>
+        html_text()
+
+```
+
+
+### Episode Description
+
+```default
+    description <- page |>
+        html_nodes(".item_description") |>
+        html_text()
+
+```
+
+### Repeat for each season
+
+The codes above will scrape the data for one season. To scrape the data for all seasons, we need to repeat the above steps for each season. To do that, we need to use the `for` loop. Additionally, we need to change the `url` variable to point to the correct URL for each season.
+
+## Final Code
+
+The final code snippet will look like the following:
+
+```{r}
+library(rvest)
+library(tidyverse)
+
+south_park <- data.frame()
+
+for (seasons in seq(from = 1, to = 25, by = 1)) {
+    link <- paste0("https://www.imdb.com/title/tt0121955/episodes?season=", seasons)
+
+    page <- read_html(link)
+
+    episode_name <- page |>
+        html_nodes("#episodes_content strong a") |>
+        html_text()
+
+    rating <- page |>
+        html_nodes(".ipl-rating-star.small .ipl-rating-star__rating") |>
+        html_text()
+
+
+    total_votes <- page |>
+        html_nodes(".ipl-rating-star__total-votes") |>
+        html_text()
+
+
+    air_date <- page |>
+        html_nodes(".airdate") |>
+        html_text()
+
+
+
+    description <- page |>
+        html_nodes(".item_description") |>
+        html_text()
+
+    episode_season <- page |>
+        html_nodes(".zero-z-index div") |>
+        html_text()
+
+
+    south_park <- rbind(south_park, data.frame(episode_name, episode_season,
+        rating,
+        total_votes,
+        air_date,
+        description,
+        stringsAsFactors = FALSE
+    ))
+}
+
+
+```
+
+
+
+## Make the Dataframe
+
+The final code snippet will create a data frame with the following columns:
+
+- `episode_name`
+
+- `episode_season`
+
+- `rating`
+
+- `total_votes`
+
+- `air_date`
+
+- `description`
+
+
+and save it under the variable `south_park`.
+
+Let use look at the data frame.
+
+```{r}
+south_park  |> head(10)  |> gt::gt()  |> gtExtras::gt_theme_538()
+
+```
+
+The scraped data is now in the `south_park` data frame, and can be saved from here. However, to further analyze the data, it needs to be cleaned up.
+
+
+# Data Cleaning
+
+The data frame we created above contains the data we want to analyze. However, the data is not in the most usable format. We need to clean the data to make it more useful.
+
+
+
+## Total Votes to Integer
+
+Remove the () from the total votes string, and convert it into an integer type.
+
+```default
+south_park$total_votes <- south_park$total_votes |>
+    str_replace_all("\\(|\\)|\\,", "") |>
+    as.integer()
+```
+
+## Rating to a double
+
+```default
+south_park$rating <- as.double(south_park$rating)
+
+```
+
+## Air_date to a Date
+
+```default
+south_park$air_date <-
+    str_replace_all(south_park$air_date, "\\n", "") |>
+    trimws() |>
+    lubridate::dmy()
+```
+
+## Description column cleaning
+The description column contains a new line, so need to remove it.
+
+```default
+south_park$description <-
+    str_replace_all(south_park$description, "\\n", "")
+```
+
+## Save the data
+
+Finally save the data as a new dataframe:
+
+```default
+clean_sp <- south_park |>
+    mutate(
+        season = str_extract(episode_season, "(?<=S)[:digit:]+"),
+        episode = str_extract(episode_season, "[:digit:]+$")
+    ) |>
+    relocate(season, .before = rating) |>
+    relocate(episode, .before = rating) |>
+    select(-episode_season) |>
+    mutate(
+        id = row_number()
+    )
+```
+
+# Conclusion
+
+For static webpages, Rvest package is a great tool to scrape data from a webpage. It is easy to use, and it is very flexible. Further, the data is in a very usable format, and does not need to be cleaned up a great deal. Each function in the package is well documented, and the code is easy to read, like most tidyverse packages.
+
+# References
+
+- [Rvest](https://rvest.tidyverse.org/)
+
+:::{.callout-caution collapse="true"}
+## Session Info
+
+R version 4.2.0 (2022-04-22)
+Platform: aarch64-apple-darwin20 (64-bit)
+Running under: macOS Monterey 12.4
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.9     purrr_0.3.4    
+ [5] readr_2.1.2     tidyr_1.2.0     tibble_3.1.7    ggplot2_3.3.6  
+ [9] tidyverse_1.3.1 rvest_1.0.2    
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.1.2  rematch2_2.1.2    haven_2.5.0       paletteer_1.4.0  
+ [5] colorspace_2.0-3  vctrs_0.4.1       generics_0.1.2    htmltools_0.5.2  
+ [9] utf8_1.2.2        rlang_1.0.2       pillar_1.7.0      glue_1.6.2       
+[13] withr_2.5.0       DBI_1.1.2         gtExtras_0.3.1    selectr_0.4-2    
+[17] dbplyr_2.1.1      modelr_0.1.8      readxl_1.4.0      lifecycle_1.0.1  
+[21] munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0  fontawesome_0.2.2
+[25] tzdb_0.3.0        fastmap_1.1.0     curl_4.3.2        fansi_1.0.3      
+[29] broom_0.8.0       checkmate_2.1.0   scales_1.2.0      backports_1.4.1  
+[33] jsonlite_1.8.0    fs_1.5.2          hms_1.1.1         digest_0.6.29    
+[37] stringi_1.7.6     grid_4.2.0        cli_3.3.0         tools_4.2.0      
+[41] sass_0.4.1        magrittr_2.0.3    crayon_1.5.1      pkgconfig_2.0.3  
+[45] ellipsis_0.3.2    xml2_1.3.3        reprex_2.0.1      lubridate_1.8.0  
+[49] assertthat_0.2.1  gt_0.6.0          httr_1.4.3        rstudioapi_0.13  
+[53] R6_2.5.1          compiler_4.2.0   
+
+:::
+
+

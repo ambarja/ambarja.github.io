@@ -1,0 +1,184 @@
+---
+pagetitle: "about me"
+format:
+  html:
+    page-layout: article
+    toc: false
+search: false
+execute:
+  echo: false
+---
+
+::: {.column-margin}
+<img src= "https://user-images.githubusercontent.com/23284899/186580997-b3c9258e-98ff-42a9-a2ee-a2abd72aa5dc.jpg" width='280px' style="padding-right: 25px;">
+:::
+
+# About Me
+
+Welcome to my portfolio webpage/blog. Over the last 6+ years I have been working with MS equipment including the high resolution Q-ToFs as well as triple quadrupole MS, coupled with various liquid chromatography setups such as from micro- and nano-LCs. 
+
+I develop workflows for analysis and quantification of complex biological samples by making use of techniques including but not limited to HILIC chromatography, RPLC, and use of stable isotopes for development and analysis of a wide range of assays. Check out this page to know more about my skills, research and research experience and my education background.
+
+Connect with me on Linkedin or Twitter to say Hi, or you can also contact me directly through my email.
+
+
+
+```{=html}
+<!-- linking the fontawesome library -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+```
+
+
+
+```{=html}
+<button type="button" class="btn btn-light"><a href="https://www.linkedin.com/in/karatsidhu/"><i class="fa-brands fa-linkedin-in"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href ="https://karatsidhu.com/data/pdf/cv.pdf"><i class="fa-solid fa-book-bookmark"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://www.twitter.com/karat_sidhu/"><i class="fa-brands fa-twitter"></i></a></button>
+
+
+<button type="button" class="btn btn-light"><a href="mailto:karatsingh@gmail.com"><i class="fa-solid fa-at"></i></a></button>
+
+
+<button type="button" class="btn btn-light"><a href="https://karatsidhu.com/blog.html"><i class="fa-solid fa-blog"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://orcid.org/0000-0002-8769-0926"><i class="fa-brands fa-orcid"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-github"></i></a></button>
+
+<button type="button" class="btn btn-light">      <a href="https://www.researchgate.net/profile/Karatatiwant-Sidhu"><i class="fa-brands fa-researchgate"></i></a></button>
+
+<br> <br> <br>
+```
+
+```{=html}
+
+<div class="section-title">
+<h2><i class="bi bi-tools"></i>  Skills </h2>
+</div>
+<button type="button" class="btn btn-dark btn-sm">Linux</button>
+<button type="button" class="btn btn-dark btn-sm">Docker</button>
+<button type="button" class="btn btn-dark btn-sm">Git + GitHub o GitLab</button>
+<button type="button" class="btn btn-dark btn-sm">HTML + CSS</button>
+<br>
+<button type="button" class="btn btn-dark btn-sm">PostgreSQL - PostGIS</button>
+<button type="button" class="btn btn-dark btn-sm">SQLite - SpatiaLite</button>
+<button type="button" class="btn btn-dark btn-sm">Geoserver</button>
+<button type="button" class="btn btn-dark btn-sm">Geonetwork</button>
+<br>
+<button type="button" class="btn btn-dark btn-sm">QGIS</button>
+<button type="button" class="btn btn-dark btn-sm">GRASS GIS</button>
+<button type="button" class="btn btn-dark btn-sm">SAGA GIS</button>
+<button type="button" class="btn btn-dark btn-sm">ArcGIS</button>
+<button type="button" class="btn btn-dark btn-sm">ENVI</button>
+<button type="button" class="btn btn-dark btn-sm">GeoDa</button>
+<button type="button" class="btn btn-dark btn-sm">OpenDroneMap</button>
+<br>
+<button type="button" class="btn btn-dark btn-sm">R</button>
+<button type="button" class="btn btn-dark btn-sm">Python</button>
+<button type="button" class="btn btn-dark btn-sm">Js</button>
+
+<br><br><br><br>
+
+```
+
+
+```{=html}
+
+<div class="section-title">
+    <h2><i class="fa-solid fa-dna"></i> Publications & projects </h2>
+</div>
+```
+
+- Aybar et al., (2020). rgee: An R package for interacting with Google Earth Engine. Journal of Open Source Software, 5(51), 2272, [https://doi.org/10.21105/joss.02272](https://doi.org/10.21105/joss.02272)
+
+- Gabo Gaboa y Antony Barja, Taller UseR! 2022 Scripts de R para QGIS Processing, 2022, [https://r-qgis.netlify.app/](https://r-qgis.netlify.app/)
+
+- Gabriel Carrasco and Antony Barja, Warming Stripes para las 24 regiones del Perú, 2022, [https://healthinnovation.github.io/WarmingStripes4PE/](https://healthinnovation.github.io/WarmingStripes4PE/)
+
+- Gabriel Carrasco and Antony Barja, rgee applied epidemiological studies, 2022, [https://epi-rgee.netlify.app/](https://epi-rgee.netlify.app/)
+
+- Barja, A., Ferrer, L., Añamuro, H., & Mogrovejo, D. (2021). 30DayMapChallengeQGISPERU (Version 1.0) [Computer software]. [https://doi.org/10.5281/zenodo.5262851](https://doi.org/10.5281/zenodo.5262851)
+
+- Barja, A., & Caceres, M. (2022). ee-cptcity (Version 1.0) [Computer software], [https://github.com/ambarja/ee-cptcity](https://github.com/ambarja/ee-cptcity)
+
+- Gabriel Carrasco, Antony Barja y Jesus Quispe,Visualización y Análisis de datos espaciales en salud pública, 2022, [https://www.reconlearn.org/post/spatial-analysis-1-spanish.html](https://www.reconlearn.org/post/spatial-analysis-1-spanish.html)
+
+```{=html}
+<section class="section gray-bg" id="resume">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-title">
+                            <h2> <i class="fa-solid fa-briefcase"></i> Experience </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 m-15px-tb">
+                        <div class="resume-box">
+                            <ul>
+                                <li>
+                                    <div class="icon">
+                                <i class="fa-solid fa-flask"></i>                                    
+                                </div>
+                                    <span class="time">July 2017 - Dec 2021</span>
+                                    <h5>University of Vermont</h5>
+                                    <p>Lab Research Technician: Analytical Chemistry, Proteomics and Mass Spec Facility, Department of Chemistry.</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-flask"></i>
+                                    </div>
+                                    <span class="time">Feb 2016 - May 2017</span>
+                                    <h5>CTRAL, Texas A&M University</h5>
+                                    <p>
+                                        Graduate Assistant,Analytical Chemistry - BSL-2 Facility - LC/MS.</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-flask"></i>
+                                    </div>
+                                    <span class="time">May 2016 - August 2017</span>
+                                    <h5>CTRAL, Texas A&M University</h5>
+                                    <p>Intern, Small Molecule and Stable Isotopes analysis.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        </section>
+```
+
+
+```{=html}
+
+<section class="section gray-bg" id="resume">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-title">
+                            <h2><i class="fa-solid fa-building-columns"></i> Education</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 m-15px-tb">
+                        <div class="resume-box">
+                            <ul>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <span class="time">2014 - 2018</span>
+                                    <h5>San Marcos University-UNMSM</h5>
+                                    <p>Bachelor in Geographical Engineering</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        </section>
+```
+

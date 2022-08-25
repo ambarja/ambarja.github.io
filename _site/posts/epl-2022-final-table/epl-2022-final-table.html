@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.113">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Karat Sidhu">
+<meta name="dcterms.date" content="2022-05-23">
+<meta name="description" content="Using gt package to create a great looking table for the EPL Standings 2021-22.">
+
+<title>Karat Sidhu - EPL 2022 Final Table</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: 1;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../data/images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZVPYZZSZ1B"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZVPYZZSZ1B', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../css/karat.css">
+<meta property="og:title" content="Karat Sidhu - EPL 2022 Final Table">
+<meta property="og:description" content="Using gt package to create a great looking table for the EPL Standings 2021-22.">
+<meta property="og:image" content="https://karatsidhu.com/posts\epl-2022-final-table\images\logo.png">
+<meta property="og:site-name" content="Karat Sidhu">
+<meta property="og:image:height" content="2000">
+<meta property="og:image:width" content="3000">
+<meta name="twitter:title" content="Karat Sidhu - EPL 2022 Final Table">
+<meta name="twitter:description" content="Using gt package to create a great looking table for the EPL Standings 2021-22.">
+<meta name="twitter:image" content="https://karatsidhu.com/posts\epl-2022-final-table\images\logo.png">
+<meta name="twitter:creator" content="@karat_sidhu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="2000">
+<meta name="twitter:image-width" content="3000">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Karat Sidhu</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../data/about/about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../data/gallery/index.html"><i class="bi bi-bar-chart-line" role="img">
+</i> 
+  </a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/karat_sidhu"><i class="bi bi-twitter" role="img">
+</i> 
+  </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">EPL 2022 Final Table</h1>
+                  <div>
+        <div class="description">
+          <p>Using gt package to create a great looking table for the EPL Standings 2021-22.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Data-Viz</div>
+                <div class="quarto-category">misc</div>
+                <div class="quarto-category">TidyVerse</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Karat Sidhu </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 23, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#how-to-make-beautiful-tables-in-r-using-gt" id="toc-how-to-make-beautiful-tables-in-r-using-gt" class="nav-link active" data-scroll-target="#how-to-make-beautiful-tables-in-r-using-gt">How to Make beautiful tables in R using gt()</a>
+  <ul class="collapse">
+  <li><a href="#using-gt-package-to-create-a-great-looking-table-for-the-epl-standings-2021-22" id="toc-using-gt-package-to-create-a-great-looking-table-for-the-epl-standings-2021-22" class="nav-link" data-scroll-target="#using-gt-package-to-create-a-great-looking-table-for-the-epl-standings-2021-22">Using gt package to create a great looking table for the EPL Standings 2021-22</a></li>
+  </ul></li>
+  <li><a href="#loading-the-required-packages" id="toc-loading-the-required-packages" class="nav-link" data-scroll-target="#loading-the-required-packages">Loading the required packages</a></li>
+  <li><a href="#loading-the-data" id="toc-loading-the-data" class="nav-link" data-scroll-target="#loading-the-data">Loading the data</a></li>
+  <li><a href="#combining-the-two-tables" id="toc-combining-the-two-tables" class="nav-link" data-scroll-target="#combining-the-two-tables">Combining the two tables,</a></li>
+  <li><a href="#making-the-final-table" id="toc-making-the-final-table" class="nav-link" data-scroll-target="#making-the-final-table">Making the final table:</a></li>
+  <li><a href="#saving-the-table-as-png-optional" id="toc-saving-the-table-as-png-optional" class="nav-link" data-scroll-target="#saving-the-table-as-png-optional">Saving the table as png (optional)</a></li>
+  <li><a href="#final-result" id="toc-final-result" class="nav-link" data-scroll-target="#final-result">Final Result:</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sidhuk/karat_codes/edit/main/posts/epl-2022-final-table/epl-2022-final-table.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sidhuk/karat_codes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="how-to-make-beautiful-tables-in-r-using-gt" class="level1">
+<h1>How to Make beautiful tables in R using gt()</h1>
+<section id="using-gt-package-to-create-a-great-looking-table-for-the-epl-standings-2021-22" class="level2">
+<h2 class="anchored" data-anchor-id="using-gt-package-to-create-a-great-looking-table-for-the-epl-standings-2021-22">Using gt package to create a great looking table for the EPL Standings 2021-22</h2>
+<p>Grammar of tables or gt() package, combined with the gtextras() package provides an easy and simple way to make high quality tables in R.</p>
+<p>I wanted to practice the gt() package in R, and decided to document my journey to making a great looking table of the final standings for the English Premier League now that the season is over.</p>
+<p>It’s been a season to forget as a Manchester United fan :( and I am hopeful for better performances next season under Ten Hag, but the football as a neutral has been very exciting to watch.I digress, let’s get back on to the coding part.</p>
+<p>Code to make this possible, along with a brief explanation of each part of the process:</p>
+</section>
+</section>
+<section id="loading-the-required-packages" class="level1">
+<h1>Loading the required packages</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+</div>
+<div class="cell-output-stderr">
+<pre><code>✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.7     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtExtras)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Loading required package: sysfonts</code></pre>
+</div>
+<div class="cell-output-stderr">
+<pre><code>Loading required package: showtextdb</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The main font I used for the title is similar to the PL official font.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext_auto</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add</span>(<span class="st">"Premier League"</span>, <span class="at">regular =</span> <span class="st">"FontsFree-Net-Barclays-Premier-League.ttf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data file was downloaded from the FBref database as a .csv, so the loading and cleaning of data was a relatively easy process</p>
+</section>
+<section id="loading-the-data" class="level1">
+<h1>Loading the data</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"pl_table_gw_38.csv"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>logos <span class="ot">&lt;-</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">read.csv</span>(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://raw.githubusercontent.com/steodose/Club-Soccer-Forecasts/main/team_mapping.csv"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Data to be cleaned and the form table needs to be in the form of a list inside a data frame. Cleaning it up:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>logos_cleaned <span class="ot">&lt;-</span> logos <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(squad_fbref, url_logo_espn) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Squad =</span> <span class="st">"squad_fbref"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> table <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Goalkeeper, Notes, Attendance))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="combining-the-two-tables" class="level1">
+<h1>Combining the two tables,</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>table2 <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(table,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    logos_cleaned,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"Squad"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">relocate</span>(Rk, url_logo_espn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="making-the-final-table" class="level1">
+<h1>Making the final table:</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>final_table <span class="ot">&lt;-</span> table2 <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="st">`</span><span class="at"> </span><span class="st">`</span> <span class="ot">=</span> <span class="st">"url_logo_espn"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Rank =</span> <span class="st">"Rk"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="st">`</span><span class="at">Top Scorer</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Top.Team.Scorer"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> W,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>W), <span class="fu">min</span>(table2<span class="sc">$</span>W))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> D,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>D), <span class="fu">min</span>(table2<span class="sc">$</span>D))</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> L,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>L), <span class="fu">min</span>(table2<span class="sc">$</span>L))</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> GF,</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>GF), <span class="fu">min</span>(table2<span class="sc">$</span>GF))</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> GA,</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">min</span>(table2<span class="sc">$</span>GA), <span class="fu">max</span>(table2<span class="sc">$</span>GA))</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> GD,</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>GD), <span class="fu">min</span>(table2<span class="sc">$</span>GD))</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> Pts,</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>Pts), <span class="fu">min</span>(table2<span class="sc">$</span>Pts))</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>        xG,</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>xG), <span class="fu">min</span>(table2<span class="sc">$</span>xG))</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>        xGA,</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">min</span>(table2<span class="sc">$</span>xGA), <span class="fu">max</span>(table2<span class="sc">$</span>xGA))</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a>        xGD,</span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>xGD), <span class="fu">min</span>(table2<span class="sc">$</span>xGD))</span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_color_rows</span>(</span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>        xGD<span class="fl">.90</span>,</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"discrete"</span>,</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"RColorBrewer::Spectral"</span>,</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">c</span>(<span class="fu">max</span>(table2<span class="sc">$</span>xGD<span class="fl">.90</span>), <span class="fu">min</span>(table2<span class="sc">$</span>xGD<span class="fl">.90</span>))</span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_img_rows</span>(</span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>        <span class="at">columns =</span> <span class="st">`</span><span class="at"> </span><span class="st">`</span>,</span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>        <span class="at">img_source =</span> <span class="st">"web"</span>,</span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>        <span class="at">height =</span> <span class="dv">35</span></span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(</span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>        <span class="at">style =</span> <span class="fu">list</span>(<span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>)),</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> Squad <span class="sc">==</span> <span class="st">"Manchester Utd"</span>)</span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt_theme_espn</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(</span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>        <span class="at">style =</span> <span class="fu">list</span>(<span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>)),</span>
+<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>            <span class="at">columns =</span> Squad</span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_header</span>(</span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"2021-22 Premier League Standings"</span>,</span>
+<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">"Final Results for the English Premier League saw Manchester City win the league after an exciting last few weeks of competition</span></span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="st">    with Liverpool. The competition came down to the final few minutes of the season where City were crowned winners.</span></span>
+<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a><span class="st">    The top 4 teams qualified for the UCL, 5th and 6th place teams are in the Europa League while the 7th place West Ham</span></span>
+<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a><span class="st">    secured the UECL qualification. The bottom 3 teams, Norwich, Watford and Burnley were relegated to the English Championship (2nd tier competition);</span></span>
+<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a><span class="st">    Everton and Leeds United narrowly escaped relegation."</span></span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_footnote</span>(</span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>        <span class="at">footnote =</span> <span class="st">"xG = Expected Goals (Higher is better)"</span>,</span>
+<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> xG)</span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_footnote</span>(</span>
+<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a>        <span class="at">footnote =</span> <span class="st">"xGA = Expect Goals Against (Lower is better) "</span>,</span>
+<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> xGA)</span>
+<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_footnote</span>(</span>
+<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a>        <span class="at">footnote =</span> <span class="st">"xGD = xG Difference (xG - xGA (High is better))"</span>,</span>
+<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> xGD)</span>
+<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_footnote</span>(</span>
+<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a>        <span class="at">footnote =</span> <span class="st">"xGD.90 = xG Difference per 90 mins (Higher is better)"</span>,</span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> xGD<span class="fl">.90</span>)</span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_footnote</span>(</span>
+<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a>        <span class="at">footnote =</span> <span class="st">"The team that I support :("</span>,</span>
+<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a>            <span class="at">columns =</span> Squad,</span>
+<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a>            <span class="at">rows =</span> <span class="dv">6</span></span>
+<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_source_note</span>(</span>
+<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a>        <span class="at">source_note =</span> <span class="st">"Data : FBRef | Table : Github.com/SidhuK"</span></span>
+<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(</span>
+<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a>        <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="at">groups =</span> <span class="st">"title"</span>), <span class="co"># format the main title</span></span>
+<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a>        <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a>            <span class="fu">cell_text</span>(</span>
+<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a>                <span class="at">font =</span> <span class="st">"Premier League"</span>,</span>
+<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="fu">px</span>(<span class="dv">40</span>),</span>
+<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a>                <span class="at">weight =</span> <span class="dv">700</span></span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_options</span>(</span>
+<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>        <span class="at">table.background.color =</span> <span class="st">"#eeeeee"</span>,</span>
+<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_labels.background.color =</span> <span class="st">"#eeeeee"</span></span>
+<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a>    ) <span class="co"># set the bg color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="saving-the-table-as-png-optional" class="level1">
+<h1>Saving the table as png (optional)</h1>
+<p>(Use gt save to save it as a png and not an html object)</p>
+</section>
+<section id="final-result" class="level1">
+<h1>Final Result:</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>final_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Warning in locname == "data" &amp;&amp; colname == .env$colname: 'length(x) = 245 &gt; 1'
+in coercion to 'logical(1)'
+
+Warning in locname == "data" &amp;&amp; colname == .env$colname: 'length(x) = 245 &gt; 1'
+in coercion to 'logical(1)'</code></pre>
+</div>
+<div class="cell-output-display">
+
+<div id="nyctumtrqo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#nyctumtrqo) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #EEEEEE;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #FFFFFF;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_heading {
+  background-color: #EEEEEE;
+  text-align: left;
+  border-bottom-color: #EEEEEE;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_title {
+  color: #333333;
+  font-size: 24px;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #EEEEEE;
+  border-bottom-width: 0;
+}
+
+:where(#nyctumtrqo) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #EEEEEE;
+  border-top-width: 0;
+}
+
+:where(#nyctumtrqo) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_col_heading {
+  color: #333333;
+  background-color: #EEEEEE;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#nyctumtrqo) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #EEEEEE;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#nyctumtrqo) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#nyctumtrqo) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#nyctumtrqo) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#nyctumtrqo) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #EEEEEE;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#nyctumtrqo) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #EEEEEE;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#nyctumtrqo) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#nyctumtrqo) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#nyctumtrqo) .gt_row {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #F6F7F7;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#nyctumtrqo) .gt_stub {
+  color: #333333;
+  background-color: #EEEEEE;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#nyctumtrqo) .gt_stub_row_group {
+  color: #333333;
+  background-color: #EEEEEE;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#nyctumtrqo) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#nyctumtrqo) .gt_summary_row {
+  color: #333333;
+  background-color: #EEEEEE;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#nyctumtrqo) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#nyctumtrqo) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #EEEEEE;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#nyctumtrqo) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_striped {
+  background-color: #FAFAFA;
+}
+
+:where(#nyctumtrqo) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_footnotes {
+  color: #333333;
+  background-color: #EEEEEE;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#nyctumtrqo) .gt_sourcenotes {
+  color: #333333;
+  background-color: #EEEEEE;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#nyctumtrqo) .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#nyctumtrqo) .gt_left {
+  text-align: left;
+}
+
+:where(#nyctumtrqo) .gt_center {
+  text-align: center;
+}
+
+:where(#nyctumtrqo) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#nyctumtrqo) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#nyctumtrqo) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#nyctumtrqo) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#nyctumtrqo) .gt_super {
+  font-size: 65%;
+}
+
+:where(#nyctumtrqo) .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+:where(#nyctumtrqo) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#nyctumtrqo) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#nyctumtrqo) .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+:where(#nyctumtrqo) .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+:where(#nyctumtrqo) .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="16" class="gt_heading gt_title gt_font_normal" style="color: #000000; font-family: 'Premier League'; font-size: 40px; font-weight: 700;">2021-22 Premier League Standings</th>
+    </tr>
+    <tr>
+      <th colspan="16" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Final Results for the English Premier League saw Manchester City win the league after an exciting last few weeks of competition
+    with Liverpool. The competition came down to the final few minutes of the season where City were crowned winners.
+    The top 4 teams qualified for the UCL, 5th and 6th place teams are in the Europa League while the 7th place West Ham
+    secured the UECL qualification. The bottom 3 teams, Norwich, Watford and Burnley were relegated to the English Championship (2nd tier competition);
+    Everton and Leeds United narrowly escaped relegation.</th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Rank</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"> </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Squad</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">MP</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">W</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">D</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">L</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">GF</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">GA</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">GD</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Pts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">xG<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">xGA<sup class="gt_footnote_marks">2</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">xGD<sup class="gt_footnote_marks">3</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">xGD.90<sup class="gt_footnote_marks">4</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Top Scorer</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">1</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/382.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Manchester City</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">29</td>
+<td class="gt_row gt_right" style="background-color: #8BCFA5; color: #000000;">6</td>
+<td class="gt_row gt_right" style="background-color: #5467AD; color: #FFFFFF;">3</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">99</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">26</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">73</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">93</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">86.1</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">26.9</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">59.3</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">1.60</td>
+<td class="gt_row gt_left">Kevin De Bruyne - 15</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">2</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/364.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Liverpool</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #5367AD; color: #FFFFFF;">28</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #EAF79F; color: #000000;">8</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #5E4FA2; color: #FFFFFF;">2</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #4975B4; color: #FFFFFF;">94</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #5E4FA2; color: #FFFFFF;">26</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #5465AC; color: #FFFFFF;">68</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #5B57A6; color: #FFFFFF;">92</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #5E4FA2; color: #FFFFFF;">86.1</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #4B9BB6; color: #000000;">33.1</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #4A74B3; color: #FFFFFF;">52.9</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #4A74B3; color: #FFFFFF;">1.43</td>
+<td class="gt_row gt_left gt_striped">Mohamed Salah - 23</td></tr>
+    <tr><td class="gt_row gt_right">3</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/363.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Chelsea</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #BFE5A0; color: #000000;">21</td>
+<td class="gt_row gt_right" style="background-color: #FEBF6F; color: #000000;">11</td>
+<td class="gt_row gt_right" style="background-color: #58AAAF; color: #000000;">6</td>
+<td class="gt_row gt_right" style="background-color: #ADDEA4; color: #000000;">76</td>
+<td class="gt_row gt_right" style="background-color: #4394B8; color: #000000;">33</td>
+<td class="gt_row gt_right" style="background-color: #78C8A5; color: #000000;">43</td>
+<td class="gt_row gt_right" style="background-color: #96D4A4; color: #000000;">74</td>
+<td class="gt_row gt_right" style="background-color: #E6F598; color: #000000;">64.8</td>
+<td class="gt_row gt_right" style="background-color: #5DB2AC; color: #000000;">34.9</td>
+<td class="gt_row gt_right" style="background-color: #A8DCA4; color: #000000;">29.9</td>
+<td class="gt_row gt_right" style="background-color: #A7DBA4; color: #000000;">0.81</td>
+<td class="gt_row gt_left">Mason Mount - 11</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">4</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/367.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Tottenham</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #A6DBA4; color: #000000;">22</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #5AAEAE; color: #000000;">5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #CFEB9D; color: #000000;">11</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #E3F499; color: #000000;">69</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #85CDA5; color: #000000;">40</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #BCE4A1; color: #000000;">29</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #B1DFA3; color: #000000;">71</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F6FBB1; color: #000000;">61.5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #92D2A5; color: #000000;">39.0</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #D5EE9C; color: #000000;">22.5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #D4ED9C; color: #000000;">0.61</td>
+<td class="gt_row gt_left gt_striped">Son Heung-min - 23</td></tr>
+    <tr><td class="gt_row gt_right">5</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/359.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Arsenal</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #A6DBA4; color: #000000;">22</td>
+<td class="gt_row gt_right" style="background-color: #5E4FA2; color: #FFFFFF;">3</td>
+<td class="gt_row gt_right" style="background-color: #F0F9A8; color: #000000;">13</td>
+<td class="gt_row gt_right" style="background-color: #FFFFBF; color: #000000;">61</td>
+<td class="gt_row gt_right" style="background-color: #DAF09B; color: #000000;">48</td>
+<td class="gt_row gt_right" style="background-color: #F2FAAB; color: #000000;">13</td>
+<td class="gt_row gt_right" style="background-color: #C2E6A0; color: #000000;">69</td>
+<td class="gt_row gt_right" style="background-color: #FFEFA4; color: #000000;">56.8</td>
+<td class="gt_row gt_right" style="background-color: #E9F69D; color: #000000;">46.0</td>
+<td class="gt_row gt_right" style="background-color: #FCFEBA; color: #000000;">10.8</td>
+<td class="gt_row gt_right" style="background-color: #FCFEBA; color: #000000;">0.29</td>
+<td class="gt_row gt_left">Bukayo Saka - 11</td></tr>
+    <tr><td class="gt_row gt_right gt_striped" style="font-weight: bold;">6</td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/360.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Manchester Utd<sup class="gt_footnote_marks">5</sup></td>
+<td class="gt_row gt_right gt_striped" style="font-weight: bold;">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFF2A9; color: #000000; font-weight: bold;">16</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFE594; color: #000000; font-weight: bold;">10</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #E6F598; color: #000000; font-weight: bold;">12</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFEFA4; color: #000000; font-weight: bold;">57</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFF4AD; color: #000000; font-weight: bold;">57</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFF1A8; color: #000000; font-weight: bold;">0</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FDFEBC; color: #000000; font-weight: bold;">58</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEDE89; color: #000000; font-weight: bold;">54.0</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEE492; color: #000000; font-weight: bold;">54.1</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEE18D; color: #000000; font-weight: bold;">-0.1</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEE28E; color: #000000; font-weight: bold;">0.00</td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Cristiano Ronaldo - 18</td></tr>
+    <tr><td class="gt_row gt_right">7</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/371.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">West Ham</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #FFF2A9; color: #000000;">16</td>
+<td class="gt_row gt_right" style="background-color: #EAF79F; color: #000000;">8</td>
+<td class="gt_row gt_right" style="background-color: #FAFDB7; color: #000000;">14</td>
+<td class="gt_row gt_right" style="background-color: #FFFBB8; color: #000000;">60</td>
+<td class="gt_row gt_right" style="background-color: #EEF8A4; color: #000000;">51</td>
+<td class="gt_row gt_right" style="background-color: #F9FDB6; color: #000000;">9</td>
+<td class="gt_row gt_right" style="background-color: #FFF8B4; color: #000000;">56</td>
+<td class="gt_row gt_right" style="background-color: #FEB466; color: #000000;">49.6</td>
+<td class="gt_row gt_right" style="background-color: #FBFDB8; color: #000000;">49.3</td>
+<td class="gt_row gt_right" style="background-color: #FEE28F; color: #000000;">0.3</td>
+<td class="gt_row gt_right" style="background-color: #FEE390; color: #000000;">0.01</td>
+<td class="gt_row gt_left">Jarrod Bowen - 12</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">8</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/375.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Leicester City</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FED480; color: #000000;">14</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFE594; color: #000000;">10</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FAFDB7; color: #000000;">14</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FCFEBA; color: #000000;">62</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFEA9B; color: #000000;">59</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFF8B3; color: #000000;">3</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFE797; color: #000000;">52</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FDA95E; color: #000000;">48.5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FCA85E; color: #000000;">59.8</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FCA95E; color: #000000;">-11.3</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FDAA5F; color: #000000;">-0.30</td>
+<td class="gt_row gt_left gt_striped">Jamie Vardy - 15</td></tr>
+    <tr><td class="gt_row gt_right">9</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/331.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Brighton</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #FDA95E; color: #000000;">12</td>
+<td class="gt_row gt_right" style="background-color: #9E0142; color: #FFFFFF;">15</td>
+<td class="gt_row gt_right" style="background-color: #CFEB9D; color: #000000;">11</td>
+<td class="gt_row gt_right" style="background-color: #F98F52; color: #000000;">42</td>
+<td class="gt_row gt_right" style="background-color: #B1DFA3; color: #000000;">44</td>
+<td class="gt_row gt_right" style="background-color: #FFECA0; color: #000000;">-2</td>
+<td class="gt_row gt_right" style="background-color: #FEE38F; color: #000000;">51</td>
+<td class="gt_row gt_right" style="background-color: #F67747; color: #000000;">44.4</td>
+<td class="gt_row gt_right" style="background-color: #E3F499; color: #000000;">45.2</td>
+<td class="gt_row gt_right" style="background-color: #FEDE89; color: #000000;">-0.9</td>
+<td class="gt_row gt_right" style="background-color: #FEDF8A; color: #000000;">-0.02</td>
+<td class="gt_row gt_left">Leandro Trossard Neal Maupay - 8</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/380.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Wolves</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFE594; color: #000000;">15</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #8BCFA5; color: #000000;">6</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEE08B; color: #000000;">17</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F36C43; color: #000000;">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #A7DBA4; color: #000000;">43</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFE694; color: #000000;">-5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEE38F; color: #000000;">51</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #B11E47; color: #FFFFFF;">34.9</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEC775; color: #000000;">57.1</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #EE6446; color: #000000;">-22.3</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #EF6546; color: #000000;">-0.60</td>
+<td class="gt_row gt_left gt_striped">Raúl Jiménez - 6</td></tr>
+    <tr><td class="gt_row gt_right">11</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/361.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Newcastle Utd</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #FEBF6F; color: #000000;">13</td>
+<td class="gt_row gt_right" style="background-color: #FFE594; color: #000000;">10</td>
+<td class="gt_row gt_right" style="background-color: #FFF9B5; color: #000000;">15</td>
+<td class="gt_row gt_right" style="background-color: #FB9F5A; color: #000000;">44</td>
+<td class="gt_row gt_right" style="background-color: #FED682; color: #000000;">62</td>
+<td class="gt_row gt_right" style="background-color: #FEB96A; color: #000000;">-18</td>
+<td class="gt_row gt_right" style="background-color: #FED683; color: #000000;">49</td>
+<td class="gt_row gt_right" style="background-color: #D6404F; color: #FFFFFF;">38.5</td>
+<td class="gt_row gt_right" style="background-color: #FFE593; color: #000000;">54.0</td>
+<td class="gt_row gt_right" style="background-color: #F98E51; color: #000000;">-15.5</td>
+<td class="gt_row gt_right" style="background-color: #F98E51; color: #000000;">-0.42</td>
+<td class="gt_row gt_left">Callum Wilson - 8</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">12</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/384.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Crystal Palace</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F98F52; color: #000000;">11</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">15</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #E6F598; color: #000000;">12</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FECA78; color: #000000;">50</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #C6E89F; color: #000000;">46</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFFAB7; color: #000000;">4</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FECF7D; color: #000000;">48</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F98A50; color: #000000;">45.9</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #A1D9A4; color: #000000;">40.1</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFF3AB; color: #000000;">5.7</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFF4AD; color: #000000;">0.16</td>
+<td class="gt_row gt_left gt_striped">Wilfried Zaha - 14</td></tr>
+    <tr><td class="gt_row gt_right">13</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/337.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Brentford</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #FEBF6F; color: #000000;">13</td>
+<td class="gt_row gt_right" style="background-color: #BFE5A0; color: #000000;">7</td>
+<td class="gt_row gt_right" style="background-color: #FECC7A; color: #000000;">18</td>
+<td class="gt_row gt_right" style="background-color: #FEBD6D; color: #000000;">48</td>
+<td class="gt_row gt_right" style="background-color: #FFFAB6; color: #000000;">56</td>
+<td class="gt_row gt_right" style="background-color: #FEDE89; color: #000000;">-8</td>
+<td class="gt_row gt_right" style="background-color: #FEC171; color: #000000;">46</td>
+<td class="gt_row gt_right" style="background-color: #FA9454; color: #000000;">46.7</td>
+<td class="gt_row gt_right" style="background-color: #F2FAAB; color: #000000;">47.7</td>
+<td class="gt_row gt_right" style="background-color: #FEDD89; color: #000000;">-1.0</td>
+<td class="gt_row gt_right" style="background-color: #FEDD88; color: #000000;">-0.03</td>
+<td class="gt_row gt_left">Ivan Toney - 12</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">14</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/362.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Aston Villa</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEBF6F; color: #000000;">13</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #8BCFA5; color: #000000;">6</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEB869; color: #000000;">19</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FED783; color: #000000;">52</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FBFDB8; color: #000000;">54</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFECA0; color: #000000;">-2</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEBA6B; color: #000000;">45</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F46E43; color: #000000;">43.7</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #EAF79E; color: #000000;">46.2</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FED682; color: #000000;">-2.5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FED682; color: #000000;">-0.07</td>
+<td class="gt_row gt_left gt_striped">Ollie Watkins - 11</td></tr>
+    <tr><td class="gt_row gt_right">15</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/376.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Southampton</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #EA5E48; color: #000000;">9</td>
+<td class="gt_row gt_right" style="background-color: #EA5E48; color: #000000;">13</td>
+<td class="gt_row gt_right" style="background-color: #FFECA0; color: #000000;">16</td>
+<td class="gt_row gt_right" style="background-color: #FA9756; color: #000000;">43</td>
+<td class="gt_row gt_right" style="background-color: #FDAA5F; color: #000000;">67</td>
+<td class="gt_row gt_right" style="background-color: #FB9F5A; color: #000000;">-24</td>
+<td class="gt_row gt_right" style="background-color: #FA9153; color: #000000;">40</td>
+<td class="gt_row gt_right" style="background-color: #F8864E; color: #000000;">45.6</td>
+<td class="gt_row gt_right" style="background-color: #FECF7D; color: #000000;">56.3</td>
+<td class="gt_row gt_right" style="background-color: #FDAC60; color: #000000;">-10.7</td>
+<td class="gt_row gt_right" style="background-color: #FDAC60; color: #000000;">-0.29</td>
+<td class="gt_row gt_left">James Ward-Prowse - 10</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">16</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/368.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Everton</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F98F52; color: #000000;">11</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #8BCFA5; color: #000000;">6</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F8884F; color: #000000;">21</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FA9756; color: #000000;">43</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FDB365; color: #000000;">66</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FCA45C; color: #000000;">-23</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F8884F; color: #000000;">39</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #E85C48; color: #000000;">41.6</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FFF6B0; color: #000000;">51.4</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FDB164; color: #000000;">-9.8</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FDB265; color: #000000;">-0.26</td>
+<td class="gt_row gt_left gt_striped">Richarlison - 10</td></tr>
+    <tr><td class="gt_row gt_right">17</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/357.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Leeds United</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #EA5E48; color: #000000;">9</td>
+<td class="gt_row gt_right" style="background-color: #FEBF6F; color: #000000;">11</td>
+<td class="gt_row gt_right" style="background-color: #FECC7A; color: #000000;">18</td>
+<td class="gt_row gt_right" style="background-color: #F98F52; color: #000000;">42</td>
+<td class="gt_row gt_right" style="background-color: #CD384D; color: #FFFFFF;">79</td>
+<td class="gt_row gt_right" style="background-color: #EE6446; color: #000000;">-37</td>
+<td class="gt_row gt_right" style="background-color: #F77F4A; color: #000000;">38</td>
+<td class="gt_row gt_right" style="background-color: #F9894F; color: #000000;">45.8</td>
+<td class="gt_row gt_right" style="background-color: #D13B4E; color: #FFFFFF;">69.0</td>
+<td class="gt_row gt_right" style="background-color: #EB6047; color: #000000;">-23.2</td>
+<td class="gt_row gt_right" style="background-color: #EB6047; color: #000000;">-0.63</td>
+<td class="gt_row gt_left">Raphael Dias Belloli - 11</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">18</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/379.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Burnley</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #CC364D; color: #FFFFFF;">7</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #CC364D; color: #FFFFFF;">14</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEE08B; color: #000000;">17</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #E3544A; color: #FFFFFF;">34</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F6FCB2; color: #000000;">53</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEB567; color: #000000;">-19</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #EF6645; color: #000000;">35</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #CC374D; color: #FFFFFF;">37.5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #FEDE8A; color: #000000;">54.9</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F7824C; color: #000000;">-17.4</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #F7824C; color: #000000;">-0.47</td>
+<td class="gt_row gt_left gt_striped">Maxwel Cornet - 9</td></tr>
+    <tr><td class="gt_row gt_right">19</td>
+<td class="gt_row gt_left"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/395.png" style="height:35px;"></td>
+<td class="gt_row gt_left" style="font-weight: bold;">Watford</td>
+<td class="gt_row gt_right">38</td>
+<td class="gt_row gt_right" style="background-color: #B52148; color: #FFFFFF;">6</td>
+<td class="gt_row gt_right" style="background-color: #5AAEAE; color: #000000;">5</td>
+<td class="gt_row gt_right" style="background-color: #9E0142; color: #FFFFFF;">27</td>
+<td class="gt_row gt_right" style="background-color: #E3544A; color: #FFFFFF;">34</td>
+<td class="gt_row gt_right" style="background-color: #DB494D; color: #FFFFFF;">77</td>
+<td class="gt_row gt_right" style="background-color: #E04F4C; color: #FFFFFF;">-43</td>
+<td class="gt_row gt_right" style="background-color: #A60F44; color: #FFFFFF;">23</td>
+<td class="gt_row gt_right" style="background-color: #D03A4E; color: #FFFFFF;">37.8</td>
+<td class="gt_row gt_right" style="background-color: #F36B44; color: #000000;">64.2</td>
+<td class="gt_row gt_right" style="background-color: #E1524B; color: #FFFFFF;">-26.4</td>
+<td class="gt_row gt_right" style="background-color: #E2524B; color: #FFFFFF;">-0.71</td>
+<td class="gt_row gt_left">Emmanuel Dennis - 10</td></tr>
+    <tr><td class="gt_row gt_right gt_striped">20</td>
+<td class="gt_row gt_left gt_striped"><img src="https://a.espncdn.com/i/teamlogos/soccer/500/381.png" style="height:35px;"></td>
+<td class="gt_row gt_left gt_striped" style="font-weight: bold;">Norwich City</td>
+<td class="gt_row gt_right gt_striped">38</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">5</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #BFE5A0; color: #000000;">7</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #B42047; color: #FFFFFF;">26</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">23</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">84</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">-61</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">22</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">33.0</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">73.3</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">-40.3</td>
+<td class="gt_row gt_right gt_striped" style="background-color: #9E0142; color: #FFFFFF;">-1.09</td>
+<td class="gt_row gt_left gt_striped">Teemu Pukki - 11</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="16">Data : FBRef | Table : Github.com/SidhuK</td>
+    </tr>
+  </tfoot>
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="16"><sup class="gt_footnote_marks">1</sup> xG = Expected Goals (Higher is better)</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="16"><sup class="gt_footnote_marks">2</sup> xGA = Expect Goals Against (Lower is better) </td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="16"><sup class="gt_footnote_marks">3</sup> xGD = xG Difference (xG - xGA (High is better))</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="16"><sup class="gt_footnote_marks">4</sup> xGD.90 = xG Difference per 90 mins (Higher is better)</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="16"><sup class="gt_footnote_marks">5</sup> The team that I support :(</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sidhu2022,
+  author = {Karat Sidhu},
+  editor = {},
+  title = {EPL 2022 {Final} {Table}},
+  date = {2022-05-23},
+  url = {https://karatsidhu.com/posts/epl-2022-final-table/epl-2022-final-table.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-sidhu2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Karat Sidhu. 2022. <span>“EPL 2022 Final Table.”</span> May 23, 2022. <a href="https://karatsidhu.com/posts/epl-2022-final-table/epl-2022-final-table.html">https://karatsidhu.com/posts/epl-2022-final-table/epl-2022-final-table.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="sidhuk/karat_codes" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© 2022 Karat Sidhu</div>   
+      <div class="nav-footer-center"><a href="https://www.linkedin.com/in/karatsidhu/"><i class="fa-brands fa-linkedin-in"></i></a> <a href="https://karatsidhu.com/data/pdf/cv.pdf"><i class="fa-solid fa-book-bookmark"></i></a> <a href="https://www.twitter.com/karat_sidhu/"><i class="fa-brands fa-twitter"></i></a> <a href="mailto:karatsingh@gmail.com"><i class="fa-solid fa-at"></i></a> <a href="https://orcid.org/0000-0002-8769-0926"><i class="fa-brands fa-orcid"></i></a> <a href="https://github.com/SidhuK"><i class="fa-brands fa-github"></i></a> <a href="https://www.researchgate.net/profile/Karatatiwant-Sidhu"><i class="fa-brands fa-researchgate"></i></a></div>
+    <div class="nav-footer-right">Made with ♥ using <code>{Quarto}</code></div>
+  </div>
+</footer>
+
+
+
+</body></html>
