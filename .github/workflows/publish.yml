@@ -5,6 +5,7 @@ on:
     branches: [master,main]
   pull-request:
     branches: [master,main]
+    
 name: Quarto Publish
 
 jobs:
