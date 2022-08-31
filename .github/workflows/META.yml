@@ -1,0 +1,16 @@
+name: UPDATE META
+on:
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+     
+     steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Hello, world!
