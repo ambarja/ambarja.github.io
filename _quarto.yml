@@ -39,7 +39,7 @@ website:
     center: |
       
       <center>
-citation: false
+# citation: true
 # license: "CC BY"
 format:
   html:

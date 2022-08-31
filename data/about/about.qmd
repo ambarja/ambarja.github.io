@@ -10,8 +10,11 @@ execute:
 ---
 
 <style>
- a {
- color: #7357ff
+.fixed-top {
+    position: absolute;
+    }
+a {
+word-break: break-word;
 }
 </style>
 
