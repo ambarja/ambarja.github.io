@@ -30,8 +30,5 @@ jobs:
         with:
           target: gh-pages
           
-      - name: New meta for website
-        run: grep -o 'content="(ambarja)"' index.html | sed -i 's/content="(ambarja)"/content={$description}/g' index.html
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
