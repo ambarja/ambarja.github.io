@@ -34,6 +34,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Edited meta
-        run: |
-        description= "holiiiii"
-        grep -o 'content="(ambarja)"' index.html | sed -i 's/content="(ambarja)"/$description/g' index.html
+        run: grep -o 'content="(ambarja)"' index.html | sed -i 's/content="(ambarja)"/content="holiiii"/g' index.html
