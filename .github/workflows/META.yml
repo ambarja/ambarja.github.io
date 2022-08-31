@@ -1,12 +1,11 @@
-name: UPDATE META
+name: META
 on:
-  push:
+  push: 
     branches:
-      - gh-pages
-
+     - gh-pages
 jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
