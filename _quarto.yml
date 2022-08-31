@@ -9,11 +9,6 @@ website:
   repo-url: https://github.com/ambarja/ambarja.github.io
   #google-analytics: "G-ZVPYZZSZ1B"
   repo-actions: [edit, issue]
-  comments:
-    utterances:
-      repo: ambarja/ambarja.github.io
-      label: "Comments"
-      theme: github-light
   open-graph: true
   favicon: data/images/logo.png
   twitter-card:
@@ -44,8 +39,8 @@ website:
     center: |
       
       <center>
-citation: true
-license: "CC BY"
+citation: false
+# license: "CC BY"
 format:
   html:
     theme:

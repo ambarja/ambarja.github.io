@@ -9,18 +9,29 @@ execute:
   echo: false
 ---
 
-::: {.column-margin}
-<img src= "https://user-images.githubusercontent.com/23284899/186580997-b3c9258e-98ff-42a9-a2ee-a2abd72aa5dc.jpg" width='280px' style="padding-right: 25px;">
+<style>
+ a {
+ color: #7357ff
+}
+</style>
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+
+![](../images/antony.jpg)
 :::
 
-# About Me
+::: {.g-col-12 .g-col-md-6}
 
-Welcome to my portfolio webpage/blog. Over the last 6+ years I have been working with MS equipment including the high resolution Q-ToFs as well as triple quadrupole MS, coupled with various liquid chromatography setups such as from micro- and nano-LCs. 
+<h1 style="margin-top:0rem;margin-bottom:0rem;"> Hi, I'm Antony Barja.</h1>
 
-I develop workflows for analysis and quantification of complex biological samples by making use of techniques including but not limited to HILIC chromatography, RPLC, and use of stable isotopes for development and analysis of a wide range of assays. Check out this page to know more about my skills, research and research experience and my education background.
+I have a degree in Geographic Engineering from the National University of San Marcos. In my spare time I spend my time reading articles about Geocomputation and Geovisualization. My passion is the use of FOSS4G, and very often I help the QGIS Peru community and collaborate in some open source projects. Finally,I like to share and teach what I learn. Feel free to reach out to me via [mail](mailto:antony.barja8@gmail.com) and subscribe to my email newsletter.
 
-Connect with me on Linkedin or Twitter to say Hi, or you can also contact me directly through my email.
+<iframe src="https://embeds.beehiiv.com/2c2401c3-e949-4374-9224-60da974f1de7?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent; height: 75px"></iframe>
 
+:::
+:::
 
 
 ```{=html}
@@ -35,21 +46,19 @@ Connect with me on Linkedin or Twitter to say Hi, or you can also contact me dir
 ```{=html}
 <button type="button" class="btn btn-light"><a href="https://www.linkedin.com/in/karatsidhu/"><i class="fa-brands fa-linkedin-in"></i></a></button>
 
-<button type="button" class="btn btn-light"><a href ="https://karatsidhu.com/data/pdf/cv.pdf"><i class="fa-solid fa-book-bookmark"></i></a></button>
-
 <button type="button" class="btn btn-light"><a href="https://www.twitter.com/karat_sidhu/"><i class="fa-brands fa-twitter"></i></a></button>
-
-
-<button type="button" class="btn btn-light"><a href="mailto:karatsingh@gmail.com"><i class="fa-solid fa-at"></i></a></button>
-
-
-<button type="button" class="btn btn-light"><a href="https://karatsidhu.com/blog.html"><i class="fa-solid fa-blog"></i></a></button>
 
 <button type="button" class="btn btn-light"><a href="https://orcid.org/0000-0002-8769-0926"><i class="fa-brands fa-orcid"></i></a></button>
 
 <button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-github"></i></a></button>
 
-<button type="button" class="btn btn-light">      <a href="https://www.researchgate.net/profile/Karatatiwant-Sidhu"><i class="fa-brands fa-researchgate"></i></a></button>
+<button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-gitlab"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-discord"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-tiktok"></i></a></button>
+
+<button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-youtube"></i></a></button>
 
 <br> <br> <br>
 ```
