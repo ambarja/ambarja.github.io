@@ -9,10 +9,7 @@ website:
   repo-url: https://github.com/ambarja/ambarja.github.io
   #google-analytics: "G-ZVPYZZSZ1B"
   repo-actions: [edit, issue]
-  open-graph:
-   image: data/images/antony.jpg
-   image-width: 300
-   image-height: 300
+  open-graph: true
   favicon: data/images/logo.png
   twitter-card:
     creator: "@antony_barja"
