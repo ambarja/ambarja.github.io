@@ -8,8 +8,15 @@ freeze: true
 title-block-banner: true
 
 # Cooments in blogs
+# comments:
+#    utterances:
+#      repo: ambarja/ambarja.github.io
+#      label: "Comments"
+#      theme: github-light
+
 comments:
-   utterances:
-     repo: ambarja/ambarja.github.io
-     label: "Comments"
-     theme: github-light
+    giscus:
+      repo: ambarja/ambarja.github.io
+      reactions-enabled: true
+      theme: dark_protanopia
+      
