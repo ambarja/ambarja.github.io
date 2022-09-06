@@ -14,8 +14,6 @@ website:
    image-width: 300
    image-height: 300
   favicon: data/images/logo.png
-  image-width: 300
-  image-height: 300
   twitter-card:
     creator: "@antony_barja"
     card-style: summary
