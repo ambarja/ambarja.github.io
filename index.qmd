@@ -1,5 +1,8 @@
 ---
 title: "Antony Barja"
+header-includes:
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="300" />
 image: data/images/antony.jpg
 keywords: ["Antony Barja", "Geografia", "Geocomputación"]
 about:
@@ -32,6 +35,7 @@ comments:
     repo: no
 license: ""
 ---
+
 <style>
 p.subtitle {
     margin-top: -0.25em;
