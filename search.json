@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Antony Barja",
+    "section": "",
+    "text": "Click here to know more about me"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Today I learned",
+    "section": "",
+    "text": "Web scraping with R and RVest\n\n\nStep by step guide to scraping IMDB for TV Series ratings and votes using R and rvest package\n\n\n\nJun 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA Quick Guide to Formatting with Quarto\n\n\nPlaying with quarto settings to learn more about how it works.\n\n\n\nJun 6, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMDATools - PLS-DA Analysis\n\n\nPLS-DA Analysis using the Iris Dataset and MDA-Tools package\n\n\n\nMay 26, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVSCode vs RStudio — Worth the Switch?\n\n\nDoes Microsoft’s flagship code editor hold up against the old favorite?\n\n\n\nMay 19, 2022\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nWelcome to karat_codes\n\n\nWelcome to my new blog, karat_codes.\n\n\n\nMay 21, 2020\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/quarto-tutorial/quarto-tutorial.html",
+    "href": "posts/quarto-tutorial/quarto-tutorial.html",
+    "title": "A Quick Guide to Formatting with Quarto",
+    "section": "",
+    "text": "I decided to start working with Quarto for majority of my writing needs and have been experimenting with its various features, formatting and quirks. I am by no means anywhere close to an expert, however, with this write-up I hope to help out anyone starting out working with QMD files. This is a few small tips and notes (mostly for me) to use as a reference.\nQMD works similar to markdown so basic markdown syntax1 applies for formatting text.\n\n\n\nA lot of Quarto users are coming from RMarkdown, so formatting locations feel familiar and different at the same time. Code chunks format locations are inside the cells preceded with a #|, at the beginning of each code block.\nA simple example of this behavior:\n```{r}\n#| code-fold: true\n#| label: fig-mtcars\n#| fig-cap: \"Fig. 1 Mpg and hp  of Cars\"\n\n\nlibrary(ggplot2)\nggplot(data = mtcars, aes(x = mpg, y=hp)) +\ngeom_smooth() +\ngeom_jitter()\n\n```\nwhich generates the following output:\n\n\nCode\nlibrary(ggplot2)\nggplot(data = mtcars, aes(x = mpg, y=hp)) +\ngeom_smooth() +\ngeom_jitter()\n\n\n`geom_smooth()` using method = 'loess' and formula 'y ~ x'\n\n\n\n\n\nFigure 1: Mpg and hp of Cars\n\n\n\n\nFigure caption, code folding are applied from the commands in the first line of the code block.\n\n\n\nIn certain situations, be it for aesthetics or to maximize the use of whitespace, Quarto allows the user to place content including figures, tables, captions etc on the “margin” area.\nThe syntax to add a figure to the margin is:\n\n::: {.column-margin}\n![A margin image](image.png)\n:::\n\n\n\nmtcars[1:6, 1:3]  |> \ngt::gt()  |> gtExtras::gt_theme_538()\n\n\n\n\n\n\n  \n  \n    \n      mpg\n      cyl\n      disp\n    \n  \n  \n    21.0\n6\n160\n    21.0\n6\n160\n    22.8\n4\n108\n    21.4\n6\n258\n    18.7\n8\n360\n    18.1\n6\n225\n  \n  \n  \n\n\n\n\nlibrary(ggplot2)\nggplot(data = mtcars, aes(x = mpg, y=hp)) +\ngeom_smooth() +\ngeom_jitter()\n\n`geom_smooth()` using method = 'loess' and formula 'y ~ x'\n\n\n\n\n\n\nFigure 2: Mpg and hp of Cars\n\n\n\nAdditionally, captions, comments and text blocks can be added to the margin area in the output.\n\n\n\n\nTo extend the functionality, qmd files also allow us to ignore margins altogether by adding column:screen function to the code chunk. This can result in great looking articles and blogs by adding functions.\nUsing screen fill function, here is a map of NYC embedded into the blog.\n\nlibrary(leaflet)\nleaflet() %>%\n  addTiles() %>%  # Add default OpenStreetMap map tiles\n  addMarkers(lat=40.7128, lng=-74.0060, popup=\"NY City\")\n\n\n\n\n\nFurther, content can be filled partially on the screen.\n\n::: {..column-screen-left}\n:::\n\n\nknitr::kable(\n  mtcars[1:6, 1:10]\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\n\n\n\n\nMazda RX4\n21.0\n6\n160\n110\n3.90\n2.620\n16.46\n0\n1\n4\n\n\nMazda RX4 Wag\n21.0\n6\n160\n110\n3.90\n2.875\n17.02\n0\n1\n4\n\n\nDatsun 710\n22.8\n4\n108\n93\n3.85\n2.320\n18.61\n1\n1\n4\n\n\nHornet 4 Drive\n21.4\n6\n258\n110\n3.08\n3.215\n19.44\n1\n0\n3\n\n\nHornet Sportabout\n18.7\n8\n360\n175\n3.15\n3.440\n17.02\n0\n0\n3\n\n\nValiant\n18.1\n6\n225\n105\n2.76\n3.460\n20.22\n1\n0\n3\n\n\n\n\n\n\n\n\n\nTo draw attention towards something in the text, a block of text call be used as a callout blog in Quarto.\nInline code\n:::{.callout-note}\nNote: This is a callout of type `note`\n:::\nrenders the following output\n\n\n\n\n\n\nNote\n\n\n\nNote: This is a callout of type note\n\n\nOther types of callouts like warning, tip and important are also built in for multiple types of callout blocks.\n\n\n\n\n\n\nTip With Caption\n\n\n\nThis is an example of a callout with a caption.\n\n\n\n\n\n\nOfficial Documents: https://quarto.org/docs/guide/\n\n\n\n\nAcknowledgments section can be added to the end of article/text by using the .appendix command. It will appear at the end of the article/blog with footnotes and citations,etc. formatted as a smaller text font.\n\n## Acknowledgments {.appendix}\n\nThis is the sample text for the acknowledgement section. I made use of the Official Quarto documentation to help me with writing this post."
+  },
+  {
+    "objectID": "posts/quarto-tutorial/quarto-tutorial.html#acknowledgments-1",
+    "href": "posts/quarto-tutorial/quarto-tutorial.html#acknowledgments-1",
+    "title": "A Quick Guide to Formatting with Quarto",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nThis is the sample text for the acknowledgement section. I made use of the Official Quarto documentation to help me with writing this post."
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html",
+    "title": "Web scraping with R and RVest",
+    "section": "",
+    "text": "Image from Reddit.com by u/booooooop123"
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#find-navigate-to-the-url",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#find-navigate-to-the-url",
+    "title": "Web scraping with R and RVest",
+    "section": "Find & navigate to the URL",
+    "text": "Find & navigate to the URL\nTo find the exact url of the page that we want to extract the data from, we first look at the South Park Homepage on IMDB. This page contains the rating and vote count of the South Park TV Series, but it does not contain the ratings and votes of the seasons of the TV Series for each individual episode/season.\nOn the top of the page, we see the list of episodes of South Park, and clicking that link takes me to the latest season of South Park, which is 25 at the time of writing this post.\nFor simplicity, we will start with the first season, which is under the link Season 1."
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#parse-the-url",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#parse-the-url",
+    "title": "Web scraping with R and RVest",
+    "section": "Parse the URL",
+    "text": "Parse the URL\nUsing the read_html function, we can parse the HTML code of the page\n\nlink <- \"https://www.imdb.com/title/tt0121955/episodes?season=1\"\npage <- read_html(link)\n\nThis page should now appear in the R console environment. We can see that the page contains a list of HTML elements. It can take a minute to get the page, depending on your internet connection/processor speed."
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#extract-each-element",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#extract-each-element",
+    "title": "Web scraping with R and RVest",
+    "section": "Extract each element",
+    "text": "Extract each element\nUsing the CSS Selector Gadget, we can find the elements we want to scrape. The following code snippet will find the elements that contain the TV Series name, the TV Series rating, the TV Series votes and the TV Series year and then it will extract the text from each of them.\n\nEpisode Name\n    episode_name <- page |>\n        html_nodes(\"#episodes_content strong a\") |>\n        html_text()\n\n\nEpisode Number\n    episode_season <- page |>\n        html_nodes(\".zero-z-index div\") |>\n        html_text()\n\n\nEpisode Rating\nrating <- page |>\n  html_nodes(\".ipl-rating-star.small .ipl-rating-star__rating\") |>\n        html_text()\n\n\nEpisode Votes\n    total_votes <- page |>\n        html_nodes(\".ipl-rating-star__total-votes\") |>\n        html_text()\n\n\nAir Date\n\n    air_date <- page |>\n        html_nodes(\".airdate\") |>\n        html_text()\n\n\nEpisode Description\n    description <- page |>\n        html_nodes(\".item_description\") |>\n        html_text()\n\n\nRepeat for each season\nThe codes above will scrape the data for one season. To scrape the data for all seasons, we need to repeat the above steps for each season. To do that, we need to use the for loop. Additionally, we need to change the url variable to point to the correct URL for each season."
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#final-code",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#final-code",
+    "title": "Web scraping with R and RVest",
+    "section": "Final Code",
+    "text": "Final Code\nThe final code snippet will look like the following:\n\nlibrary(rvest)\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter()         masks stats::filter()\n✖ readr::guess_encoding() masks rvest::guess_encoding()\n✖ dplyr::lag()            masks stats::lag()\n\nsouth_park <- data.frame()\n\nfor (seasons in seq(from = 1, to = 25, by = 1)) {\n    link <- paste0(\"https://www.imdb.com/title/tt0121955/episodes?season=\", seasons)\n\n    page <- read_html(link)\n\n    episode_name <- page |>\n        html_nodes(\"#episodes_content strong a\") |>\n        html_text()\n\n    rating <- page |>\n        html_nodes(\".ipl-rating-star.small .ipl-rating-star__rating\") |>\n        html_text()\n\n    total_votes <- page |>\n        html_nodes(\".ipl-rating-star__total-votes\") |>\n        html_text()\n\n    air_date <- page |>\n        html_nodes(\".airdate\") |>\n        html_text()\n\n    description <- page |>\n        html_nodes(\".item_description\") |>\n        html_text()\n\n    episode_season <- page |>\n        html_nodes(\".zero-z-index div\") |>\n        html_text()\n\n    south_park <- rbind(south_park, data.frame(episode_name, episode_season,\n        rating,\n        total_votes,\n        air_date,\n        description,\n        stringsAsFactors = FALSE\n    ))\n}"
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#make-the-dataframe",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#make-the-dataframe",
+    "title": "Web scraping with R and RVest",
+    "section": "Make the Dataframe",
+    "text": "Make the Dataframe\nThe final code snippet will create a data frame with the following columns:\n\nepisode_name\nepisode_season\nrating\ntotal_votes\nair_date\ndescription\n\nand save it under the variable south_park.\nLet use look at the data frame.\n\nsouth_park  |> head(10)  |> gt::gt()  |> gtExtras::gt_theme_538()\n\n\n\n\n\n  \n  \n    \n      episode_name\n      episode_season\n      rating\n      total_votes\n      air_date\n      description\n    \n  \n  \n    Unaired Pilot\nS1, Ep0\n7.6\n(816)\n\n            26 Sep. 2019\n    \n\nCartman wakes up and realizes he was abducted by aliens after hearing it from his friends. He is in major denial at first though, but even Chef is a believer.    \n    Cartman Gets an Anal Probe\nS1, Ep1\n7.9\n(4,459)\n\n            13 Aug. 1997\n    \n\nCartman's dream about being abducted by aliens turns out to have actually happened, and when the aliens take Kyle's brother, all of them must find a way to bring the aliens back and confront them.    \n    Weight Gain 4000\nS1, Ep2\n7.6\n(3,518)\n\n            27 Aug. 1997\n    \n\nKathie Lee Gifford comes to South Park to present an award to Cartman, and Mr. Garrison hopes to use the event to assassinate her.    \n    Volcano\nS1, Ep3\n7.7\n(3,398)\n\n            20 Aug. 1997\n    \n\nThe kids go hunting with the rather trigger happy Jimbo and Ned. Little do they know that a volcano is on the verge of erupting.    \n    Big Gay Al's Big Gay Boat Ride\nS1, Ep4\n7.6\n(3,286)\n\n            3 Sep. 1997\n    \n\nStan becomes distracted from the upcoming football game because his dog is gay, so he turns to the gayest man in town for advice, Big Gay Al.    \n    An Elephant Makes Love to a Pig\nS1, Ep5\n7.5\n(3,049)\n\n            10 Sep. 1997\n    \n\nKyle tries to crossbreed an elephant with a pig to win a science contest.    \n    Death\nS1, Ep6\n8.0\n(3,128)\n\n            17 Sep. 1997\n    \n\nGrampa wants Stan to kill him, the parents all want to kill the Terrance and Philip show, and Death just wants to kill someone.    \n    Pinkeye\nS1, Ep7\n8.3\n(3,262)\n\n            29 Oct. 1997\n    \n\nThe living dead beset South Park after a bottle of Worcestershire sauce mixes with embalming fluid at the mortuary; Tina Yothers judged a costume contest.    \n    Starvin' Marvin\nS1, Ep8\n8.1\n(3,141)\n\n            19 Nov. 1997\n    \n\nThe boys sponsor a starving Ethiopian child, only to have him show up on their doorstep.    \n    Mr. Hankey, the Christmas Poo\nS1, Ep9\n8.1\n(3,152)\n\n            17 Dec. 1997\n    \n\nThe town is forced to remove anything that either has anything to do with Christmas or is offensive in the least bit to anyone. And Kyle tries to convince everyone of the existence of \"Mr. Hankey, the Christmas Poo.\"    \n  \n  \n  \n\n\n\n\nThe scraped data is now in the south_park data frame, and can be saved from here. However, to further analyze the data, it needs to be cleaned up."
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#total-votes-to-integer",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#total-votes-to-integer",
+    "title": "Web scraping with R and RVest",
+    "section": "Total Votes to Integer",
+    "text": "Total Votes to Integer\nRemove the () from the total votes string, and convert it into an integer type.\nsouth_park$total_votes <- south_park$total_votes |>\n    str_replace_all(\"\\\\(|\\\\)|\\\\,\", \"\") |>\n    as.integer()"
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#rating-to-a-double",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#rating-to-a-double",
+    "title": "Web scraping with R and RVest",
+    "section": "Rating to a double",
+    "text": "Rating to a double\nsouth_park$rating <- as.double(south_park$rating)"
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#air_date-to-a-date",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#air_date-to-a-date",
+    "title": "Web scraping with R and RVest",
+    "section": "Air_date to a Date",
+    "text": "Air_date to a Date\nsouth_park$air_date <-\n    str_replace_all(south_park$air_date, \"\\\\n\", \"\") |>\n    trimws() |>\n    lubridate::dmy()"
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#description-column-cleaning",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#description-column-cleaning",
+    "title": "Web scraping with R and RVest",
+    "section": "Description column cleaning",
+    "text": "Description column cleaning\nThe description column contains a new line, so need to remove it.\nsouth_park$description <-\n    str_replace_all(south_park$description, \"\\\\n\", \"\")"
+  },
+  {
+    "objectID": "posts/webscraping-with-rvest/rvest-imdb.html#save-the-data",
+    "href": "posts/webscraping-with-rvest/rvest-imdb.html#save-the-data",
+    "title": "Web scraping with R and RVest",
+    "section": "Save the data",
+    "text": "Save the data\nFinally save the data as a new dataframe:\nclean_sp <- south_park |>\n    mutate(\n        season = str_extract(episode_season, \"(?<=S)[:digit:]+\"),\n        episode = str_extract(episode_season, \"[:digit:]+$\")\n    ) |>\n    relocate(season, .before = rating) |>\n    relocate(episode, .before = rating) |>\n    select(-episode_season) |>\n    mutate(\n        id = row_number()\n    )"
+  },
+  {
+    "objectID": "posts/welcome/welcome.html",
+    "href": "posts/welcome/welcome.html",
+    "title": "Welcome to karat_codes",
+    "section": "",
+    "text": "Its based on a custom css theme that I am constantly tweaking.\nSource code for everything available on my github.\ngithub.com/SidhuK"
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#installation",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#installation",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "Installation",
+    "text": "Installation\nAssuming you already have R installed on your system, Installing VSCode and R is very straightforward;\n\ndownload the .pkg or .exe file and install the code editor;\ninstall the languageserver package for R (install.packages(“languageserver”)\ninstall the R extension from the markeplace (https://marketplace.visualstudio.com/items?itemName=REditorSupport)\n\nand you’re ready to start coding.\nOptional: You can install a better terminal alternative like radian, a debugger and a better plotviewer like httpgd because the builtin plotviewer for VSCode isn’t a particualrly good one."
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#setting-up-the-editor",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#setting-up-the-editor",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "Setting up the editor",
+    "text": "Setting up the editor\nYou can now start working with code but there are potentially times you could run into errors while running your code.\nTo eliminate any potential errors/code not work, you must make sure the R path is specified in the VSCode preferences (cmd+shift+p on mac) and search for R path. Finding the path is simple, open R and type: R.home(“bin”) and copy the output path.\nAnother somewhat major tweak you would want to do to the editor:\nSome simple shortcuts like the pipe operator doesn’t work out of the box, so adding a shortcut for “%>%” or “|>” depending on your preference can be done using the following method:\nhttps://stackoverflow.com/questions/58731362/how-do-i-had-an-alias-for-magrittr-pipe-from-r-in-vscode How do I had an alias for magrittr pipe from R in vscode - Stack Overflow"
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#working-with-r-code",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#working-with-r-code",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "Working with R code",
+    "text": "Working with R code\nHere is a comparison of my two setups side by side with the same file and environment:\n\n\nworking with R is very similar to a regular RStudio IDE,\nR-extension provides the same support for\n\ninstalling packages,\nplots and plot viewer\ngrobal enviroment\n\ndatasets\nplots\nlists, variables, etc.\n\nchecking loaded packages etc.\n\nTerminal and console position can be modified to make get the input and output panes next to each other, something you cannot do well in R-Studio. So VSCode feels very familiar and running code is highly intuitive."
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#running-code",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#running-code",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "Running Code",
+    "text": "Running Code\nRunning a piece of code is again, very similar to RStudio. A run file button is located at the top of the panel and individual lines of code can be run using the cmd+return shortcut on mac. The shortcut can be easily modified similar to how the pipe operator shortcut is modified above.\nIn terms of running and getting results for plain R code and .R files; VSCode is a great alternative for a lot of people including me. So if you’re like me and you use R mainly for statistical analysis, data visualization and data analysis; give VSCode a try.\nWorking with Notebooks and Rmd:\nThis is where VSCode falls so much behind RStudio it becomes a one horse race. The notebook support in VSCode is in a single word - terrible. Running code chunks in a .Rmd notebook feels and looks dated. My existing notebooks created in RStudio were buggy in VSCode despite not showing any errors in RStudio. Creating new notebooks is unintuitive and still a long way behind RStudio in terms of the overall feel to it.\nI have searched for solutions, including globally installing pandoc, knitr and rmarkdown etc and trying multiple versions of R and the packages mentioned previously to no avail. This is one of the biggest reasons I am not completely switching to VSCode just yet."
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#a-note-about-quarto",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#a-note-about-quarto",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "A Note About Quarto",
+    "text": "A Note About Quarto\nI recently started playing around with Quarto, which looks like the natural successor to Rmarkdown. So far, I have only used Quarto in RStudio and am a big fan of the way it looks and works. I have yet to try it on VSCode, so I cannot comment on it."
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#what-i-love-about-r-in-vscode",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#what-i-love-about-r-in-vscode",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "What I love about R in VSCode",
+    "text": "What I love about R in VSCode\n\nSpeed - VSCode is quick to load up, fast and snappy when the code is running. I did not do any analysis on the times it took to load a piece of code on one vs the other but VSCode ‘feels’ quicker.\nOne stop shop for R, Python, HTML, CSS, and dozens other languages - and does it much better than RStudio\nMULTIPLE R SESSIONS!!! - Such a great feature when you’re trying to develop several related projects at the same time.\nCode Refactoring - much better than RStudio\nColor picker and color blocksFor people like me who work with a lot of data visualizations, the ability to see the colors and use the color blocks to pick colors seamlessly is a gamechanger.\n\n\n\nLanguage server - document outline - Navigating through a long line of code (and multiple R files) is painless\nIntellisense and Code Completion - faster, more user friendly\n\n\n\nHelp and documentation: Same information, much more streamlined\n\n\n\nLiveshare and working with teams\nCode Snippets are easier to use and set up than RStudio\nMuch easier git and version control integration\nFunctions are handled brilliantly. Hover over them and you get all kinds of information and callbacks.\nCode organization: Code sections allow for folding of code, makes fo easier code reading and naviation and cleaner code overall.\n\n\n\nCustomizable and make it your own by editing the json files inside VSCode.\n\nSo VSCode has some amazing features that could really tempt an RStudio user."
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#what-i-dont-love-about-r-in-vscode",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#what-i-dont-love-about-r-in-vscode",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "What I don’t love about R in VSCode",
+    "text": "What I don’t love about R in VSCode\n\nR-studio works great out of the box, no need to install extensions while VSCode setup for R can be tricky and can sometimes involve trail and error\nR-templates inside R studio are amazing, and easy to find and use\nDataviewer in RStudio feels a lot better than VScode, especially when working with a large dataset\nEven though I use VSCode for Python, HTML, CSS etc, coding R in it, especially for the first few hours feels very odd and in a way unfamiliar despite the very familiar overall IDE organization\nNOTEBOOK SUPPORT - If you work with rmd more than r, DO NOT SWITCH. Running chunks of code is very clunky and poor\nKnitting notebooks doesnt work well at all, and can lead to errors a lot of the time.\nPlot viewers are still not as good as RStudio\nTerminal will sometimes throw errors in VSCode that you wouldn’t find for the same piece of code in RStudio\nRStudio just feels a lot more tailored to a data scientist/statistical analysis person, while VSCode can feel like a developer-centric code editor\nFeels a lot more tailored to a data scientist/statistical analysis"
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#things-i-hope-to-try-soon-with-vscode",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#things-i-hope-to-try-soon-with-vscode",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "Things I hope to try soon with VScode",
+    "text": "Things I hope to try soon with VScode\n\nQuarto\nRblogdown and Rbookdown\nMore Debugging\nRadian terminal"
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#conclusion",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#conclusion",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "Conclusion",
+    "text": "Conclusion\nDo I love R in VSCode so far? Absolutely\nEnough to make me want to switch? Not yet.\nWhy? Notebooks\nWill I switch soon? Hopefully yes.\n\nIf you liked this, and have any suggestions for me; find me on twitter: https://twitter.com/karat_sidhu"
+  },
+  {
+    "objectID": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#further-reading",
+    "href": "posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html#further-reading",
+    "title": "VSCode vs RStudio — Worth the Switch?",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nA great video and blog by Kun Ren on the subject : https://youtu.be/9xXBDU2z_8Y\nA blog on the same subject: https://renkun.me/2019/12/11/writing-r-in-vscode-a-fresh-start/\nRunning R in VSCode: https://www.infoworld.com/article/3625488/how-to-run-r-in-visual-studio-code.html\nInsalling R in VSCode: https://code.visualstudio.com/docs/languages/r\nBonus: Quarto vs RMD: https://yihui.org/en/2022/04/quarto-r-markdown/\n\nThis writeup is also available on Towards Data Science\nVSCode vs RStudio Worth the switch? | Karat Sidhu | Towards Data Science (medium.com)"
+  },
+  {
+    "objectID": "posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html",
+    "href": "posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html",
+    "title": "MDATools - PLS-DA Analysis",
+    "section": "",
+    "text": "Footnotes\n\n\nhttps://mdatools.com/docs/plsda.html↩︎\nhttps://github.com/SidhuK/R_for_Metabolomics/tree/main/PLS-DA↩︎\nhttps://towardsdatascience.com/partial-least-squares-f4e6714452a↩︎\nhttps://mdatools.com/docs/plsda–performance-plots.html↩︎"
+  }
+]
