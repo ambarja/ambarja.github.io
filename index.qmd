@@ -32,7 +32,6 @@ comments:
     repo: no
 license: ""
 ---
-
 <style>
 p.subtitle {
     margin-top: -0.25em;
