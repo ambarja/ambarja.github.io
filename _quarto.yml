@@ -10,7 +10,7 @@ website:
   #google-analytics: "G-ZVPYZZSZ1B"
   repo-actions: [edit, issue]
   open-graph: true
-  favicon: data/images/logo.png
+  favicon: data/images/favicon.ico
   twitter-card:
     creator: "@antony_barja"
     card-style: summary
