@@ -13,13 +13,21 @@ $theme: "litera" !default;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-.category,
+
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   color: #e6e6e6;
   line-height: 1.65;
   font-size: 1.025em;
   letter-spacing: 0.6px;
+}
+
+.category {
+  font-family: "Abel", sans-serif;
+  color: #e6e6e6;
+  line-height: 1.65;
+  letter-spacing: 0.7px;
+  font-size: 1.05em;
 }
 
 .navbar-title,
@@ -30,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Expletus Sans", cursive;
+  font-family: "Abel", sans-serif;
   color: #e6e6e6;
 }
 
@@ -47,6 +55,10 @@ h6 {
   height: 10cm;
 }
 
+#listing-listing > div.list.grid.quarto-listing-cols-3 > div > a > div{
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.40)
+}
 $link-color: #cf7769;
 $toc-font-size: 12px;
 $font-size-root: 16px;

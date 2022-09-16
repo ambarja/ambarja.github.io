@@ -21,7 +21,7 @@ website:
       - text: "Blog"
         href: blog.qmd
       - text: "Projects"
-        href: blog.qmd  
+        href: data/projects/projects.qmd  
       - text: "Videos"
         href: blog.qmd
       - text: "Course"
@@ -46,6 +46,6 @@ format:
   html:
     theme:
       light: css/karat_quarto.scss
-    css: css/karat.css
+      dark: css/karat_dark.scss
     include-after-body: footer.html
 freeze: true
