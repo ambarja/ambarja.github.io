@@ -16,13 +16,20 @@ execute:
 a {
 word-break: break-word;
 }
+.section {
+    padding: 15px 0;
+    position: relative;
+}
+.section-title {
+    padding-bottom: 0px;
+}
 </style>
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
 
-![](../images/antony.jpg)
+![](images/antony_barja.jpg)
 :::
 
 ::: {.g-col-12 .g-col-md-6}
@@ -63,11 +70,10 @@ I have a degree in Geographic Engineering from the National University of San Ma
 
 <button type="button" class="btn btn-light"><a href="https://github.com/SidhuK"><i class="fa-brands fa-youtube"></i></a></button>
 
-<br> <br> <br>
+<br> <br>
 ```
 
 ```{=html}
-
 <div class="section-title">
 <h2><i class="bi bi-tools"></i>  Skills </h2>
 </div>
@@ -93,31 +99,8 @@ I have a degree in Geographic Engineering from the National University of San Ma
 <button type="button" class="btn btn-dark btn-sm">Python</button>
 <button type="button" class="btn btn-dark btn-sm">Js</button>
 
-<br><br><br><br>
-
+<br><br>
 ```
-
-
-```{=html}
-
-<div class="section-title">
-    <h2><i class="fa-solid fa-dna"></i> Publications & projects </h2>
-</div>
-```
-
-- Aybar et al., (2020). rgee: An R package for interacting with Google Earth Engine. Journal of Open Source Software, 5(51), 2272, [https://doi.org/10.21105/joss.02272](https://doi.org/10.21105/joss.02272)
-
-- Gabo Gaboa y Antony Barja, Taller UseR! 2022 Scripts de R para QGIS Processing, 2022, [https://r-qgis.netlify.app/](https://r-qgis.netlify.app/)
-
-- Gabriel Carrasco and Antony Barja, Warming Stripes para las 24 regiones del Perú, 2022, [https://healthinnovation.github.io/WarmingStripes4PE/](https://healthinnovation.github.io/WarmingStripes4PE/)
-
-- Gabriel Carrasco and Antony Barja, rgee applied epidemiological studies, 2022, [https://epi-rgee.netlify.app/](https://epi-rgee.netlify.app/)
-
-- Barja, A., Ferrer, L., Añamuro, H., & Mogrovejo, D. (2021). 30DayMapChallengeQGISPERU (Version 1.0) [Computer software]. [https://doi.org/10.5281/zenodo.5262851](https://doi.org/10.5281/zenodo.5262851)
-
-- Barja, A., & Caceres, M. (2022). ee-cptcity (Version 1.0) [Computer software], [https://github.com/ambarja/ee-cptcity](https://github.com/ambarja/ee-cptcity)
-
-- Gabriel Carrasco, Antony Barja y Jesus Quispe,Visualización y Análisis de datos espaciales en salud pública, 2022, [https://www.reconlearn.org/post/spatial-analysis-1-spanish.html](https://www.reconlearn.org/post/spatial-analysis-1-spanish.html)
 
 ```{=html}
 <section class="section gray-bg" id="resume">
@@ -137,26 +120,26 @@ I have a degree in Geographic Engineering from the National University of San Ma
                                     <div class="icon">
                                 <i class="fa-solid fa-flask"></i>                                    
                                 </div>
-                                    <span class="time">July 2017 - Dec 2021</span>
-                                    <h5>University of Vermont</h5>
-                                    <p>Lab Research Technician: Analytical Chemistry, Proteomics and Mass Spec Facility, Department of Chemistry.</p>
+                                    <span class="time">September 2022 - Now</span>
+                                    <h5>National Institute of Agricultural Innovation (INIA) - Ministry of Agriculture and Irrigation</h5>
+                                    <p>Thesis student of pregrade</p>
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <i class="fa-solid fa-flask"></i>
+                                        <i class="fa fa-users"></i>
                                     </div>
-                                    <span class="time">Feb 2016 - May 2017</span>
-                                    <h5>CTRAL, Texas A&M University</h5>
+                                    <span class="time">December 2021 - Augost 2022</span>
+                                    <h5>Health Innovation Lab, Cayetano Heredia Peruvian University</h5>
                                     <p>
-                                        Graduate Assistant,Analytical Chemistry - BSL-2 Facility - LC/MS.</p>
+                                        Data analyst and researcher in development</p>
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <i class="fa-solid fa-flask"></i>
+                                        <i class="fa fa-medkit"></i>
                                     </div>
-                                    <span class="time">May 2016 - August 2017</span>
-                                    <h5>CTRAL, Texas A&M University</h5>
-                                    <p>Intern, Small Molecule and Stable Isotopes analysis.</p>
+                                    <span class="time">May 2019 - November 2021</span>
+                                    <h5>German Red Cross</h5>
+                                    <p>GIS analyst and data miner - Forecast Based Financing, Lima-Peru</p>
                                 </li>
                             </ul>
                         </div>
@@ -164,9 +147,7 @@ I have a degree in Geographic Engineering from the National University of San Ma
         </section>
 ```
 
-
 ```{=html}
-
 <section class="section gray-bg" id="resume">
             <div class="container">
                 <div class="row">

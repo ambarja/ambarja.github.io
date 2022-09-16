@@ -1,9 +1,6 @@
 ---
 title: "Antony Barja"
 image: data/images/antony.jpg
-header-includes:
-    - <meta property="og:image:width" content="300" />
-    - <meta property="og:image:height" content="300" />
 keywords: ["Antony Barja", "Geografia", "Geocomputación"]
 about:
   template: jolla
