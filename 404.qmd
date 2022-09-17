@@ -1,6 +1,6 @@
 ---
 title: Page Not Found
-image: data/images/logo.png
+image: data/images/antony.jpg
 twitter-card: true
 ---
 
@@ -8,5 +8,5 @@ Oh No!
 
 The page you are looking for isn't available.
 
-Please try the search bar on the top to find the new location, or go back to the homepage by clicking [here](https://karatsidhu.com)
+Please try the search bar on the top to find the new location, or go back to the homepage by clicking [here](https://ambarja.github.io/)
 

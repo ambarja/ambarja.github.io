@@ -1,0 +1,18 @@
+{
+  "hash": "8b20dbb08c8484177aab8e8f05c9037e",
+  "result": {
+    "markdown": "---\ntitle: \"data viz gallery\"\nsubtitle: |\n  A collection of datavisualizations created for challenges such as #TidyTuesday or the #30DayChartChallenge. Others resulted from personal data exploration projects found on this blog. The code can either be found in blog posts or on my github page.\npage-layout: full\ncode-tools: false\n---\n\n\n::: {.column-screen}\n\n::: {.cell}\n::: {.cell-output-display}\n```{=html}\n<div id=\"htmlwidget-06459abfba516e97e9c6\" style=\"width:100%;height:100%;\" class=\"pixgallery html-widget\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-06459abfba516e97e9c6\">{\"x\":{\"path\":[],\"caption\":[],\"dim\":\"350px\",\"gap\":\"10px\",\"type\":\"grid\"},\"evals\":[],\"jsHooks\":[]}</script>\n```\n:::\n:::\n\n:::\n\n## Comments\nDo you like the visualizations? Seen anything you want to discuss? Leave a comment, I'd be happy to hear it!",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<script src=\"../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js\"></script>\r\n<link href=\"../../site_libs/simplelightbox-0/css/simplelightbox.css\" rel=\"stylesheet\" />\r\n<script src=\"../../site_libs/simplelightbox-0/js/simplelightbox.js\"></script>\r\n<link href=\"../../site_libs/pixgallery-0/css/pixgallery.css\" rel=\"stylesheet\" />\r\n<script src=\"../../site_libs/pixgallery-binding-0.0.2.2001/pixgallery.js\"></script>\r\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
