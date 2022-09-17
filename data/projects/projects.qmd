@@ -1,5 +1,6 @@
 ---
 pagetitle: "projects"
+subtitle: Set of personal projects with the support of colleagues using free software and open source for spatial analysis and visualization.
 listing: 
   type: grid
 search: false
