@@ -12,5 +12,9 @@
   {
     "listing": "/data/gallery/index.html",
     "items": []
+  },
+  {
+    "listing": "/data/projects/projects.html",
+    "items": []
   }
 ]

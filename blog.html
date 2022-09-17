@@ -73,9 +73,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-description','listing-date','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -184,6 +184,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<style>
+#title-block-header {
+    margin-block-end: -2rem;
+    position: relative;
+    margin-top: -1px;
+    }
+</style>
 <div class="cell">
 
 </div>
@@ -191,117 +198,169 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Data-Analysis,Tidyverse,misc,Long-Read" data-listing-date-sort="1655683200000" data-listing-file-modified-sort="1663385548236" data-listing-reading-time-sort="9.29">
-<a href="./posts/webscraping-with-rvest/rvest-imdb.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/webscraping-with-rvest/images/logo.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Data-Analysis,Tidyverse,misc,Long-Read" data-listing-date-sort="1655683200000" data-listing-file-modified-sort="1663431810654" data-listing-reading-time-sort="9.29">
+<div class="thumbnail">
+<p><a href="./posts/webscraping-with-rvest/rvest-imdb.html"> <img src="./posts/webscraping-with-rvest/images/logo.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/webscraping-with-rvest/rvest-imdb.html">
+<h3 class="no-anchor listing-title">
 Web scraping with R and RVest
-</h5>
-<div class="card-text listing-description">
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
 <p>Step by step guide to scraping IMDB for TV Series ratings and votes using R and <code>rvest</code> package</p>
 </div>
-<div class="card-attribution card-text-small end">
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/webscraping-with-rvest/rvest-imdb.html">
 <div class="listing-date">
 Jun 20, 2022
 </div>
-</div>
-</div>
+<div class="listing-reading-time">
+9 min
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Quarto,Review" data-listing-date-sort="1654473600000" data-listing-file-modified-sort="1663385548236" data-listing-reading-time-sort="2.59">
-<a href="./posts/quarto-tutorial/quarto-tutorial.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/quarto-tutorial/images/logo.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Quarto,Review" data-listing-date-sort="1654473600000" data-listing-file-modified-sort="1663431810654" data-listing-reading-time-sort="2.59">
+<div class="thumbnail">
+<p><a href="./posts/quarto-tutorial/quarto-tutorial.html"> <img src="./posts/quarto-tutorial/images/logo.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/quarto-tutorial/quarto-tutorial.html">
+<h3 class="no-anchor listing-title">
 A Quick Guide to Formatting with Quarto
-</h5>
-<div class="card-text listing-description">
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
 <p>Playing with quarto settings to learn more about how it works.</p>
 </div>
-<div class="card-attribution card-text-small end">
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/quarto-tutorial/quarto-tutorial.html">
 <div class="listing-date">
 Jun 6, 2022
 </div>
-</div>
-</div>
+<div class="listing-reading-time">
+2 min
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="PLS-DA,Machine Learning,Discriminant Analysis,Dimension Reduction,Algorithm" data-listing-date-sort="1653523200000" data-listing-file-modified-sort="1663385548228" data-listing-reading-time-sort="1.2">
-<a href="./posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/mdatools-pls-da-analysis/images/logo.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="PLS-DA,Machine Learning,Discriminant Analysis,Dimension Reduction,Algorithm" data-listing-date-sort="1653523200000" data-listing-file-modified-sort="1663431810646" data-listing-reading-time-sort="1.2">
+<div class="thumbnail">
+<p><a href="./posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html"> <img src="./posts/mdatools-pls-da-analysis/images/logo.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html">
+<h3 class="no-anchor listing-title">
 MDATools - PLS-DA Analysis
-</h5>
-<div class="card-text listing-description">
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
 <p>PLS-DA Analysis using the Iris Dataset and MDA-Tools package</p>
 </div>
-<div class="card-attribution card-text-small end">
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html">
 <div class="listing-date">
 May 26, 2022
 </div>
-</div>
-</div>
+<div class="listing-reading-time">
+1 min
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="VSCode,Review,Long-Read" data-listing-date-sort="1652918400000" data-listing-file-modified-sort="1663385548236" data-listing-reading-time-sort="7.3">
-<a href="./posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/vscode-vs-rstudio-worth-the-switch/images/logo.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="VSCode,Review,Long-Read" data-listing-date-sort="1652918400000" data-listing-file-modified-sort="1663431810654" data-listing-reading-time-sort="7.3">
+<div class="thumbnail">
+<p><a href="./posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html"> <img src="./posts/vscode-vs-rstudio-worth-the-switch/images/logo.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html">
+<h3 class="no-anchor listing-title">
 VSCode vs RStudio — Worth the Switch?
-</h5>
-<div class="card-text listing-description">
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
 <p>Does Microsoft’s flagship code editor hold up against the old favorite?</p>
 </div>
-<div class="card-attribution card-text-small end">
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html">
 <div class="listing-date">
 May 19, 2022
 </div>
-</div>
-</div>
+<div class="listing-reading-time">
+7 min
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="misc" data-listing-date-sort="1590019200000" data-listing-file-modified-sort="1663385548236" data-listing-reading-time-sort="0.18">
-<a href="./posts/welcome/welcome.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-img-bg" style="height: 150px;">
-&nbsp;
 </div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="quarto-post image-right" data-index="4" data-categories="misc" data-listing-date-sort="1590019200000" data-listing-file-modified-sort="1663431810654" data-listing-reading-time-sort="0.18">
+<div class="thumbnail">
+<a href="./posts/welcome/welcome.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/welcome/welcome.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/welcome/welcome.html">
+<h3 class="no-anchor listing-title">
 Welcome to karat_codes
-</h5>
-<div class="card-text listing-description">
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
 <p>Welcome to my new blog, karat_codes.</p>
 </div>
-<div class="card-attribution card-text-small end">
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/welcome/welcome.html">
 <div class="listing-date">
 May 21, 2020
 </div>
-</div>
-</div>
+<div class="listing-reading-time">
+0 min
 </div>
 </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
