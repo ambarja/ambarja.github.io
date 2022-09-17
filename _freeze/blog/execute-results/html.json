@@ -1,7 +1,7 @@
 {
-  "hash": "187bd74642e9c23fb6ff87e604c6d543",
+  "hash": "0ab041cdccbf4f24c4685d525f9685f8",
   "result": {
-    "markdown": "---\ntitle: \"Today I learned\"\nsubtitle: A (data science & R-Stats) blog where I chronicle my journey learning new things.\nlisting:\n  type: grid\n  fields: [image, title, description, date]\n  page-size: 12\n  feed: true\n  contents: posts\n  sort-ui: false\n  filter-ui: false\n  sort: \"date desc\"\n  categories: true\npage-layout: full\ntitle-block-banner: true\nimage: data/images/karat.png\n---\n\n::: {.cell}\n\n:::\n",
+    "markdown": "---\ntitle: \"Today I learned\"\nsubtitle: A (data science & R-Stats) blog where I chronicle my journey learning new things.\nlisting:\n  type: default\n  fields: [image, title, description, date, reading-time]\n  page-size: 12\n  feed: true\n  contents: posts\n  sort-ui: true\n  #filter-ui: true\n  sort: \"date desc\"\n  categories: true\npage-layout: full\ntitle-block-banner: true\nimage: data/images/karat.png\n---\n\n\n<style>\n#title-block-header {\n    margin-block-end: -2rem;\n    position: relative;\n    margin-top: -1px;\n    }\n</style>\n\n\n::: {.cell}\n\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

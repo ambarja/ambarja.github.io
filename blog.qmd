@@ -2,19 +2,27 @@
 title: "Today I learned"
 subtitle: A (data science & R-Stats) blog where I chronicle my journey learning new things.
 listing:
-  type: grid
-  fields: [image, title, description, date]
+  type: default
+  fields: [image, title, description, date, reading-time]
   page-size: 12
   feed: true
   contents: posts
-  sort-ui: false
-  filter-ui: false
+  sort-ui: true
+  #filter-ui: true
   sort: "date desc"
   categories: true
 page-layout: full
 title-block-banner: true
 image: data/images/karat.png
 ---
+
+<style>
+#title-block-header {
+    margin-block-end: -2rem;
+    position: relative;
+    margin-top: -1px;
+    }
+</style>
 
 ```{r write-redirects}
 #| echo: false
