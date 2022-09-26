@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/data/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/posts/webscraping-with-rvest/rvest-imdb.html",
@@ -8,9 +12,5 @@
       "/posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html",
       "/posts/welcome/welcome.html"
     ]
-  },
-  {
-    "listing": "/data/projects/index.html",
-    "items": []
   }
 ]

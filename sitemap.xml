@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ambarja.github.io/index.html</loc>
-    <lastmod>2022-09-22T19:47:59.312Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambarja.github.io/blog.html</loc>
-    <lastmod>2022-09-22T19:48:00.940Z</lastmod>
-  </url>
-  <url>
     <loc>https://ambarja.github.io/data/geoviz/index.html</loc>
-    <lastmod>2022-09-22T19:48:01.440Z</lastmod>
+    <lastmod>2022-09-26T23:36:14.041Z</lastmod>
   </url>
   <url>
     <loc>https://ambarja.github.io/data/projects/index.html</loc>
-    <lastmod>2022-09-22T19:48:01.860Z</lastmod>
+    <lastmod>2022-09-26T23:36:14.449Z</lastmod>
   </url>
   <url>
     <loc>https://ambarja.github.io/data/about/index.html</loc>
-    <lastmod>2022-09-22T19:48:02.297Z</lastmod>
+    <lastmod>2022-09-26T23:36:14.825Z</lastmod>
   </url>
   <url>
-    <loc>https://ambarja.github.io/posts/quarto-tutorial/quarto-tutorial.html</loc>
-    <lastmod>2022-09-22T19:48:04.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambarja.github.io/posts/webscraping-with-rvest/rvest-imdb.html</loc>
-    <lastmod>2022-09-22T19:48:05.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambarja.github.io/posts/welcome/welcome.html</loc>
-    <lastmod>2022-09-22T19:48:06.569Z</lastmod>
+    <loc>https://ambarja.github.io/index.html</loc>
+    <lastmod>2022-09-26T23:36:15.181Z</lastmod>
   </url>
   <url>
     <loc>https://ambarja.github.io/posts/vscode-vs-rstudio-worth-the-switch/vscode-vs-rstudio-worth-the-switch.html</loc>
-    <lastmod>2022-09-22T19:48:07.753Z</lastmod>
+    <lastmod>2022-09-26T23:36:16.505Z</lastmod>
   </url>
   <url>
     <loc>https://ambarja.github.io/posts/mdatools-pls-da-analysis/mdatools-pls-da-analysis.html</loc>
-    <lastmod>2022-09-22T19:48:09.045Z</lastmod>
+    <lastmod>2022-09-26T23:36:17.749Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambarja.github.io/posts/webscraping-with-rvest/rvest-imdb.html</loc>
+    <lastmod>2022-09-26T23:36:19.029Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambarja.github.io/posts/quarto-tutorial/quarto-tutorial.html</loc>
+    <lastmod>2022-09-26T23:36:20.177Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambarja.github.io/posts/welcome/welcome.html</loc>
+    <lastmod>2022-09-26T23:36:21.013Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambarja.github.io/blog.html</loc>
+    <lastmod>2022-09-26T23:36:21.497Z</lastmod>
   </url>
 </urlset>
