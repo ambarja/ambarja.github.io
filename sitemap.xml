@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ambarja.github.io/index.html</loc>
-    <lastmod>2022-10-26T16:13:36.440Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambarja.github.io/blog.html</loc>
-    <lastmod>2022-10-26T16:13:37.924Z</lastmod>
-  </url>
-  <url>
     <loc>https://ambarja.github.io/data/projects/index.html</loc>
-    <lastmod>2022-10-26T16:13:38.428Z</lastmod>
+    <lastmod>2023-11-14T22:08:14.547Z</lastmod>
   </url>
   <url>
     <loc>https://ambarja.github.io/data/about/index.html</loc>
-    <lastmod>2022-10-26T16:13:38.836Z</lastmod>
+    <lastmod>2023-11-14T22:08:13.959Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambarja.github.io/index.html</loc>
+    <lastmod>2023-11-14T22:08:13.079Z</lastmod>
   </url>
   <url>
     <loc>https://ambarja.github.io/data/geoviz/index.html</loc>
-    <lastmod>2022-10-26T16:13:39.232Z</lastmod>
+    <lastmod>2023-11-14T22:08:14.259Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambarja.github.io/blog.html</loc>
+    <lastmod>2023-11-14T22:08:14.839Z</lastmod>
   </url>
 </urlset>
